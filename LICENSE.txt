@@ -1,0 +1,27 @@
+
+Copyright 2008-2019 Leonid Kaganov
+lleo@lleo.me http://lleo.me +7-916-6801685
+
+The MIT License fo shizzle my nizzle
+
+Copyright 2006-2019 Leonid Kaganov, Russia
++7-916-6801685, lleo@lleo.me, http://lleo.me
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software (except extended/* and design/ttf/* ) and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: the above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+* * *
+
+MIT-лицензия: грабь, воруй, сношай гусят
+
+Copyright 2006-2019 Леонид Каганов, Москва - Санкт-Петербург
++7-916-6801685, lleo@lleo.me, http://lleo.me
+
+Бесплатно разрешаю любому лицу использовать копии этого ПО и осуществлять операции с ним без ограничений, включая, помимо прочего, право на использование, копирование, изменение, слияние, публикацию, распространение и / или продажу. Всё это, разумеется, возможно при cохранения данного файла с информацией об авторе и способах связи с ним, которая должна быть включена во все копии или используемые части ПО.
+
+Лицензия не распространяется на содержимое /extended/* и /design/ttf/*, где лежат дополнительные модули чужого авторства, у которых собственные лицензии. Эти компоненты можно смело удалить, поскольку они приведены в ознакомительных целях и для работы системы не нужны, а лишь предоставляют некоторые дополнительные сервисы для особых задач, связанных с обработкой текста, звука, графики и т.п.
+
+ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ «КАК ЕСТЬ», БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ, ЯВНЫХ ИЛИ ПОДРАЗУМЕВАЕМЫХ, В ТОМ ЧИСЛЕ (НО НЕ ОГРАНИЧИВАЯСЬ) ЕСЛИ У ВАС ЧТО-ТО НАЕБНЁТСЯ, НЕ ЗАРАБОТАЕТ, ЛИБО ПРИ ИСПОЛЬЗОВАНИИ ДАННОГО ПРОДУКТА ЧТО-ТО НАНЕСЕТ ВРЕД, ИСПОРТИТ ОКРУЖАЮЩИЕ ФАЙЛЫ, ЗАЛЬЕТ КРОВЬЮ ПОЛ И ЗАБЛЮЁТ КОВРОЛИН. Ни при каких обстоятельствах автор не несет ответственность иза любой ущерб, пропавшие данные и потраченное время, и не принимает никаких исков и претензий, хотя оставляет за собой право их выслушать, чтобы посочувствовать на правах психотерапевта.
+
+Пользуясь случаем, предлагаю всем желающим платную или бесплатную помощь в установке, настройке, доделке, переделке данного ПО, а также разработке любых новых функций, частей, а также разработку любых других систем под ваши задачи, в том числе не связанных с этим ПО. Сайты, серверные системы, мобильные приложения, электроника на микроконтроллерах и всевозможные сетевые связи между вышеперечисленным - вот моя область интересов. Напоминаю кординаты: lleo@lleo.me, +7-916-6801685
