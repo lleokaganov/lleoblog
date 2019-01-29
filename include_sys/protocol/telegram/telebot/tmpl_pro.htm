@@ -1,0 +1,12 @@
+<div style="position:absolute;margin-top:-10px;margin-left:-20px;background:#FF8080;padding:5px;font-size:12px;display:inline;border-radius: 27px 27px 27px 27px;">{03:project_id}</div>
+&nbsp; &nbsp; 
+ <div alt='Edit Project' class='e_color_line' onclick='projedit(this)'></div>
+ <div alt='Delete Project' class='e_remove' onclick='projdel(this)'></div>
+ <div class='proj_time'>{date}</div>
+ <a href='mailto:{url:mail}?subject=about%20project:%20{wurl:project_name}'><i class='e_kmail' alt='{#mail}'></i></a>
+<div alt='Click to show elements' onclick='trc(this)' class='scelements'>
+
+<div class='proj_name'>{#project_name}</div>
+<div class='proj_comment'>{#nl2br:comment}</div>
+</div>
+<div class='proj_scenarys' id='scenarys_{#project_id}'></div>

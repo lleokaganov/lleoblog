@@ -1,0 +1,46 @@
+fclipboard=function(e){ if(!idd(e+'_textarea')) return;
+    var m=l_read('clipboard_mode'); if(m!='') {
+        if(m=='Copy link') {
+    	    var l=l_read('clipboard_link'),t=l_read('clipboard_text');
+    	    ti(e+'_textarea',l+"\n\n[i]"+t+"[/i]\n{select}");
+    	    l_save('clipboard_mode','');
+        }
+    } setTimeout(function(){fclipboard(e);},1000);
+}; fclipboard('{hid}');
+
+signal_textarea_set=function(e) {
+if(e.value=='') return idie('Ошибка: нет развернутого сообщения о действиях блогера');
+if(e.value.length<80) return idie('Ошибка: слишком короткое описание действий блогера, для расследования нужно больше информации');
+if(5>e.value.split(' ').length) return idie('Ошибка: непонятное описание действий блогера');
+e.style.display='none';
+e.value='В АДМИНИСТРАЦИЮ ПОРТАЛА:\n\n'+e.value;
+return 7;
+};
+
+ohelpc('{hid}',"СООБЩИТЬ О НАРУШЕНИЯХ НА СТРАНИЦАХ БЛОГЕРА","{?njs:
+
+<form onsubmit="if(7!=signal_textarea_set(idd('{hid}_textarea'))) return false; return ajaxform(this,'mailbox.php',{a:'new',unicto:'{#unicto}',hid:'{hid}',answerid:'{answerid}'})">
+
+<div style='width:640px;font-size:10px;align:justify;'>Если вы считаете, что действия блогера <b>{to}</b> нарушают законодательство вашей страны или принципы
+ функционирования портала, помогите нам понять, что происходит. Укажите точную ссылку на страницу с нарушениями и причину, по которой вы считаете данную публикацию
+ недопустимой, например:
+<p>- Это неприятно или неинтересно
+<br>- Я считаю, что этому не место в русскоязычной блогосфере
+<br>- Это оскорбляет мои чувства
+<br>- Это является преследованием
+<br>- Это спам
+<br>- Блогер использует свой аккаунт на данном портале не по назначению
+<br>- Другое
+<p>Добавьте подробное пояснение. Чем подробнее вы опишете ситуацию, тем скорее мы сможем разобраться и принять меры.
+<p>Мы постараемся рассмотреть ваше заявление как можно скорее и проверим присланную вами информацию.</div>
+
+<div><textarea name='text' id='{hid}_textarea' style='border: 1px dotted #ccc; margin:0; padding:0;' cols=100 rows=20></textarea></div>
+
+<p><input id='submit_{hid}' type='submit' value='ОТПРАВИТЬ АДМИНИСТРАЦИИ ПОРТАЛА' title='Ctrl+Enter'>
+</form>
+
+?}");
+
+idd('{hid}_textarea').focus();
+setkey('enter','ctrl',function(){idd('submit_{hid}').click()},false,1);
+setkey('esc','',function(e){ if( (e.target && e.target.value.length<2)||confirm('Закрыть без сохранения?')) clean('{hid}'); },false,1);

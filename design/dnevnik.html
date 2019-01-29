@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset={wwwcharset}" />
+<title>{admin_name}: {title}</title>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<!-- link href="{www_design}styles.css" rel="stylesheet" type="text/css" / -->
+<link rel="alternate" type="application/rss+xml" title="{admin_name}" href="{httphost}rss" />
+{oembed}
+<link rel="prev" href="{prevlink}" id="PrevLink" />
+<link rel="next" href="{nextlink}" id="NextLink" />
+<link rel="UpLink" href="{uplink}" id="UpLink" />
+<link rel="DownLink" href="{downlink}" id="DownLink" />
+</head>
+
+<body class="twoCol">
+<div id="container">
+<div id="sidebar1"><center>
+
+<a href="/"><img src="{www_design}userpick.jpg" width=120 height=155 border=0></a><p class=r><b><a href={httphost}>{admin_name}</a></b>
+
+{unic}
+
+<p class=r><a href={wwwhost}contents>содержание</a>
+<p class=r><a href={wwwhost}lleoblog>ДВИЖОК БЛОГА</a>
+
+<p><FORM METHOD=get ACTION={httphost}contents/><INPUT class=t TYPE="text" NAME="search" SIZE=6 VALUE="" MAXLENGTH=160><INPUT TYPE=SUBMIT VALUE=">"></FORM>
+
+{calendar}
+
+{counter}
+
+<p><a href={wwwhost}rss><img src="{www_design}rss.gif" width=36 height=14 border=0 alt="RSS вход" title='Мой дневник поддерживает RSS'></a>
+
+{otherblogs}
+
+</center></div><div id="mainContent">
+
+{prevnext}
+
+<div id="hello">{preword}</div>
+
+<div id="post">
+
+{preheader}<h1>{header}</h1>
+
+<div id="bodyz">{body}</div>
+
+</div>
+
+<div id="copyright">{signature}</div><!--
+Navig -->{prevnext}<!--
+Comments --><div id="comments"><div class="item_com">{coments}</div></div></div><!--
+/mainContent -->
+<!-- верстку :( --><br class=q />
+
+<div id='helper' class='popup' style='display:none;'><div class='corners'><div class='inner'><div class='content'>
+<div id='helper_body'><textarea id='message'></textarea></div>
+</div></div></div></div>
+
+</div>
+</body></html>

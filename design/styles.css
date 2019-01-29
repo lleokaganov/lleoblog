@@ -1,0 +1,155 @@
+html{ height: 100%; width:100%; }
+
+body { font: 100% sans-serif, Helvetica, Arial, Verdana;
+background-image: url({www_design}fon1.jpg);
+margin: 0; padding: 0;
+text-align: center; /* хак для IE 5* */
+color: #000000; position:relative; border-bottom: green 2px solid;
+}
+
+.twoCol #container { width: 100%; margin: 0 auto; text-align: left; padding: 0; position:relative; } 
+.twoCol #sidebar1 { float: left; width: 143px; padding: 15px 0; border-right: green 2px solid; border-collapse:collapse; }
+.twoCol #sidebar1 h3, .twoCol #sidebar1 p { margin-left: 10px; margin-right: 10px; }
+.twoCol #mainContent { /* БЛОК ЗАМЕТКИ */
+text-align:justify; margin: 0 0 0 143px; /* отступ основного блока на ширину левой колонки */
+padding: 20px 0; border-left: green 2px solid; border-collapse:collapse; } 
+
+
+
+/*приветствие*/
+#hello{ color:#FF0000; text-align:justify; margin-bottom:15px; font-size:x-small; padding: 0 15px; }
+#post { padding: 0 15px; }
+#post h1{ text-align:center; font-size:medium; }
+#copyright{ text-align:right; margin-top: 15px; margin-bottom: 20px; padding: 0 15px; }
+#comments{ width:100%; background-image:url(/kl0.gif); border-top: green solid 2px; margin-top: 5px; padding: 15px 0; text-align:justify; }
+.item_com{ padding: 3px 10px 2px 40px; }
+
+/* Календарь */
+.cld_top,.cld_days,.cld_red,.cld,.cld_this,.cld_ed {font-size: 10px;}
+.cld_days {background-color: #F0F0F0;}
+.cld_red {background-color: #FFE8D0;text-align:right;}
+.cld {text-align:right;}
+.cld_this {background-color:red; color:white;}
+.cld_ed {color: black; text-decoration: none; }
+
+/* рамка форм - мне так нравится */
+.t { border: 1px solid #330000; }
+.r { font-size: 12px; }
+.l { cursor: pointer; color: blue; text-decoration: underline; }
+
+/* комментарии */
+
+
+.opc, .cnam, .rul1,.rul0,.cplu,.cmin {cursor: pointer}
+.rul1,.rul0,.cplu,.cmin,.kmail {float:left}
+
+.c0, .c1, .c2, .c3 { font: 80% sans-serif, Helvetica, Arial, Verdana; max-width: 80%; border: 1px dotted #bbb;
+overflow: auto; padding: 0 0 0 5px; margin-top: 5px; }
+
+.c0 { background-color: #AAFAFA; }
+.c1, .opc { background-color: #F1F1F1; }
+.c2 { background-color: #FFFBDF; border: 1px dotted red; }
+.c3 { background-color: #ffe; border: 1px dotted red; }
+
+.ctxt { padding: 5pt; overflow: auto; text-align: justify; }
+
+
+.ctim, .cbro, .cwho { font-size: 8pt; position: relative; margin-left: 10pt; top: 0px; float: right; }
+.kn { font-size: 8pt; position: relative; float: left; }
+
+.cnam { font-size: 12pt; font-weight: bold; }
+
+.cplu,.cmin { font-size:6pt }
+.cplu {color:red} .cplu:before { content:'+'} .cplu:after { content:'  '}
+.cmin {color:blue} .cmin:before { content:'-'} .cmin:after { content:'  '}
+.kmail:after { content: ' 'url('{www_design}e2/kmail.png')' ' }
+
+.rul1:before {content:url('{www_design}e3/button_accept.png')}
+.rul0:before {content:url('{www_design}e3/list-remove.png')}
+
+/* кнопки */
+.kus,.kd,.ked,.ks0,.ks1,.ka { cursor: pointer; float:left; font-size: 6pt; color: blue; padding: 0 2pt 0 7pt; }
+.kus:before {content:'info'} /* показать личную карточку автора */
+.kd:before {content:'del'} /* удалить комментарий */
+.ked:before {content:'edit'} /* редактировать комментарий */
+.ks0:before {content:'скрыть'}
+.ks1:before {content:'раскрыть'}  /* скрыть-раскрыть */
+.ka:before {content:'ответить'} /* ответить */
+
+.cdel {font-size:8px; font-weight: bold; }
+.cdel:before {content:'* комментарий удален'}
+
+.opc { font-size: 11px; }
+.opc:before {content:url('{www_design}e3/expand_plus.gif')'показать'}
+
+
+.br { font-size: 10px; }
+
+.search { font-weight: bold; color: black; background-color: rgb(255, 204, 0); }
+
+p.d {text-align:justify;text-indent:5%;margin-top:0pt;margin-bottom:0pt;}
+p.pd {text-align:justify;text-indent:5%;margin-top:2%;margin-bottom:0pt;}
+p.name {text-indent:0pt;margin-top:4%;margin-bottom:6%;text-align:center;font-weight:bold;font-size:150%;}
+p.podp {text-indent:0pt;margin-top:30pt;margin-bottom:12%;text-align:right;font-style:italic;}
+p.z {text-indent:0pt;margin-top:4%;margin-bottom:4%;text-align:center;font-weight:bold;font-size:100%;}
+p.epigraf {text-indent:0pt;text-align:justify;margin-top:10pt;margin-bottom:0pt;margin-right:4%;margin-left:60%;font-size:80%;}
+p.epigrafp {text-indent:0pt;text-align:right;margin-top:0pt;margin-bottom:4%;margin-right:4%;margin-left:60%;font-size:80%;font-style:italic;}
+
+.pravka_textarea {border:1px solid #ccc; font-size: 15pt; margin-right:5px;}
+
+.popup { overflow:auto; top:100px;left:100px;position:absolute;z-index:999; }
+
+/*  
+cursor:move; user-select:none; -moz-user-select:none; -khtml-user-select:none;
+cursor:auto; user-select:auto; -moz-user-select:auto; -khtml-user-select:auto;
+*/
+
+.popup .content{padding:4px 4px; background:#F3F1E0}
+.corners{position:relative;height:1%;background:url({www_design}pravka/popup_l.png) repeat-y;margin:9px 0;padding:1px 9px;}
+.corners .inner{position:relative;z-index:1;margin-right:-9px;background:url({www_design}pravka/popup_r.png) 100% 0 repeat-y;padding:1px 9px 1px 0}
+.corners:before{display:block;height:9px;content:url({www_design}pravka/popup_lt.png);background:url({www_design}pravka/popup_rt.png) 100% 0 no-repeat;font-size:0;margin:-10px -9px 0}
+.corners .inner:before{display:block;height:9px;content:'';background:url({www_design}pravka/popup_t.png) repeat-x;font-size:0;margin:-10px 0 0}
+.corners:after{display:block;height:9px;
+content:url({www_design}pravka/popup_lb.png);background:url({www_design}pravka/popup_rb.png) 100% 10px 0 no-repeat;font-size:0;margin:0 -9px -10px}
+.corners .inner:after{display:block;height:9px;content:'';background:url({www_design}pravka/popup_b.png) repeat-x;font-size:0;margin:0 0 -10px}
+
+.canceledit,.fmedit,.fmn,.fmcopy,.fmmdash,.fmltgt { cursor: pointer; }
+.canceledit:after { content: url("{www_design}e/cancel1.png"); }
+.fmedit:after { content: url("{www_design}e/edit.gif"); }
+.fmn:after { content: url("{www_design}e/n.gif"); }
+.fmcopy:after { content: url("{www_design}e/copy.gif"); }
+.fmmdash:after { content: url("{www_design}e/mdash.gif"); }
+.fmltgt:after { content: url("{www_design}e/ltgt.gif"); }
+
+
+/* (c)Миша http://pricol.nov.ru/lleo/2009/12/05.html */
+a[href *=".livejournal.com"] {
+	background: transparent url({www_design}ico/livejournal.com.gif) no-repeat center left;
+	padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none;
+}
+a[href *="lleo.aha.ru"] {
+	background: transparent url({www_design}ico/lleo.aha.ru.gif) no-repeat center left;
+	padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none;
+}
+a[href *=".blogspot.com"] {
+	background: transparent url({www_design}ico/blogspot.com.gif) no-repeat center left;
+	padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none;
+}
+a[href *=".moikrug.ru"] {
+	background: transparent url({www_design}ico/moikrug.ru.gif) no-repeat center left;
+	padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none;
+}
+a[href *=".myopenid.com"] {
+	background: transparent url({www_design}ico/myopenid.com.gif) no-repeat center left;
+	padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none;
+}
+a[href *=".ya.ru"] {
+	background: transparent url({www_design}ico/ya.ru.gif) no-repeat center left;
+	padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none;
+}
+
+.clearfloat { clear:both; height:0; font-size: 1px; line-height: 0px; }
+.cf { clear:both; height:0; font-size: 1px; line-height: 0px; }
+.q { clear:both; height:0; font-size: 1px; line-height: 0px; }
+
+LEGEND { font-weight: bold; color: #FF6200; font-size: 10px; text-align: left; }

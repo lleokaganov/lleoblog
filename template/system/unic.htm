@@ -1,0 +1,51 @@
+<fieldset><legend>личная карточка {id}</legend><div class=r>
+<div id='openidotvet'></div>
+{?img:|:|*:<img src='{#img}' align='right'>|?}
+<div style='font-weight:bold;font-size:16px'>{imgicourl}</div>
+
+<div class=br>зарегистрирован: {#time_reg}</div><div class=br>последнее появление: {#timelast}</div>
+
+{?loginlevel:
+3:<font color=green>авторизованный аккаунт</font>
+2:<font color=red>неавторизованный аккаунт</font>
+*:<font color=red>пустой аккаунт</font>
+?}
+
+{?podzamok:
+1:<br>&nbsp;{?admin:|podzamok:<i class='e_podzamok'></i>|*:|?}&nbsp;{admin}
+*:
+?}
+
+{?sysadmin:
+1:<br>доступ:&nbsp;{set_dostup}<br>карма:&nbsp;{set_karma}<br>{?ip:|0:|:|*:&nbsp;IP Yandex:&nbsp;<a href='http://yandex.ru/yandsearch?text=%22{#ip}%22'>{#ip}</a><br>&nbsp;IP Wiki:&nbsp;<a href='http://ru.wikipedia.org/w/index.php?limit=50&tagfilter=&title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F%3A%D0%92%D0%BA%D0%BB%D0%B0%D0%B4&contribs=user&target={#ip}&namespace=&tagfilter=&year=&month=-1'>{#ip}</a>|?}
+*:
+?}
+
+{?openid:|:|*:<br>ident:&nbsp;<a href='{#openid}'>{#openid}</a>|?}
+{?login:|:|*:<br>login:&nbsp;{#login}|?}
+{?teddyid:|0:|*:<br>teddyid:&nbsp;<b>{#teddyid}</b>|?}
+{?password:|:|*:<br>password:&nbsp;*****|?}
+{?realname:|:|*:<br>realname:&nbsp;{#realname}|?}
+
+<p><div class=ll onclick="majax('mailbox.php',{a:'newform',unic:{id}})"><i class='e_kmail'></i>написать личное письмо</div>
+
+{?mail:
+:
+*:<br>mail:&nbsp;{?sysadmin:|1:{#mail}|*:ЗАПИСАН|?}&nbsp;<i class={?mail_confirm:|0:'e_ledred' alt='не подтвержден'|1:'e_ledgreen' alt='подтвержден'|*:|?}></i>&nbsp;<i class={?mail_comment:|0:'e_button_cancel' alt='комментарии не приходят на почту'|1:'e_button_accept' alt='комментарии приходят на почту'|*:|?}></i>
+?}
+{?mailw:|:|{mail}:=|*:<br>mailw:&nbsp;{?sysadmin:|1:{#mailw}|*:ЗАПИСАН|?}|?}
+
+{?tel:|:|*:<br>tel:&nbsp;{?sysadmin:|1:{#tel}|*:ЗАПИСАН|?}|?}
+{?telw:|:|*:<br>telw:&nbsp;{?sysadmin:|1:{#telw}|*:ЗАПИСАН|?}|?}
+
+{?site:|:|*:<br>site:&nbsp;<a href='{#site}'>{#site}</a>|?}
+
+{?birth:|0000-00-00:|*:<br>день&nbsp;рождения:&nbsp;{#birth}|?}
+
+<p>комментарии: {?ncomm:|0:нет|*:<span class=ll onclick="majax('okno.php',{a:'hiscomment',id:{id},n:{ncomm}})">показать {ncomm}</span>|?}
+
+<p>забанить: <span class='ll'
+onmouseover="var r=f5_read('ueban'),p=r?r.split(','):[],e=in_array({id},p); this.innerHTML=e?'разбанить?':'забанить?';"
+onclick="var s,r=f5_read('ueban'),p=r?r.split(','):[],e=in_array({id},p); if(e){ delete(p[e]); s='забанить?'; } else { p.push({id}); s='разбанить?'; } this.innerHTML=s;f5_save('ueban',p.join(','));">да?</span>
+
+</div></fieldset>

@@ -1,0 +1,45 @@
+ohelpc('editscenary{i}','{header} #{i}',"{?njsn:
+
+<form onsubmit="return ajaxform(this,'{ajax}',{a:'add_scenary_'})">
+
+<input type='hidden' name='project_id' value='{#project_id}'>
+<input type='hidden' name='i' value='{#i}'>
+<input type='hidden' name='window' value='editscenary{i}'>
+
+<table border=0>
+<tr><td width=30%>Имя проекта</td><td><b>{#project_name}</b></td></tr>
+<tr><td>Имя сценария</td><td><input type='text' name='scenary_name' value="{#scenary_name}"></td></tr>
+</table>
+<label>Расширенный дебаг <input type='checkbox' name='debug'{#debug}></label>
+
+<p><fieldset><legend>LiveZilla</legend><table border=0>
+<tr><td width=30%>URL сервера</td><td><input type='text' name='lz_url' value="{#lz_url}"></td></tr>
+<tr><td>login</td><td><input type='text' name='lz_login' value="{#lz_login}"></td></tr>
+<tr><td>Позорище</td><td><input type='text' name='lz_password' value="{#lz_password}"></td></tr>
+<tr><td>Группа</td><td><input type='text' name='lz_group' value="{#lz_group}"></td></tr>
+<tr><td>Пользователь</td><td><input type='text' name='lz_user' value="{#lz_user}"></td></tr>
+<tr><td>Язык по умолчанию</td><td><input type='text' name='lz_lang' value="{#lz_lang}"></td></tr>
+<tr><td>Сообщение о недоступности Партнера</td><td><input type='text' name='lz_err_message' value="{#lz_err_message}"></td></tr>
+</table></fieldset>
+
+<p><fieldset><legend>Telegram</legend><table border=0>
+
+<tr><td width=30%>Global webhook path</td><td><b>{#tg_webhook}</b></td></tr>
+<tr><td>ИД бота</td><td><input type='text' name='tg_API_id' value="{#tg_API_id}"></td></tr>
+<tr><td>Ключ API бота</td><td><input type='text' name='tg_API_key' value="{#tg_API_key}"></td></tr>
+<tr><td>Имя бота</td><td><input type='text' name='tg_name' value="{#tg_name}"></td></tr>
+<tr><td>Инфо бота</td><td><input type='text' name='tg_info' value="{#tg_info}"></td></tr>
+<tr><td>УРЛ картинки бота</td><td><input type='text' name='tg_image' value="{#tg_image}"></td></tr>
+<tr><td>Сообщение о недоступности Партнера</td><td><input type='text' name='tg_err_message' value="{#tg_err_message}"></td></tr>
+<tr><td>Текст на ожидании</td><td><input type='text' name='tg_wait_message' value="{#tg_wait_message}"></td></tr>
+<tr><td>Список команд<div class=br>/команда --- текст (действие)</div></td><td><textarea name='command_list' rows=5>{#command_list}</textarea></td></tr>
+<tr><td>Список ключевых слов<div class=br>/слово --- текст (действие)</div></td><td><textarea name='keywords' rows=5>{#keywords}</textarea></td></tr>
+<tr><td>Настройка формирования имени пользователя<div class=br>project_name+project_id+user_id+fullname+username</div></td><td><input type='text' name='name_template' value="{#name_template}"></td></tr>
+<tr><td>Бан-листы абонентов На основании user_id</td><td><textarea name='banlist' rows=10>{#banlist}</textarea></td></tr>
+</table></fieldset>
+
+<p><input type=submit value='Submit'>
+
+</form>
+
+?}");

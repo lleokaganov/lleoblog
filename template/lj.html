@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+<title>{_article_get:Header_}</title>
+<meta charset={wwwcharset} />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset={wwwcharset}" />
+<meta http-equiv="Content-Language" content="ru-ru" />
+{_MAIN:_}{_STYLE_ADD: {www_css}lj.css _}{_STYLE_ADD: {www_css}sys.css _}
+
+</head>
+<body bgcolor="#6666CC" text="#000000" link="#000050" vlink="#500050" alink="#FF00C0">
+
+<div class="w-cs">
+	<div style="float:left; width:40%; min-width:381px; height:50px; background:#2D373C;border-right:1px solid #3A4449;">
+
+<div style="float:left; text-indent:-3333px; display:block; overflow:hidden; width:29px; height: 31px; margin: 9px 0px 0px 18px; background: url({www_design}lj/w-cs-logo.png) no-repeat !important;"></div>
+
+<div class="w-cs-options">
+
+<fieldset>
+
+{_UNIC:
+logintxt = login&nbsp;
+template = <div title='Click to open you card' id='loginobr' style='cursor:pointer;' onclick="majax('login.php',{a:'getinfo'})"><span>мой логин:&nbsp;</span><span id='myunic' style='font-weight:bold;'>{name}</span></div>{kuki}
+_}
+
+<div><p><a title='Всплывает окошко со списком заметок,<br>которые ваш браузер ещё не открывал.' href="javascript:majax('okno.php',{a:'notseen',day:30})">моё непрочитанное</a></div>
+
+</fieldset>
+
+<fieldset>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</fieldset>
+
+<fieldset>
+
+<div><a title='Перейти на страницу со списком всех заметок.' href={wwwhost}contents>содержание</a></div>
+
+<div>счетчик: {_COUNTER:_}</div>
+
+<!-- div><a title='Перейти на страницу, где рассказывается, как можно установить себе этот движок блога (он открытый).' href=http://lleo.me/blog/lleoblog>движок</a></div -->
+
+</fieldset>
+
+<fieldset>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</fieldset>
+
+<fieldset>
+
+<div>{_STATISTIC: template = <a title='Заходы на эту страницу по ссылкам<br>и через поисковики.' href="javascript:{majax}">статистика</a> _}</div>
+
+<div>{_KTOPOSETIL: podzamok , short , <span title='Кто посещал эту страницу поименно?'>посетители</span> _}</div>
+
+</fieldset>
+
+<fieldset>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</fieldset>
+
+
+<fieldset class="last">
+
+<div><a href={wwwhost}rss><i class="e_rss" width=36 height=14 border=0 alt="RSS вход" title='Мой дневник поддерживает RSS'></i></a></div -->
+
+</fieldset>
+
+
+</div>
+	</div>
+
+<div class="w-cs-user-controls">
+
+<div style="padding: 2px 0 0 0; white-space: nowrap; float: none; background: none !important; font: 12px/14px 'Arial', 'Helvetica', sans-serif; color: #FFF;">You are viewing: <a href='{httphost}'><b>{admin_name}</b></a></div>
+
+<form class="w-cs-search"><fieldset><INPUT title='Click to search!' type='text' size='7' class="text" name='q' tabindex="8" placeholder="Search" onclick="majax('okno.php',{a:'search'})"><input type="button" onclick="majax('okno.php',{a:'search'})" tabindex="9" style="position: absolute; top:6px; right:12px; width:14px; height:15px; padding: 0; background: url({www_design}lj/submit-search.png) no-repeat; border: 0; border-radius: 0; box-shadow: 0 0 0 #BDBCBC; text-shadow: 0 0 0 #666; text-indent: -3333px; cursor: pointer;" alt='Click to search!' /></fieldset></form></div>
+</div>
+
+<div class="w-cs-ne"></div>
+
+
+
+
+<div id="bodyz" style="margin:20px;">{_TEXT:_}<p>&nbsp;</div>
+
+</body></html>

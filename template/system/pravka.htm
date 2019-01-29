@@ -1,0 +1,13 @@
+<table border=0><tr><td colspan=2>
+<textarea style='font-size: 15pt; margin-right:5px;' name='pravk' id='pravk' cols=50 rows='{rows}'>{#text}</textarea>
+</td></tr><tr valign=center>
+<td align=left><input type='button' value='send' onclick='pravka_send()'></td>
+<td align=right>
+<i class='knop e_n' onClick="insert_n(idd('pravk'))"></i>
+ &nbsp; <i class='knop e_nbsp' onClick="ti('pravk','{chr:160}{select}')"></i>
+ &nbsp; <i class='knop e_copy' onClick="ti('pravk','{chr:169}{select}')"></i>
+ &nbsp; <i class='knop e_mdash' onClick="ti('pravk','{chr:151}{select}')"></i>
+ &nbsp; <i class='knop e_ltgt' onClick="ti('pravk','{chr:171}{select}{chr:187}')"></i>
+{?adm:|1: &nbsp; <i class='knop e_kontact_journal' onclick="majax('editor.php',{a:'editform',num:{num}});clean('opechatku');"></i>|*:|?}
+</td></tr></table>
+

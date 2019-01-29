@@ -1,0 +1,33 @@
+@charset "windows-1251";
+
+.pbr { font-size: 10px; } /* мелкий текст */
+
+.po { font: 90% sans-serif, Helvetica, Arial, Verdana; margin: 0 5% 0 10%; } /* общий блок */
+
+.pc { font: 90%; border: 1px solid #B0B0B0; margin-right: 5%; overflow: auto; padding: 5px; background-color: #FAFAFA; } /* new */
+.pcy { font: 90%; border: 1px solid #B0B0B0; margin-right: 5%; overflow: auto; padding: 5px; background-color: #DFFAFA; } /* submit */
+.pcn { font: 90%; border: 1px solid #B0B0B0; margin-right: 5%; overflow: auto; padding: 5px; background-color: #FADFFA; } /* discard */
+
+.pch { margin-left: 1%; font-weight: bold; } /* ник коментария */
+.pcc { padding: 5px; margin: 0 3% 0 3%; } /* текст комментария */
+
+/* блок ответа */
+.pct { background-color:#FFFCF1; border: 1px solid #E00000; margin-left:5%; margin-right:10%; overflow:auto; padding:5px; position:relative; top: -10px;  }
+
+/* кнопки */
+.pkk { position:relative; text-align: right; margin-right: 5%; top: 5px; left: 10px; }
+.pkl { margin-left: 5px; border: 1px solid #B0B0B0; font-size: 8px; padding: 1px; background-color: #E0E0E0; }
+.pkr { margin-left: 5px; border: 1px solid #B0B0B0; font-size: 8px; padding: 1px; background-color: #90FF90; }
+.pkg { margin-left: 5px; border: 1px solid #B0B0B0; font-size: 8px; padding: 1px; background-color: #FFA0A0; }
+
+.ptime { font-size: 10px; position:relative; top: 10px; float: right; font-weight: bold; } /* дата комментария */
+
+/* отображение правок */
+.p1 { color: #3F3F3F; text-decoration: line-through; background: #DFDFDF; } /* вычеркнутый */
+.p2 { background: #FFD0C0; } /* вставленный */
+
+/* отображение ответов на правки */
+.y { color: green; } /* принятая правка */
+.n { color: red; } /* отклоненная правка */
+
+.t { border: 1px solid #330000; }

@@ -1,0 +1,146 @@
+/* ---------------------------------------------------------------------------------
+   file-start: stc/lj_base.css 
+*/
+
+BODY {
+    position: relative; /* Fixes header width when body min width is defined: LJSUP-21931 */
+    margin: 0;
+    }
+
+form {
+    margin: 0px;
+    padding: 0px;
+    }
+
+/* fix for tema.lj.ru (LJSUP-22065) */
+@media all and (max-width: 1100px) {
+    #whole {
+        min-width: 1000px;
+        }
+    #whole,
+    #whole TABLE {
+        table-layout: fixed;
+        }
+        #whole .banner_container IMG {
+            height: auto !important;
+            max-width: 100%;
+            }
+        #whole IFRAME.lj_embedcontent {
+            width: 100%;
+            }
+}
+
+
+
+HTML BODY{padding:50px 0 0;margin-right:0;margin-left:0}
+.viewport--device-width .w-cs{min-width:300px}
+@media all and (max-width:830px){.viewport--device-width .appwidget-stylealwaysmine{display:none}}
+@media all and (max-width:830px) and (min-width:650px){.viewport--device-width .w-cs-search{top:26px;width:auto}.w-cs-not-logged-in .w-cs-search{left:15px;right:auto}}
+@media all and (max-width:650px){HTML BODY.viewport--device-width{padding:70px 0 0}
+.viewport--device-width .w-cs{height:70px}
+.viewport--device-width .w-cs-user-controls,.viewport--device-width .w-cs-userinfo{position:relative;float:none;width:100%!important;min-width:0;height:35px;margin:0!important;border:0}
+.viewport--device-width .w-cs-userpic{display:none}
+.viewport--device-width .w-cs-options,.viewport--device-width .w-cs-status{margin-left:0}
+.viewport--device-width .w-cs-group-first{margin-left:5px}
+.viewport--device-width .w-cs-logged .w-cs-group-first{margin-left:54px}
+.viewport--device-width .w-cs-group-first{padding-top:7px!important}
+.viewport--device-width .w-cs-logged .w-cs-user-controls .w-cs-group-second,.viewport--device-width .w-cs-logged .w-cs-userinfo .w-cs-group-second{left:0;top:0;height:35px;background-color:rgba(255,255,255,.1)}
+.viewport--device-width .w-cs-logo A{left:4px;width:25px;height:25px;background-size:cover!important}
+.viewport--device-width .w-cs-smallscreens-controls{display:block;margin-left:45px;white-space:nowrap;line-height:35px}
+.viewport--device-width .w-cs-smallscreens-control{padding:5px 7px;margin-right:1em}
+.viewport--device-width .w-cs-not-logged-in .w-cs-login{display:none;position:absolute;z-index:3001;top:5em;left:50%;width:300px;background:#FFF;box-shadow:0 0 20px rgba(0,0,0,.7);-webkit-transform:translate(-50%);-moz-transform:translate(-50%);transform:translate(-50%)}
+.viewport--device-width .w-cs-login.js--is-shown,.viewport--device-width .w-cs-not-logged-in .w-cs-login-close,.viewport--device-width.js--show-fader .b-fader{display:block}
+.viewport--device-width .w-cs-signin{padding:2.5em}
+.viewport--device-width .w-cs-signin-item{float:none;width:100%;margin:0 0 20px}
+.viewport--device-width .w-cs-signin-buttons{margin:0}
+.viewport--device-width .w-cs-signin-item .w-cs-group-first{height:auto;padding:0!important;margin:0 0 10px}
+.viewport--device-width .w-cs-group-second.w-cs-group-aside{margin-top:30px}
+.viewport--device-width .w-cs-login .w-cs-text{display:inline-block;width:100%;padding:7px 5px;background:#F7F9FA;border:1px solid #DAE3E6;border-radius:2px;font-size:16px;color:#242F33!important}
+.viewport--device-width .w-cs-login .w-cs-text:focus{background-color:#FFF;border-color:#00A3D9}
+.viewport--device-width .w-cs-login .note,.viewport--device-width .w-cs-login-title{display:inline-block}
+.viewport--device-width .w-cs-login .note A,.viewport--device-width .w-cs-login-title{font-size:16px!important;color:#333!important}
+.viewport--device-width .w-cs-login .note A{text-decoration:underline}
+.viewport--device-width .w-cs-login .note A:hover{text-decoration:none}
+.viewport--device-width FORM.w-cs-login .create A:hover,.viewport--device-width FORM.w-cs-login .create A:link,.viewport--device-width FORM.w-cs-login .create A:visited{text-transform:uppercase;font-size:16px!important;color:#00A3D9!important}
+.viewport--device-width .w-cs-login .submit-wrap{vertical-align:top}
+.viewport--device-width .w-cs-options .login-with{padding:0;background:#FFF}
+.viewport--device-width .w-cs-options .login-with A{display:inline-block;padding:9px;background-color:#DAE3E6!important;border-radius:2px}
+.viewport--device-width .w-cs-search{top:7px;right:5px}
+}
+@media all and (max-width:450px){.viewport--device-width .w-cs-search .placeholder-label{width:auto}
+.viewport--device-width .w-cs-search .placeholder-label{display:none!important}
+}
+@media all and (max-width:350px){.viewport--device-width .w-cs .w-cs-search .w-cs-text{width:75px}
+.viewport--device-width .w-cs .w-cs-search{width:auto}
+}
+
+
+
+
+
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+INPUT[type='search'] {
+    -webkit-appearance: textfield; /* 1 */
+    -webkit-box-sizing: content-box; /* 2 */
+       -moz-box-sizing: content-box;
+            box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+INPUT[type='search']::-webkit-search-cancel-button,
+INPUT[type='search']::-webkit-search-decoration,
+INPUT[type='search']::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+/* LJSUP-14995: Remove Google ReCaptcha Iframes (for height removing) */
+iframe[src="about:blank"] {
+    display: none;
+    }
+
+/* air */
+.j-l-container .b-sticky-cut {
+    left: 30px;
+    right: 30px;
+    }
+    .j-p-layout-wt .b-sticky-cut {
+        left: 30px;
+        right: 420px;
+        }
+    /* air no sidebar */
+    .j-p-layout-wt.j-p-no-sidebar .b-sticky-cut {
+        width: 900px;
+        margin-left: -470px;
+        }
+
+
+@media all and (min-width: 1265px) {
+    .j-p-layout-wt .b-sticky-cut {
+        left: 50%;
+        right: auto;
+        width: 800px;
+        margin-left: -595px;
+        }
+}
+
+@media all and (max-width: 1000px) {
+    .j-l-container .b-sticky-cut {
+        left: 15px;
+        right: 75px;
+        }
+}
+
+@media (max-width: 680px) {
+    .j-l-container .b-sticky-cut {
+        right: 15px;
+        }
+}

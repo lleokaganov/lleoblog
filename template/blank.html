@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+<title>{_article_get:Header_}</title>
+<meta charset={wwwcharset} />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset={wwwcharset}" />
+<meta http-equiv="Content-Language" content="ru-ru" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="{admin_name}" href="{httphost}rss" />
+<link rel="prev" href="{prevlink}" id="PrevLink" />
+<link rel="next" href="{nextlink}" id="NextLink" />
+<link rel="UpLink" href="{uplink}" id="UpLink" />
+<link rel="DownLink" href="{downlink}" id="DownLink" />
+{_MAIN:_}
+<style>
+.preword{ color:#FF0000; text-align:justify; margin-bottom:15px; font-size:x-small; padding: 0 15px; }
+.header { text-align:center; margin-bottom:15pt; font-size: 16pt; font-weight: bold; }
+.rekomenda { font-size: 13px; font-weight: bold; border: 1px dashed #ccc; margin: 0 10pt 10pt 10pt; padding: 10pt; }
+.rekomenda:before { content:'Страницы, которые мне понравились за последние дни, рекомендую:'; }
+#bodyz { text-align: justify; margin:20px;}
+#post { padding: 0 15px; }
+#post h1{ text-align:center; font-size:medium; }
+#copyright{ text-align:right; margin-top: 15px; margin-bottom: 20px; padding: 0 15px; }
+.item_com{ padding: 3px 10px 2px 40px; }
+</style>
+{_STYLE_ADD: {www_css}sys.css _}
+</head><body>
+{_UNIC:_}
+<article><div id="bodyz">{_TEXT:_}<p class='no{_MAILBOX:_}'>&nbsp;</div></article>
+{_SIGNAL:log=rkm1.log_}</body></html>

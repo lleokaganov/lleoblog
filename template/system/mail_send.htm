@@ -1,0 +1,21 @@
+<p>Здравствуйте, {name_parent}!
+<br>Пришел ответ на ваш комментарий в блоге {admin_name}:
+
+<p><b>{head}</b> <a href='{link}'>{link}</a>
+
+<p><div style='border: 1px dotted #ccc; background-color: #fff0ff'><b>{name_parent}</b> &nbsp; писал {date_parent}:
+{?img_parent:|:|*:<img src='{#img}' align='right' style='max-width:150px;max-height:150px'>?}
+<p>{text_parent}</div>
+
+<p><div style='margin-left:50px; border:1px dotted #ccc; background-color: #FFFBDF; '><b>{name}</b> &nbsp; ответил {date}:
+{?img:|:|*:<img src='{#img}' align='right' style='max-width:150px;max-height:150px'>?}
+<p>{text}</div>
+
+
+
+<p>Уведомления о комментариях можно настроить, залогинившись в свой аккаунт на <a href='{link}'>сайте</a>, открыв личную карточку (например, нажав 'U' на клавиатуре) и сняв соответствующую галочку.
+
+<p>Если письмо попало к вам по ошибке, просто отпишитесь от любых сообщений на этот адрес одним кликом: <a href="{httphost}ajax/comment.php?a=unsubscribe&mail={url:mail_parent}&date={url:date}&confirm={#confirm}">Unsubscribe</a>
+
+<p>Пожалуйста не отвечайте на это письмо, ответ пойдет в никуда.
+<div style='font-size:7px'>Unsubscribe immediately: <a href="{httphost}ajax/comment.php?a=unsubscribe&mail={url:mail_parent}&date={url:date}&confirm={#confirm}">{httphost}ajax/comment.php?a=unsubscribe&mail={url:mail_parent}&date={url:date}&confirm={#confirm}</a></div>

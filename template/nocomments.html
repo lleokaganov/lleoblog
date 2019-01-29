@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset={wwwcharset}" />
+{_SNAPSHOT:_}{_MAIN:_}{_STYLE_ADD: {www_css}blog.css _}{_STYLE_ADD: {www_css}sys.css _}
+<title>{admin_name}: {_TITLE:_}</title>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="{admin_name}" href="{httphost}rss" />
+{_OEMBED:_}
+<link rel="prev" href="{prevlink}" id="PrevLink" />
+<link rel="next" href="{nextlink}" id="NextLink" />
+<link rel="UpLink" href="{uplink}" id="UpLink" />
+<link rel="DownLink" href="{downlink}" id="DownLink" />
+</head>
+
+<body class="twoCol">
+<div id="container">
+<div id="sidebar1"><center>
+
+<a href="/"><img src="{www_design}userpick.jpg" width=120 height=155 border=0></a><p class=r><b><a href={httphost}>{admin_name}</a></b>
+
+{_UNIC:_}
+
+<p class=r><a href={wwwhost}contents>содержание</a>
+<p class=r><a href={wwwhost}lleoblog>ДВИЖОК БЛОГА</a>
+
+<p><FORM METHOD=get ACTION={httphost}contents/><INPUT class=t TYPE="text" NAME="search" SIZE=6 VALUE="" MAXLENGTH=160><INPUT TYPE=SUBMIT VALUE=">"></FORM>
+
+{_CALENDAR:_}
+
+{_COUNTER:_}
+
+{_STATISTIC:_}
+
+<p><a href={wwwhost}rss><i class='e_rss' title='Мой дневник поддерживает RSS'></i></a>
+
+{_OTHERBLOGS:_}
+
+</div><div id="mainContent">{_PREWORD:_}
+{_PREVNEXT:_}
+
+<div id="post">{_HEAD:_}<div id="bodyz">{_TEXT:_}</div></div>
+
+<div id="copyright">{signature}</div><!--
+Navig -->{_PREVNEXT:_}<!--
+Comments --><div id="comments">
+{_REKOMENDA:_}
+</div></div><!--
+/mainContent -->
+<!-- верстку :( --><br class=q />
+
+</div>
+</body></html>

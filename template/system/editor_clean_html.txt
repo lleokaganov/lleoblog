@@ -1,0 +1,62 @@
+<span*></span>|
+<span*>&nbsp;</span>|&nbsp;
+<span*> </span>|
+
+<h2*>*</h2>| {2}
+<h1*>*</h1>| {2}
+
+<23123p*><span*font-family*><span style="font-size: medium;">*</span></span>|<p class=per>{4}
+
+<p class="western"*>|<p>
+
+<span style="text-decoration: underline;">*</span>|<u>{1}</u>
+
+<strong>|<b>
+</strong>|</b>
+<b></b>|
+<b> </b>|
+<b>&nbsp;</b>|&nbsp;
+
+<p*>&nbsp;|
+
+&laquo;|«
+&raquo;|»
+&quot;|"
+&hellip;|...
+
+# персонаж
+<p style="margin-left: 6.75cm; margin-bottom: 0cm; text-transform: uppercase; line-height: 100%;"><span style="font-family: Courier New,monospace;"><span style="font-size: medium;">*</span></span>|<p class=persona>{1}
+
+# реплика
+<p style="margin-left: 3.75cm; margin-right: 3.75cm; margin-bottom: 0cm; line-height: 100%;"><span style="font-family: Courier New,monospace;"><span style="font-size: medium;">*</span></span>|<p class=rep>{1}
+
+# комментарий
+<p style="*line-height: 100%;"*><span style="font-family: Courier New,monospace;"><span style="font-size: medium;">*</span></span>|<p class=cmn>{3}
+<span style="font-family: Courier New,monospace;"><span style="font-size: medium;">*</span></span>|<p class=cmn>{1}
+
+# сцена
+<p style="margin-bottom: 0cm; text-transform: uppercase; line-height: 100%;"*><span style="font-family: Courier New,monospace;"><span style="font-size: medium;"><span style="text-decoration: underline;"><b>*</b></span></span></span>|<p class=scena>{2}
+<p style="margin-bottom: 0cm; text-transform: uppercase; line-height: 100%;"*><span style="font-family: Courier New,monospace;"><span style="font-size: medium;"><b><u>*</u></b></span></span>|<p class=scena>{2}
+
+# действующие лица
+<p style="margin-bottom: 0cm; text-transform: uppercase; line-height: 100%;" align="JUSTIFY"><span style="font-family: Courier New,monospace;"><span style="font-size: medium;"><b>*</b></span></span>|<p class=litsa>{1}
+
+# разные заголовки
+<p style="margin-bottom: 0cm; line-height: 100%;" align="CENTER"><span style="font-family: Courier New,monospace;"><span style="font-size: large;"><b>*</b></span></span>| {1}
+<span style="font-size: large;"><b>*</b></span>| {1}
+<p style="margin-right: 0.63cm; margin-bottom: 0cm; line-height: 100%;"><span style="font-family: Courier New,monospace;"><span style="font-size: medium;"><span style="text-decoration: underline;"><b>*</b></span></span></span>| {1}
+<span style="font-family: Courier New,monospace;"><span style="font-size: medium;"><b>*</b></span></span>| {1}
+<span style="text-decoration: underline;"><b>*</b></span>| {1}
+
+
+
+# разный мусор
+<p*align="JUSTIFY">|
+
+
+
+
+
+<span*></span>|
+<span*>&nbsp;</span>|&nbsp;
+<span*> </span>|

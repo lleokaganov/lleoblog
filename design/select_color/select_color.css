@@ -1,0 +1,114 @@
+
+/*
+.out_color{
+	width:70px;
+	height:70px;
+	background-color:#FFF;
+	border:1px dashed black;
+	position:absolute;
+	top:0;
+	left:100%;
+}
+*/
+
+.picker {
+/*	top:30%;	left:40%;	*/
+
+	position:absolute;
+	margin:0 auto;
+
+	-moz-user-select: none;
+	  -webkit-user-select: none; 
+	  width:250px;
+}
+
+
+#block_picker {
+	background-color:red;
+	height:180px;
+	width:180px;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none; 
+	  -webkit-user-select: none;   
+}
+
+#block_picker img {
+	width:180px;
+}
+
+#line {
+	position: absolute;
+	left:200px;
+	cursor: pointer;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none; 
+	  -webkit-user-select: none;   
+}
+
+.right_arrow {
+	width:0;
+	height:0;
+	left:23px;
+	position:absolute;
+	border-bottom:6px solid transparent;
+	border-left:10px solid transparent;
+	border-top:6px solid transparent;
+	border-right:10px solid black;
+}
+.left_arrow {
+	width:0;
+	height:0;
+	position:absolute;
+	border-bottom:6px solid transparent;
+	border-left:10px solid black;
+	border-top:6px solid transparent;
+	border-right:8px solid transparent;
+}
+#arrows {
+	position:absolute;
+	top:0;
+	margin-top:-4px;
+	left:-11px;
+	width:40px;
+	cursor: pointer;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none; 
+	  -webkit-user-select: none;        
+}
+#circle {
+	width:8px;
+	height:8px;
+	border:1px solid black;
+	border-radius:50%;
+	position:absolute;
+	left:0;
+	top:0;
+	cursor: default;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none; 
+	  -webkit-user-select: none;   
+}
+
+/*
+.square {
+	position:absolute;
+	top:30%;
+	left:70%;
+	height:30px;
+}
+.square input {
+	width:80px;
+	height:25px;
+}
+.cO {
+	width:20px;
+	height:19px;
+	background-color:white;
+	float:right;
+	border-radius:0 10px 10px 0;
+}
+*/

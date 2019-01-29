@@ -1,0 +1,27 @@
+ch_fileinputsize=function(e){ var n=e.value.length; if(n>20) this.size=1+n; };
+
+helps('foto_{hid}',"{?njs:
+
+<fieldset><legend>закачиваем новое фото в папку {wwwhost}<span class='kudafoto'>{dir}</span></legend>
+<div title='Открыть в альбоме' class=ll style='font-size: 13px' onclick="clean('foto_{hid}');majax('foto.php',{a:'album'})"><span class='kudafoto'>{dir}</span></div>&nbsp;
+<div title='Настройки' class='ll br' onclick="majax('foto.php',{a:'formfotoset'})">настройки</div>
+<br><form onsubmit="return ajaxform(this,'foto.php',{a:'upload',hid:'{hid}',kuda:'{dir}',num:'{num}'})">
+    <input name='file1[]' size=30 type='file' multiple accept='image/*' onchange='ch_fileinputsize(this)'>
+<br><input name='file2[]' size=30 type='file' multiple accept='image/*' onchange='ch_fileinputsize(this)'>
+<br><input name='file3[]' size=30 type='file' multiple accept='image/*' onchange='ch_fileinputsize(this)'>
+<br><input name='file4[]' size=30 type='file' multiple accept='image/*' onchange='ch_fileinputsize(this)'>
+<br><input name='file5[]' size=30 type='file' multiple accept='image/*' onchange='ch_fileinputsize(this)'>
+<br><input name='file6[]' size=30 type='file' multiple accept='image/*' onchange="idd('submit_{hid}').click()">
+<p><input id='submit_{hid}' type='submit' value='UPLOAD'></form>
+</fieldset>
+
+?}");
+
+/* если сменилась дата - предложить поменять на новую
+enctype='multipart/form-data' return send_this_form(this,'foto.php',{a:'upload',hid:'{hid}',kuda:'{dir}',num:{num}})">
+
+*/
+if('{newd}'!='0') {
+	if(confirm('Сменился календарный месяц\nизменить папку на {newd}/?'))
+	    majax('foto.php',{a:'formfotoset_save',dir:'{#newd}',names:'dir'});
+}

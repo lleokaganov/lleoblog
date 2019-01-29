@@ -1,0 +1,56 @@
+<!-- div id='adminknop' style='z-index:1;position:fixed;top:20px;right:40px;'>
+&nbsp; &nbsp; <input class=ik type=button value='Редактор' onclick="if({num})majax('editor.php',{a:'editform',num:'{num}',comments:(idd('commpresent')?1:0)});else if(confirm('Create?')) majax('editor.php',{a:'editform_new',loc:window.location.href});">
+&nbsp; &nbsp; <input class=ik type=button value='Создать' onclick="majax('editor.php',{a:'newform',hid:hid})">
+&nbsp; &nbsp; <input class=ik type=button value='Содержание' onclick="document.location.href='{wwwhost}contents';">
+&nbsp; &nbsp; <input class=ik type=button value='Комментарии' onclick="document.location.href='{wwwhost}comm';">
+
+&nbsp; &nbsp; <i class='e_button_cancel' onclick="zakryl('adminknop')" alt='скрыть админскую панель'></i>
+</div -->
+
+
+
+<script>
+function ipadfinger4(){if(idd('adminpanel').style.display=='none') { otkryl('adminpanel'); posdiv('adminpanel',-1,-1); } else zakryl('adminpanel'); }
+
+function admin_go_redir(){
+var RHR=document.location.href,RDat=RHR.replace(/.*?\?redir\=([^&]+?)/,"$1");
+if(RHR!=RDat) zabil('adminpanel',vzyal('adminpanel')+"<p>заметка редиректа:<br><a href=\"javascript:majax('editor.php',{a:'editform',Date:'"+RDat+"',comments:(idd('commpresent')?1:0)})\">редактировать</a> <a href='{wwwhost}editor?Date="+RDat+"'>#</a>");
+} page_onstart.push("admin_go_redir()");
+
+</script>
+
+
+<div id='adminpanel_open' onmouseover="otkryl('adminpanel')" style='position:absolute;left:0px;top:0px;width:30px;height:30px;z-index:98;'><i class='e_ledorange'></i></div>
+<div id='adminpanel' class='ik' style='text-align:left;display:none;position:absolute;left:10px;top:4px;z-index:99;border:1px solid #F00000;padding: 16px; background-color: rgb(255,252,223); font-size:16px;'>
+
+<i align='left' class='e_kontact_journal knop' onclick="majax('foto.php',{a:'edit_text',file:'template/system/adminpanel.htm'})"></i>
+
+<div onclick="zakryl('adminpanel')" onmouseover="zakryl('adminpanel')" class='can' style='top:2px;right:2px;' title='cancel'></div>
+
+<a href="{wwwhost}">в блог [D]</a>
+<p><INPUT type='text' style="color: #777777" size='7' value="поиск" onclick="majax('okno.php',{a:'search'})">
+<br><a href="javascript:majax('statistic.php',{a:'ktoposetil',data:'{num}',mode:'short'})">посещений</a>
+<!-- editor --><br><a href="javascript:if({num})majax('editor.php',{a:'editform',num:'{num}',comments:(idd('commpresent')?1:0)});else if(confirm('Create?')) majax('editor.php',{a:'editform_new',loc:window.location.href});">редактор штатный [E]</a>
+<!-- editor TinyMCE --><br><a href="javascript:if({num})majax('editor.php',{a:'editform',editor:'tinymce',num:'{num}',comments:(idd('commpresent')?1:0)});else if(confirm('Create?')) majax('editor.php',{a:'editform_new',loc:window.location.href,editor:'tinymce'});">редактор tinymce</a>
+<!-- editor erlte --><br><a href="javascript:if({num})majax('editor.php',{a:'editform',editor:'elrte',num:'{num}',comments:(idd('commpresent')?1:0)});else if(confirm('Create?')) majax('editor.php',{a:'editform_new',loc:window.location.href,editor:'elrte'});">редактор elrte</a>
+<!-- editor ckeditor --><br><a href="javascript:if({num})majax('editor.php',{a:'editform',editor:'ckeditor',num:'{num}',comments:(idd('commpresent')?1:0)});else if(confirm('Create?')) majax('editor.php',{a:'editform_new',loc:window.location.href,editor:'ckeditor'});">редактор ckeditor</a>
+<!-- editor danger --><br><a href='{wwwhost}editor?Date={Date}'>редактор аварийный</a>
+<br><a href="javascript:majax('editor.php',{a:'newform',hid:hid})">новая заметка [N]</a>
+<br><a href="{wwwhost}contents">содержание</a>
+<br><a href="javascript:majax('foto.php',{a:'uploadform',hid:hid,num:'{num}'})">закачать картинку</a>
+<br><a href="javascript:majax('foto.php',{a:'album'})">фотоальбом</a>
+<br><a href="{wwwhost}pravki">правки</a>
+<br><a href="{wwwhost}friends">лента друзей</a>
+<!-- br><a href="{wwwhost}adminsite">редактор блоков</a -->
+<br><a href="javascript:majax('login.php',{a:'secret_link',Date:'{Date}'})">секретный линк</a>
+<br><a href="javascript:majax('adminsite.php',{a:'load'})">редактор переменных</a>
+<br><a href="javascript:majax('statistic.php',{a:'loadstat',data:'{num}'})">статистика</a>
+<br><a href="javascript:majax('okno.php',{a:'unics'})">база посетителей</a>
+<br><a href="{wwwhost}install">install</a>
+
+<p><a href='/dnevnik/poezdka'>поездка</a>
+<p><a href='/dnevnik/aliexpress'>aliexpress</a>
+
+<p><a href='/dnevnik/comm'>комменты</a>
+
+</div>

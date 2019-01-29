@@ -1,0 +1,134 @@
+get_edit_width=function(){ return Math.min(Math.floor(95* {?W:|0:getWinW()|*:{W}|?} /100), {?editor_width:|0:999999|*:{editor_width}|?} ); };
+get_edit_height=function(){ return Math.min(Math.floor(85* {?H:|0:getWinH()|*:{H}|?} /100), {?editor_height:|0:999999|*:{editor_height}|?} ); };
+
+
+var autosave_k=0,nesave=1;
+autosave=function(e){ if(++autosave_k>{autosave_count}){ autosave_k=1; save1(e); }};
+
+savea=function(e){ nesave=0; clean('alltags_editor{num}');
+	idd('editor{num}_Body').elrte('updateSource');
+	if('{autoformat}'!='no') idd('editor{num}_Body').value=areab_save();
+	window.onbeforeunload=null;
+return send_this_form(e,'editor.php',{a:'submit',asave:0}); };
+
+save1=function(e){ if(e.defaultValue!=e.value) { e.defaultValue=e.value;
+ var a={a:'submit',num:e.form.num.value,names:e.name,asave:1}; a[e.name]=e.value;
+ if(e.name=='Body'&&'{autoformat}'!='no') a.Body=areab_save();
+ function f(){if(nesave){majax('editor.php',a)}}; setTimeout(f,200);
+}};
+
+/* сам html-код окошка */
+
+helpc('editor{num}',"
+<form style='margin:0 0 0 0' id='editor{num}_form'><input type='hidden' name='num' value='{num}'>
+
+<div style='vertical-align:center;margin-bottom:5px;font-size:8pt;'>
+ <!-- шарик смены доступа заметки -->{adminset}
+ <!-- Date -->{?num:|0:<input type='text' name='Date' value='{#Date}' maxlength='128' size='20'><br>|*:<span style='font-size:16pt;'><b>{#Date}</b></span>|?}
+ <!-- Header -->&nbsp; <input onchange='save1(this)' type='text' name='Header' value='{#njsn#:Header}' maxlength='255' style='width:"+(get_edit_width()/2)+"px'>
+ <!-- Записать -->&nbsp; <input type='button' onclick='savea(this)' title='{?LL:shift+Enter?}' value='{?LL:Save?}'>
+ <!-- символов: -->&nbsp; {?LL:Editor:sym|999?}<span id='editor{num}_nsym'>{length:Body}</span>
+<br>
+ <!-- MOVE --> <i class='e_redo knop' alt='{?LL:Editor:change_data?}' onclick=\"majax('editor.php',{a:'move',Date:'{#Date}'})\"></i>
+ <!-- DEL --> <i class='e_remove knop' alt='{?LL:Editor:delz?}' onclick=\"if(confirm('{?LL:confirm_del?}')) majax('editor.php',{a:'delete',num:{num}});\"></i>
+ <!-- options -->{?mopt:1:<div id='editor{num}_extopt' style='display:inline;font-size:10pt;'><i class='knop e_system' alt='{?LL:Editor:settings?}' onclick=\"majax('editor.php',{a:'settings_win',num:{num}})\"></i></div>|*:?}
+ <!-- PANEL -->
+ <i alt='Фотоальбом' class='e_foto knop' onClick=\"majax('foto.php',{a:'album'})\"></i>
+ <i alt='Найти все фотки,<br>неопубликованные за этот месяц<br>и вставить в заметку' class='e_ledlightblue knop' onclick=\"majax('foto.php',{a:'lostfoto',idhelp:'{idhelp}'})\"></i>
+ <i alt='Справка' class='e_gnome-help knop' onclick=\"majax('editor.php',{a:'loadhelp'})\"></i>
+ <i title='{?chr:160?}' class='e_nbsp knop' onClick=\"ti('editor{num}_Body','{?chr:160?}{select}')\"></i>
+ <i title='{?chr:169?}' class='e_copy knop' onClick=\"ti('editor{num}_Body','{?chr:169?}{select}')\"></i>
+ <i title='{?chr:151?}' class='e_mdash knop' onClick=\"ti('editor{num}_Body','{?chr:151?}{select}')\"></i>
+ <i title='{?chr:171?} {?chr:187?}' class='e_ltgt knop' onClick=\"ti('editor{num}_Body','{?chr:171?}{select}{?chr:187?}')\"></i>
+ <i title='&lt;b&gt;<b>bold</b>&lt;b&gt;' class='e_bold knop' onClick=\"ti('editor{num}_Body','<b>{select}</b>')\"></i>
+ <i title='&lt;i&gt;<i>italic</i>&lt;i&gt;' class='e_italic knop' onClick=\"ti('editor{num}_Body','<i>{select}</i>')\"></i>
+ <i title='&lt;s&gt;<s>strike</s>&lt;s&gt;' class='e_strikethrough knop' onClick=\"ti('editor{num}_Body','<s>{select}</s>')\"></i>
+ <i title='&lt;u&gt;<u>underline</u>&lt;u&gt;' class='e_underline knop' onClick=\"ti('editor{num}_Body','<u>{select}</u>')\"></i>
+ <i title='image' class='e_image knop' onClick=\"ti('editor{num}_Body','<center><img src={select} border=1></center>')\"></i>
+ <i title='&lt;center&gt;&lt;center&gt;' class='e_justifycenter knop' onClick=\"ti('editor{num}_Body','<center>{select}</center>')\"></i>
+ <i title='lj user' class='e_ljuser knop' onClick=\"ti('editor{num}_Body','<a href=http://{select}.livejournal.com>{select}</a>')\"></i>
+ <i title='&lt;a src=http://link&gt;<span class=l>http://link</span>&lt;/a&gt;' class='e_link knop' onClick=\"ti('editor{num}_Body','<a href=\\\'{select}\\\'>{select}</a>')\"></i>
+ <i title='flash object' class='e_ljvideo knop' onClick=\"ti('editor{num}_Body','<center><object width=320 height=240><param name=movie value=\\\'{select}.swf\\\'></param><param name=wmode value=transparent></param><embed src=\\\'{select}.swf\\\' type=\\\'application/x-shockwave-flash\\\' wmode=transparent width=320 height=240></embed></object></center>')\"></i>
+ <i title='blockquote' class='e_tableb_1 knop onClick=\"ti('editor{num}_Body','<blockquote style=\\\'border: 1px dashed rgb(255,0,0); padding: 20px; margin-left: 50px; margin-right: 50px; background-color: rgb(255,252,223);\\\'>{select}</blockquote>')\"></i>
+ <i title='table red' class='e_tableb_r knop' onClick=\"ti('editor{num}_Body','<table style=\\\'border-collapse: collapse; border: 1px solid red; margin: 20pt;\\\' bgcolor=#fffff0 border=1 cellpadding=20><td><div align=justify>{select}</td></table>')\"></i>
+ <i title='table 1' class='e_tableb1 knop' onClick=\"ti('editor{num}_Body','<table bgcolor=#fff0ff border=1 cellpadding=50 cellspacing=0 width=80%><td><div align=justify>{select}</td></table>')\"></i>
+ <i title='table 2' class='e_tableb2 knop' onClick=\"ti('editor{num}_Body','<table bgcolor=#f0ffff border=1 cellpadding=50 cellspacing=0 width=80%><td><div align=justify>{select}</td></table>')\"></i>
+ <i title='table 3' class='e_tableb3 knop' onClick=\"ti('editor{num}_Body','<table bgcolor=#fffff0 border=1 cellpadding=50 cellspacing=0 width=80%><td><div align=justify>{select}</td></table>')\"></i>
+ <i title='pre' class='e_tableb_pre knop' onClick=\"ti('editor{num}_Body','<pre style=\\\'border: 0.01mm solid rgb(0,0,0); padding: 4px; line-height: 100%; font-family: monospace; background-color: rgb(255,255,255);\\\'>{select}</pre>')\"></i>
+ <i title='Clean Word-HTML' class='e_edit-clear knop' onClick=\"majax('editor.php',{a:'clean_html',num:{num},text:idd('editor{num}_Body').value})\"></i>
+ <i title='Find/Replace' class='e_kviewshell knop' onClick=\"majax('editor.php',{a:'findreplace',id:'editor{num}_Body'})\"></i>
+</div>
+
+<textarea style='margin:0 0 0 0;padding:0 0 0 0; width:"+get_edit_width()+"px;height:100px;
+font-size:15pt;' onchange='save1(this)' onkeydown='autosave(this)' id='editor{num}_Body' name='Body'>{#njsn#:Body}
+</textarea>
+
+<div style='vertical-align:center;margin-top:5px;font-size:10pt;'>
+
+<input type='button' onclick='savea(this)' title='{?LL:shift+Enter?}' value='{?LL:Save?}'>
+
+ &nbsp; &nbsp; &nbsp; &nbsp;
+<span alt='{LL:Editor:tags_alt?}' class=l onclick=\"majax('editor.php',{a:'tags',num:{num},mytags:idd('tags_editor{num}').value{?mnogouser:|1:,win:IMBLOAD_MYID|*:|?}})\">{?LL:Editor:tags?}</span>&nbsp;
+<input onchange='save1(this)' type='text' name='tags' id='tags_editor{num}' value='{#tags}' style='width:"+(get_edit_width()/2)+"px'>
+</div>
+
+<!--
+<div id='buka_1'></div>
+<div id='buka_2'></div>
+<div id='buka_3'></div>
+<div id='buka_4'></div>
+<div id='buka_5'></div>
+<div id='buka_6'></div>
+-->
+
+</form>");
+
+/* конец html-кода окошка */
+
+areab_save=function(){
+        var s=idd('editor{num}_Body').value;
+        s=s.replace(/^<p>/g,'').replace(/\n<p>/g,"\n\n").replace(/\n<br \/>/g,'\n').replace(/<\/p>/g,'');
+        s=s.replace(/<p>/g,"\n\n").replace(/<br \/>/g,'\n');
+        return s;
+};
+
+if('{autoformat}'!='no') {
+	var s=idd('editor{num}_Body').value;
+	s=s.replace(/\n\n/g,'<p>').replace(/\n/g,'<br />');
+	idd('editor{num}_Body').value=s; idd('editor{num}_Body').defaultValue=s;
+}
+
+/*
+idd('editor{num}_Body').focus();
+setkey('esc','',function(e){ var e=idd('editor{num}_Body'); if(e.value==e.defaultValue || confirm('{?LL:exit_no_save?}')) clean('editor{num}'); },false,1);
+setkey('enter','ctrl',function(e){savea(idd('editor{num}_form'))},false,1);
+*/
+
+var opts = {
+	cssClass : 'el-rte',
+	/* lang     : 'ru', */
+	height   : get_edit_height()*0.85,
+	width    : get_edit_width(),
+	toolbar  : 'complete',
+	cssfiles : [wwwhost+'extended/elrte/css/elrte-inner.css'],
+	fmAllow  : 1 , /* Allow use of file manager */
+	fmOpen   : function(){majax('foto.php',{a:'album'})}
+};
+
+olo=function(s){ if(4==olo.n) $('#editor{num}_Body').elrte(opts); };
+
+loadScr(wwwhost+"extended/elrte/js/jquery-1.6.1.min.js",olo);
+loadScr(wwwhost+"extended/elrte/js/jquery-ui-1.8.13.custom.min.js",olo);
+loadScr(wwwhost+"extended/elrte/js/elrte.min.js",olo);
+loadScr(wwwhost+"extended/elrte/js/i18n/elrte.ru.js",olo);
+loadStyle(wwwhost+"extended/elrte/css/smoothness/jquery-ui-1.8.13.custom.css");
+loadStyle(wwwhost+"extended/elrte/css/elrte.min.css");
+
+fclipboard=function(e){ if(!idd(e+'_Body')) return;
+    var m=l_read('clipboard_mode'); if(m!='') {
+        if(m=='Copy link') { ti(e+'_Body',"<a href='"+l_read('clipboard_link')+"'>{select}"+l_read('clipboard_text')+"</a>");
+        } else if(m=='plain') { ti(e+'_Body',l_read('clipboard_text'));
+        } else alert('unknown mode: '+m);
+        l_save('clipboard_mode','');
+    } setTimeout(function(){fclipboard(e);},1000);
+}; fclipboard('editor{num}');

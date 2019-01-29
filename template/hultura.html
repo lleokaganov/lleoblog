@@ -1,0 +1,251 @@
+{_MAIN:_}<!DOCTYPE html>
+<html id="js" class="html-adaptive"><head>
+<title>{_article_get:Header_}</title>
+<meta charset={wwwcharset} />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset={wwwcharset}" />
+<meta http-equiv="Content-Language" content="ru-ru" />
+<link rel="shortcut icon" type="image/x-icon" href="{httphost}favicon.ico" />
+<wlink rel="prev" href="{prevlink}" id="PrevLink" />
+<wlink rel="next" href="{nextlink}" id="NextLink" />
+<wlink rel="UpLink" href="{uplink}" id="UpLink" />
+<wlink rel="DownLink" href="{downlink}" id="DownLink" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{httphost}rss">
+<link rel="stylesheet" type="text/css" href="{httphost}css/sys.css">
+
+<!-- не трогать, гугли выпадут --><link rel="stylesheet" type="text/css" href="{httphost}design/hultura/a_002.css?dfgdg">
+<!-- не трогать, правые попортятся --><link rel="stylesheet" type="text/css" href="{httphost}design/hultura/a_004.css" media="all">
+<!-- не трогать, блямба отключится --><link rel="stylesheet" type="text/css" href="{httphost}design/hultura/a_005.css" media="screen">
+<link rel="stylesheet" type="text/css" href="{httphost}design/hultura/a.css">
+
+<style type="text/css">
+
+#loginobr,.myunic,.atclear,.atzaebalo {display: inline !important}
+.aticon-compact {display: none !important}
+
+/* Cleaned CSS: */
+
+/* User options
+------------------------ */
+
+.j-l-alpha-header {
+    margin-left: 250px;
+    }
+.j-p-layout-wt .j-l-alpha-header {
+    margin-left: 0;
+    margin-right: 250px;
+    }
+.j-l-alpha-content {
+    width: auto;
+    margin-left: 250px;
+    }
+.j-p-layout-wt .j-l-alpha-content {
+    margin-left: 0;
+    margin-right: 250px;
+    }
+.j-l-alpha-footer {
+    width: auto;
+    margin-left: 250px;
+    }
+.j-p-layout-wt .j-l-alpha-footer {
+    margin-left: 0;
+    margin-right: 250px;
+    }
+.j-l-beta {
+    float: left;
+    width: 230px;
+    margin-right: -230px;
+    }
+.j-p-layout-wt .j-l-beta {
+    float: right;
+    margin-left: -230px;
+    margin-right: 0;
+    }
+
+/* Adaptive layout
+---------------------------------- */
+@media (max-width: 1000px) {
+    .j-l-wrapper,
+    .j-l-page {
+        width: auto;
+        min-width: 300px;
+        }
+    .j-l-alpha-header,
+    .j-p-layout-wt .j-l-alpha-header,
+    .j-l-alpha-content,
+    .j-p-layout-wt .j-l-alpha-content,
+    .j-l-alpha-footer,
+    .j-p-layout-wt .j-l-alpha-footer,
+    .j-l-beta,
+    .j-p-layout-wt .j-l-beta {
+        margin-left: 0;
+        margin-right: 0;
+        }
+    .j-l-beta,
+    .j-p-layout-wt .j-l-beta {
+        float: none;
+        right: 0;
+        left: 100%;
+        width: auto;
+        }
+        .js--sidebar-opened .j-l-beta {
+            left: 44px;
+            }
+
+
+    .j-w-header-image-inner {
+        max-height: 200px;
+        background-size: cover;
+        }
+    }
+
+/*---------------------------------- */
+
+</style>
+<!-- не трогать, шрифты ужмутся --><link href="{httphost}design/hultura/css.css" rel="stylesheet" type="text/css">
+<!-- не трогать, шрифты плашки ужмется --><link href="{httphost}design/hultura/css_002.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{httphost}design/hultura/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+</head>
+<body id='home' class="j-p-controlstrip-on  j-journal-type--C j-view-recent j-pageview-latest  viewport--device-width j-p-adaptability-on j-layout-chameleon j-p-layout-wt j-p-page-layout-default j-p-header-layout-default j-p-tags-cloud j-p-userpic-right j-p-entry-layout-default j-p-resize-all-images lj-view-recent ng-scope" itemscope="" itemtype="http://www.schema.org/Blog" ng-app="S2Layout" ng-controller="S2LayoutCtrl as s2" data-adaptive-theme="true">
+
+<div style='z-index:2;position:absolute;width:100%;top:70px;font-size:19px;'><center><b>материал утащен с сайта hultura.ru</b></center></div>
+
+    <div class="body-content">
+
+
+<div class=r style='position:absolute;top:3px;right:30px;'><span style='margin-right:20px' title='личная почта' onclick="majax('mailbox.php',{a:'mail',showbox:1})"><i class='e_kmail'></i> {_MAILBOX:_}</span>{_UNIC:_}</div>
+
+        <div class="j-l-wrapper js--journal-wrapper" lj-scroll="s2.scrollToTop" lj-scroll-up="">
+            <div class="j-l-container">
+                <div class="j-l-page">
+                    <div class="j-l-page-inner">
+                        <header class="j-l-header" role="banner">
+                            <a target="_self" href="http://hultura.ru/" class="j-l-header-link">Хультура</a>
+                        </header>
+                        <div class="j-l-content">
+                            <div class="j-l-content-inner">
+                                <aside class="j-l-beta js-sidebar" role="complementary">
+    <div class="j-beta-controls js--sidebar-controls" ng-style="controlsTop" sidebar-controls-position="">
+        <button class="j-beta-control" type="button" onclick="if(ifclass('home','js--sidebar-opened')) classDel('home','js--sidebar-opened'); else classAdd('home','js--sidebar-opened');">
+            <span class="j-beta-control-icon j-beta-control-icon--open"></span>
+            <span class="j-beta-control-icon j-beta-control-icon--close"></span>
+        </button>
+    </div>
+
+                                    <div class="j-l-beta-inner">
+
+<!-- кто мы -->
+
+
+{_INCLUD: template/kolonka-reklam.htm _}
+
+
+
+<!-- Rating@Mail.ru -->
+
+                                    </div>
+                                </aside>
+
+                                <section class="j-l-alpha">
+                                    <div class="j-l-alpha-content" role="main">
+                                        <div class="j-l-alpha-content-inner">
+
+<!-- ПОШЕЛ ПОСТ -->
+
+
+
+
+<div style='padding:20px'>
+{_PREVNEXT:
+prev=<li class="j-prevnext-item j-prevnext-item-prev"><a target="_self" class="j-prevnext-link" href="{prevlink}"><span class="j-prevnext-title">{#prevHeader}</span></a></li>
+next=<li class="j-prevnext-item j-prevnext-item-next"><a target="_self" class="j-prevnext-link" href="{nextlink}"><span class="j-prevnext-title">{#nextHeader}</span></a></li>
+no=
+template=<ul class="j-prevnext">{prev}{next}</ul>
+_}
+</div>
+
+<!-- article --><div style='margin-bottom:30px' class='j-e j-e-view-recent'>
+{_NO: PHPEVAL:
+    $author=h(isset($GLOBALS['article']['author'])?$GLOBALS['article']['author']:'anonym');
+    $color=$GLOBALS['hultura_colors'][$author];
+    return $o='<span class="j-e-marker" style="background-color: '.$color.'" title="'.$author.'"></span>';
+_}
+
+{_HEADERS:
+zamok_template={zamok}&nbsp;
+onclick_editor=''
+onclick_editor_title=Чтобы редактировать заметку, достаточно просто кликнуть на этот заголовок
+empty_Header=(...)
+template={_nobr:
+
+<time class="j-e-date" datetime="{Y}-{M}-{D}" itemprop="dateCreated"><span class="j-e-date-day">{D} {MONTH} {Y} {H}:{i}</span></time>
+<h3 class="j-e-title" itemprop="headline">{zamok}<span{onclick_editor} id='Header_{num}'>{Header}</span></h3>
+
+_}
+_}
+<div class="j-e-text" itemprop="text" style="margin:20px;"><center><table border=0 cellspacing=0 cellpadding=0><tr><td align=justify id='bodyz'>{_TEXT:_}</td></tr></table></center></div>
+<div class="j-nav j-e-nav"><ul class="j-e-nav-list">
+
+{_PHPEVAL: if($GLOBALS['article']['Access']!='all') return $o='';
+    if(!function_exists('SHARE')) include_once $GLOBALS['include_mod']."SHARE.php";
+    return $o="<li class='j-e-nav-item j-e-nav-item-reply'>".SHARE()."</li>";
+_}
+
+<li class="j-e-nav-item j-e-nav-item-reply"><a href="javascript:majax('comment.php',{a:'comform',id:0,lev:0,comnu:comnum,dat:{num}});"><span class="j-e-nav-text">Комментировать</span></a></li>
+{_is_admin:
+<li class="j-e-nav-item j-e-nav-item-reply"><a href="javascript:majax('editor.php', {a:'editform',num:{num}})"><span class="j-e-nav-text">Редактировать</span></a></li>
+<!-- <li class="j-e-nav-item j-e-nav-item-reply"><a href="javascript:majax('hultura.php',{a:'publ',num:{num}})"><span class="j-e-nav-text">Опубликовать</span></a></li> -->
+_}
+</ul></div>
+
+</div><!-- /article -->
+
+<table style='margin: 10px 0px 30px 0px;' width=100% border=10><tr valign=top><td>
+<div class=br>{_CROSSPOSTED:
+template=<b>crossposted:</b>{tmpl}
+tmpl=<div style='margin-left:30px;'><i>{adminkeys}<a href='{#link}'>{#link}</a></i></div>
+_}</div></td><td><div class=br>{_TAGS: template = <a href="javascript:majax('search.php',{a:'alltag'})">ТЭГИ:</a> {tags} _}</div>
+</td></tr></table>
+
+<!-- навигация -->
+
+<div id="comments" class='l-j-comments'>{_COMENTS:
+comment_this=
+socialmedia=autopost
+off_socialmedia=<p>Комментарии к этой заметке на моем сервере отключены, надеюсь на понимание.<br>Но вы можете пойти и <a href='{0}{_NO:?mode=reply#add_comment_}'>оставить комментарий на Hultura.ru</a>.<br>Учтите, что лично я там комментарии не читаю, это дискуссионная зона для желающих обсудить.
+addprevnext=0
+_}</div>
+
+
+
+
+
+
+
+<!-- ЗАКОНЧИЛСЯ ПОСТ -->
+
+                                        </div>
+                                    </div>
+
+                                </section>
+
+                            </div>
+                        </div><!-- //j-l-content-->
+
+    <div class="j-l-closing">
+        <div class="j-closing">
+<li class="j-e-nav-item j-e-nav-item-reply"><a alt="Сообщите администрации портала о нарушениях владельца этого аккаунта" href="javascript:majax('mailbox.php',{a:'newform',tmpl:'provider',unic:4})"><span class="j-e-nav-text">пожаловаться на эту публикацию</span></a></li>
+            <p class="j-closing-copyright">© 2016 утащено с сайта <a href='http://hultura.ru'>hultura.ru</a></p>
+        </div>
+    </div>
+
+                    </div><!-- // j-l-page-inner -->
+                </div>
+                <!-- div class="ng-scope" lj-bubble="{ name: 'memories', template: 'memories.ng.tmpl', disableClick: true }"></div -->
+            </div><!-- // j-l-container -->
+        </div><!-- // j-l-wrapper -->
+        </div>
+
+
+{_SIGNAL:log=rkm1.log_}</body></html>

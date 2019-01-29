@@ -1,0 +1,157 @@
+@charset "windows-1251";
+
+.clearfloat { clear:both; height:0; font-size: 1px; line-height: 0px; }
+
+/*prevnext - prev*/
+.pre_post{ float:left; width:49%; font-size:small; text-align:left; margin-bottom:15px; position:relative; }
+
+/*prevnext - post*/
+.next_post{ float:right; width:49%; font-size:small; text-align:right; margin-bottom:15px; position:relative; }
+
+ /*приветствие*/
+#hello{ color:#FF0000; text-align:justify; margin-bottom:15px; font-size:x-small; padding: 0 15px; }
+
+.navig{ width:98%; position:relative; margin: 0 auto; } /* блок prev-next */
+
+#post { padding: 0 15px; }
+
+#post h1{ text-align:center; font-size:medium; }
+#copyright{ text-align:right; margin-top: 15px; margin-bottom: 20px; padding: 0 15px; }
+#comments{ width:100%; background-image:url(/kl0.gif); border-top: Red solid 2px; margin-top: 5px; padding: 15px 0; text-align:justify; }
+.item_com{ padding: 3px 10px 2px 40px; }
+
+/* Личные стили Лео (какие подправлены закоментировано) */
+.r {font-size: 12px;}
+.cld_top {font-size: 10px;}
+.cld_days {font-size: 10px; background-color: #F0F0F0;}
+.cld_red {font-size: 10px; background-color: #FFE8D0;}
+.cld {font-size: 10px;}
+.cld_this {font-size: 10px; background-color: red; color: white;}
+/* #k {font-size: 10px; background-color: #F0F0F0; color: blue; text-decoration: none; } */ /* ссылка календаря */
+.cld_ed {color: black; text-decoration: none; }
+
+.t { border: 1px solid #330000; }
+
+/* комментарии */
+
+.c {
+text-align: justify;
+font: 80% sans-serif, Helvetica, Arial, Verdana;
+background-color: #FAFAFA;
+border: 1px solid #D0D0D0;
+width: 95%;
+overflow: auto;
+padding: 5px;
+margin-top: 1%;
+}
+.c_c {
+text-align: justify;
+font: 80% sans-serif, Helvetica, Arial, Verdana;
+background-color: #AAFAFA;
+border: 1px solid #D0D0D0;
+width: 95%;
+overflow: auto;
+padding: 5px;
+margin-top: 1%;
+}
+
+.cc { padding: 5px; margin-left: 3%; margin-right: 3%; }
+.ch { display: inline; margin-left: 1%; font-weight: bold; } /* font: 15px;*/
+.ca { font-size: 11px; }
+
+.ct {
+text-align: justify;
+background-color: rgb(255,252,223);
+border: 1px solid #E00000;
+width: 95%; 
+overflow: auto;
+padding: 5px;
+margin-top: -10px;
+margin-left: 5%;
+}
+.clh {
+font-weight:bold;
+font-style: italic;
+font-size: 11px;
+padding: 0 15px;
+}
+.cl {
+font: 80% sans-serif, Helvetica, Arial, Verdana;
+margin-left: 3%;
+margin-right: 2%;
+padding: 5px;
+font-size: 90%;
+}
+
+.time { font-size: 10px; position:relative; top: 10px; float: right; font-weight: bold; } /* дата комментария */
+.br-red { font-size: 12px; font-weight: bold; color: red }
+.br-blue { font-size: 12px; font-weight: bold; color: blue }
+
+
+.sc {
+text-align: justify;
+font: 80% sans-serif, Helvetica, Arial, Verdana;
+background-color: #FEFAFA;
+border: 1px solid #D0D0D0;
+width: 80%;
+overflow: auto;
+padding: 5px;
+margin-top: 1%;
+}
+.sct {
+text-align: justify;
+background-color: #FFFBDF;
+border: 1px solid #E00000;
+width: 80%; 
+overflow: auto;
+padding: 5px;
+margin-top: -10px;
+margin-left: 5%;
+}
+
+
+
+
+.onlin {
+display: none;
+font: 10px sans-serif, Helvetica, Arial, Verdana;
+background-color: #EAEAEA;
+border: 1px solid red;
+width: 95%;
+height: 200px;
+overflow: scroll;
+overflow-x: hidden;
+overflow-y: scroll;
+padding: 5px;
+margin-top: 1%;
+}
+
+/*
+.cdscr { margin-left: 10px; font-size: 10px; }
+.kn  { margin-left: 9px; font-size: 8px; padding: 1px; border: 1px solid #B0B0B0; }
+.kne { margin-left: 9px; font-size: 8px; padding: 1px; border: 1px solid #B0B0B0; background-color: #CBEBEB; }
+*/
+
+.cd {
+margin-left: 5%;
+font-size: 10px;
+/* background: #CBEBEB; */
+background: #FFDAAA;
+}
+.br { font-size: 10px; }
+.brno { display: none; font-size: 10px; }
+
+.search { font-weight: bold; color: black; background-color: rgb(255, 204, 0); }
+
+/* font-family:"Times New Roman","serif"; */
+
+p.d {text-align:justify;text-indent:5%;margin-top:0pt;margin-bottom:0pt;}
+p.pd {text-align:justify;text-indent:5%;margin-top:2%;margin-bottom:0pt;}
+
+
+p.name {text-indent:0pt;margin-top:4%;margin-bottom:6%;text-align:center;font-weight:bold;font-size:150%;}
+p.podp {text-indent:0pt;margin-top:30pt;margin-bottom:12%;text-align:right;font-style:italic;}
+p.z {text-indent:0pt;margin-top:4%;margin-bottom:4%;text-align:center;font-weight:bold;font-size:100%;}
+p.epigraf {text-indent:0pt;text-align:justify;margin-top:10pt;margin-bottom:0pt;margin-right:4%;margin-left:60%;font-size:80%;}
+p.epigrafp {text-indent:0pt;text-align:right;margin-top:0pt;margin-bottom:4%;margin-right:4%;margin-left:60%;font-size:80%;font-style:italic;}
+

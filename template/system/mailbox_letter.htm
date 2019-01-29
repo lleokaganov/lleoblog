@@ -1,0 +1,28 @@
+<blockquote id='mmsg{id}' style='border: 1px dashed rgb(255,0,0); padding: 5pt; margin: 5pt 0 5pt 0; background-color: white;'>
+{?img:|:|*:<img src='{#img}' align='right' style='max-width:150px;max-height:150px'>?}
+<div class=r>{?answerid:|0:|*:<i onclick="majax('mailbox.php',{a:'parent',id:{#id}});this.style.display='none';" class='e_expand_plus'></i>|?}{#n}. <b>{?box:
+in:FROM
+*:TO
+?}:</b> <div class=ll onclick="majax('login.php',{a:'getinfo',unic:{#u}})">{from}</div> <span title="{IP}<br>{#BRO}">{#whois}</span> {time}</div>
+<br><div>{text}</div><br>
+<div>
+<table width=100% border=0><tr>
+<td width=33% align=left>{?box:
+in:{?timeread0:|0:<input title='больше не показывать как новое' class=r type='button' value='ѕ–ќ„»“јЌќ' onclick="majax('mailbox.php',{a:'readed',id:'{#id}'})">|*:<span class=br style='color:#888;' title='{#timeread}'>прочитано</span>|?}
+*:<span class=br style='color:#888;'>{?timeread0:|0:ожидает|*:{#timeread}|?}</span>
+?}
+</td>
+
+{?box:
+in:<td align=center><input class=r type='button' value='ќ“¬≈“»“№' onclick="majax('mailbox.php',{a:'answer',id:'{#id}'})"></td>
+*:
+?}
+
+{?box:
+in:<td width=33% align=right><input class=r type='button' value='”ƒјЋ»“№' onclick="majax('mailbox.php',{a:'delete',id:'{#id}'})"></td>
+*:{?timeread0:|0:<td width=33% align=right><input class=r type='button' value='не поздно удалить' onclick="majax('mailbox.php',{a:'delete',id:'{#id}'})"></td>|*:|?}
+?}
+
+</tr></table>
+</div>
+</blockquote>

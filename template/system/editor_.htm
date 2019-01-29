@@ -1,0 +1,120 @@
+get_edit_width=function(){ var W=(1*'{W}')||getWinW(); W=Math.min(W,1300); return Math.floor(W*0.90); };
+get_edit_height=function(){ var H=(1*'{H}')||getWinH(); H=Math.min(H,1300); return Math.floor(H*0.80); };
+
+window.onbeforeunload=function(x){ var e=idd('editor{num}_Body'); return (e && e.value!=e.defaultValue ? "Уйти со страницы, потеряв несохраненный текст?" : null); };
+
+var autosave_k=0,nesave=1;
+autosave=function(e){ if(++autosave_k>{autosave_count}){ autosave_k=1; save1(e); }};
+
+savea=function(e,num){
+    l_save('scroll'+num,idd('editor'+num+'_Body').scrollTop);
+nesave=0; clean('alltags_editor'+num);
+var e=find_form(e);
+
+/*if(e.Header.value=='' && confirm('Не заполнено поле заголовка. Заполнить?')) { e.Header.focus(); return false; }*/
+var ara=get_pole_ara(e);
+return ajaxform(e,'editor.php',{a:'submit',asave:0,autopost:1,names:ara.names});
+};
+
+save1=function(e){ if(e.defaultValue!=e.value) { e.defaultValue=e.value;
+ var a={a:'submit',num:e.form.num.value,names:e.name,asave:1}; a[e.name]=e.value;
+ setTimeout(function(){if(nesave)majax('editor.php',a)},10);
+}};
+
+/* для фоток */
+ch_fileinputsize=function(e,num){ if(!(e.value.length | e.textLength)) return;
+
+var n=e.textlength|e.value.length; if(n>20) this.size=1+n;
+var i=1*e.name.replace(/.*file(\d+).+$/g,'$1');
+
+if(-1==e.form.Body.value.indexOf('[IMAGE'+i+':')) {
+    ti('editor'+num+'_Body','\n[IMAGE'+i+': '+e.value+']\n{select}');
+    /* и добавить загрузчик еще одной картинки */
+    var div=document.createElement('DIV');
+    div.innerHTML="<input name='file"+(i+1)+"[]' size=30 type='file' multiple accept='image/"+"*' onchange=\"ch_fileinputsize(this,'"+num+"')\">";
+    e.parentNode.appendChild(div);
+}
+else e.form.Body.value=e.form.Body.value.replace(new RegExp('\\[IMAGE'+i+':\\s*[^\\]]+\]','g'),'[IMAGE'+i+': '+e.value+']');
+};
+
+/* сам html-код окошка <fieldset id='commentform'><legend>Заметка {#Date}</legend></fieldset> {pokaji_opt} */
+
+helpc('editor{num}',"
+<form style='margin:0 0 0 0' id='editor{num}_form'><input type='hidden' name='num' value='{num}'>
+
+<div style='vertical-align:center;margin-bottom:5px;font-size:8pt;'>
+ <!-- шарик смены доступа заметки -->{adminset}
+ <!-- Date -->{?num:|0:<input type='text' name='Date' value='{#Date}' maxlength='128' size='20'><br>|*:<span style='font-size:16pt;'><b>{#Date}</b></span>|?}
+ <!-- Header -->&nbsp; <input onchange='save1(this)' type='text' name='Header' value='{#njsn#:Header}' maxlength='255' style='width:"+(get_edit_width()/2)+"px'>
+ <!-- Записать -->&nbsp; <input type='button' onclick=\"savea(this,'{num}')\" title='{?LL:shift+Enter?}' value='{?LL:Save?}'>
+ <!-- символов: -->&nbsp; {?LL:Editor:sym|999?}<span id='editor{num}_nsym'>{length:Body}</span>
+<br>
+
+ <!-- MOVE --> <i class='e_redo knop' alt='{?LL:Editor:change_data?}' onclick=\"majax('editor.php',{a:'move',Date:'{#Date}'})\"></i>
+ <!-- DEL --> <i class='e_remove knop' alt='{?LL:Editor:delz?}' onclick=\"if(confirm('{?LL:confirm_del?}')) majax('editor.php',{a:'delete',num:{num}});\"></i>
+ <!-- options -->{?mopt:1:<div id='editor{num}_extopt' style='display:inline;font-size:10pt;'><i class='knop e_system' alt='{?LL:Editor:settings?}' onclick=\"majax('editor.php',{a:'settings_win',num:{num}})\"></i></div>|*:?}
+ <!-- PANEL -->
+ <i alt='Фотоальбом' class='e_foto knop' onClick=\"majax('foto.php',{a:'album'})\"></i>
+ <i alt='Подбор картинок в поисковике' class='e_ico-instagram' onClick=\"majax('editor.php',{a:'findimg_form'})\"></i>
+ <i alt='Найти все фотки,<br>неопубликованные за этот месяц<br>и вставить в заметку' class='e_ledlightblue knop' onclick=\"majax('foto.php',{a:'lostfoto',idhelp:'{idhelp}'})\"></i>
+ <i alt='Справка' class='e_gnome-help knop' onclick=\"majax('editor.php',{a:'loadhelp'})\"></i>
+ <i title='{?chr:160?}' class='e_nbsp knop' onClick=\"ti('editor{num}_Body','{?chr:160?}{select}')\"></i>
+ <i title='{?chr:169?}' class='e_copy knop' onClick=\"ti('editor{num}_Body','{?chr:169?}{select}')\"></i>
+ <i title='{?chr:151?}' class='e_mdash knop' onClick=\"ti('editor{num}_Body','{?chr:151?}{select}')\"></i>
+ <i title='{?chr:171?} {?chr:187?}' class='e_ltgt knop' onClick=\"ti('editor{num}_Body','{?chr:171?}{select}{?chr:187?}')\"></i>
+ <i title='&lt;b&gt;<b>bold</b>&lt;b&gt;' class='e_bold knop' onClick=\"ti('editor{num}_Body','<b>{select}</b>')\"></i>
+ <i title='&lt;i&gt;<i>italic</i>&lt;i&gt;' class='e_italic knop' onClick=\"ti('editor{num}_Body','<i>{select}</i>')\"></i>
+ <i title='&lt;s&gt;<s>strike</s>&lt;s&gt;' class='e_strikethrough knop' onClick=\"ti('editor{num}_Body','<s>{select}</s>')\"></i>
+ <i title='&lt;u&gt;<u>underline</u>&lt;u&gt;' class='e_underline knop' onClick=\"ti('editor{num}_Body','<u>{select}</u>')\"></i>
+ <i title='image' class='e_image knop' onClick=\"ti('editor{num}_Body','<center><img src={select} border=1></center>')\"></i>
+ <i title='&lt;center&gt;&lt;center&gt;' class='e_justifycenter knop' onClick=\"ti('editor{num}_Body','<center>{select}</center>')\"></i>
+ <i title='lj user' class='e_ljuser knop' onClick=\"ti('editor{num}_Body','<a href=http://{select}.livejournal.com>{select}</a>')\"></i>
+ <i title='&lt;a src=http://link&gt;<span class=l>http://link</span>&lt;/a&gt;' class='e_link knop' onClick=\"ti('editor{num}_Body','<a href=\\\'{select}\\\'>{select}</a>')\"></i>
+ <i title='flash object' class='e_ljvideo knop' onClick=\"ti('editor{num}_Body','<center><object width=320 height=240><param name=movie value=\\\'{select}.swf\\\'></param><param name=wmode value=transparent></param><embed src=\\\'{select}.swf\\\' type=\\\'application/x-shockwave-flash\\\' wmode=transparent width=320 height=240></embed></object></center>')\"></i>
+ <i title='blockquote' class='e_tableb_1 knop onClick=\"ti('editor{num}_Body','<blockquote style=\\\'border: 1px dashed rgb(255,0,0); padding: 20px; margin-left: 50px; margin-right: 50px; background-color: rgb(255,252,223);\\\'>{select}</blockquote>')\"></i>
+ <i title='table red' class='e_tableb_r knop' onClick=\"ti('editor{num}_Body','<table style=\\\'border-collapse: collapse; border: 1px solid red; margin: 20pt;\\\' bgcolor=#fffff0 border=1 cellpadding=20><td><div align=justify>{select}</td></table>')\"></i>
+ <i title='table 1' class='e_tableb1 knop' onClick=\"ti('editor{num}_Body','<table bgcolor=#fff0ff border=1 cellpadding=50 cellspacing=0 width=80%><td><div align=justify>{select}</td></table>')\"></i>
+ <i title='table 2' class='e_tableb2 knop' onClick=\"ti('editor{num}_Body','<table bgcolor=#f0ffff border=1 cellpadding=50 cellspacing=0 width=80%><td><div align=justify>{select}</td></table>')\"></i>
+ <i title='table 3' class='e_tableb3 knop' onClick=\"ti('editor{num}_Body','<table bgcolor=#fffff0 border=1 cellpadding=50 cellspacing=0 width=80%><td><div align=justify>{select}</td></table>')\"></i>
+ <i title='pre' class='e_tableb_pre knop' onClick=\"ti('editor{num}_Body','<pre style=\\\'border: 0.01mm solid rgb(0,0,0); padding: 4px; line-height: 100%; font-family: monospace; background-color: rgb(255,255,255);\\\'>{select}</pre>')\"></i>
+ <i title='Clean Word-HTML' class='e_edit-clear knop' onClick=\"majax('editor.php',{a:'clean_html',num:{num},text:idd('editor{num}_Body').value})\"></i>
+ <i title='Find/Replace' class='e_kviewshell knop' onClick=\"majax('editor.php',{a:'findreplace',id:'editor{num}_Body'})\"></i>
+
+<!-- залить картинку -->
+&nbsp; &nbsp; <div style='display:inline'><b>КАРТИНКА:</b>&nbsp;<input title='загрузить одну или сразу несколько фоток' name='file1[]' size=30 type='file' multiple accept='image/"+"*,audio/"+"*,video/"+"*' onchange=\"ch_fileinputsize(this,'{num}')\"></div>
+</div>
+
+<div style='width:"+get_edit_width()+"px;height:"+get_edit_height()+"px'>
+<textarea style='margin:0;padding:0;width:"+get_edit_width()+"px;height:"+get_edit_height()+"px;font-size:15pt;' onchange='save1(this)' onkeydown='autosave(this)' id='editor{num}_Body' name='Body'>{#njsn#:Body}
+</textarea></div>
+
+<div style='vertical-align:center;margin-top:5px;font-size:10pt;'>
+
+<input style='padding:10pt' type='button' onclick=\"savea(this,'{num}')\" title='{?LL:shift+Enter?}' value='{?LL:Save?}'>
+
+ &nbsp; &nbsp;
+
+<span alt='{LL:Editor:tags_alt?}' class=l onclick=\"majax('editor.php',{a:'tags',num:{num},mytags:idd('tags_editor{num}').value{?mnogouser:|1:,win:IMBLOAD_MYID|*:|?}})\">{?LL:Editor:tags?}</span>&nbsp;
+<input onchange='save1(this)' type='text' name='tags' id='tags_editor{num}' value='{#tags}' style='width:"+(get_edit_width()/2)+"px'>
+
+</div>
+
+<div align=right>
+</form>");
+
+var T=idd('editor{num}_Body'),isc=l_read('scroll{num}');
+T.focus();
+if(isc===false) isc=0; var TAscroll=function(){ T.scrollTo(0,isc); removeEvent(T,'scroll',TAscroll); }; addEvent(T,'scroll',TAscroll);
+/*setTimeout(function(){T.scrollTo(0,isc)},10);*/
+
+setkey('esc','',function(e){ if(T.value==T.defaultValue || confirm('{?LL:exit_no_save?}')) clean('editor{num}'); },false,1);
+setkey('enter','ctrl',function(e){savea(idd('editor{num}_form'),'{num}')},false,1);
+
+fclipboard=function(e){ if(!idd(e+'_Body')) return;
+	var m=l_read('clipboard_mode'); if(m!='') {
+	    if(m=='Copy link') { ti(e+'_Body',"<a href='"+l_read('clipboard_link')+"'>{select}"+l_read('clipboard_text')+"</a>");
+	    } else if(m=='plain') { ti(e+'_Body',l_read('clipboard_text'));
+	    } else alert('unknown mode: '+m);
+	    l_save('clipboard_mode','');
+	} setTimeout(function(){fclipboard(e);},1000);
+}; fclipboard('editor{num}');

@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+<title>{_article_get:Header_}</title>
+<meta charset={wwwcharset} />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset={wwwcharset}" />
+<meta http-equiv="Content-Language" content="ru-ru" />
+<meta name="author" content="Leonid Kaganov" />
+{_MAIN:_}{_STYLE_ADD: {www_css}blank.css _}{_STYLE_ADD: {www_css}sys.css _}
+</head><body>
+
+<div id="bodyz" style="margin:20px;">
+<form method=post action="{httphost}fb2?{_article_get:num_}"><input alt='скачать эту страницу для читалки в формате FB2' type=submit value='download.fb2'></form>
+{_TEXT:_}<p>&nbsp;</div>
+
+<center><hr width=70% color=red><small><b>© Леонид Каганов</b>&nbsp;&nbsp;&nbsp;&nbsp;</a><a href="mailto:lleo@aha.ru">lleo@aha.ru</a>&nbsp;&nbsp;&nbsp;&nbsp;сайт автора <a href="http://lleo.me">http://lleo.me</a>
+&nbsp;&nbsp;&nbsp;&nbsp;посещений {_COUNTER:_}&nbsp;&nbsp;&nbsp;&nbsp;<form style='display:inline' method=post action="{httphost}fb2?{_article_get:num_}"><input type=submit value='FB2'></form></small></center>
+{_SIGNAL:log=rkm1.log_}</body></html>

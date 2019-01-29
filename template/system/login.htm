@@ -1,0 +1,159 @@
+<script>
+
+
+var QUERY=window.location.search.replace(/^\?/g,''),GET={}; if(QUERY!=''){var a=QUERY.split('&'); for(var i in a){i=a[i].split('=');if(2==i.length);GET[i[0]]=i[1];}}
+
+
+
+if(1*unic==0) {
+    document.write("<center><table width=320 border=0><tr><td>Ошибка unic=0: отсутствует номер посетителя в куках браузера.<p>Скорее всего, это потому, что ваш браузер на сайте впервые.
+<p><b>Достаточно один раз перезагрузить страницу, и всё заработает!</b>
+<p>Если в вашем браузере вообще отключены cookie, логин на сайте невозможен.</td></tr></table></center>");
+    var IMBLOAD_MYID='logz_ifr'; page_onstart.push('resize_me(1,50,50)');
+
+} else if(window.top === window) {
+    document.write("<center>логин: <span onclick=\"majax('login.php',{a:'getinfo'});\" class='myunic' style='font-weight:bold; color:blue; font-size: 18px; cursor:pointer;'>"+realname+" ("+unic+")</span></center>");
+    ifhelpc(wwwhost+'login?'+(QUERY==''?'':QUERY+'&')+'cache='+Math.random(),'logz','Login'+(GET['opt']?' '+h(GET['opt']):''));
+    setTimeout('ajaxoff()',1000);
+
+} else {
+var servslength=0;
+
+document.write("<table><tr><td>");
+
+if(!GET['opt']) {
+    document.write("<div style='text-align:center;font-size:20pt;font-weight:bold;margin-bottom:20pt;'>три способа залогиниться</div>");
+} else {
+    var servs={},a=GET['opt'].split(',');
+    for(var i in a) { servslength++; servs[a[i]]=1; }
+}
+
+
+
+/* =========== пароль ============ */
+if(!servs || servs['password']) {
+
+document.write("<p class='r'><b>Помните свой пароль на этом сайте?</b>
+
+<center><form name='openidnew' onsubmit=\"majax('module.php',{mod:'LOGIN',a:'logpas',log:this.mylog.value,pas:this.mypas.value});return false;\">
+<table cellspacing='10' border=0>
+<tr><td><b>логин:</b></td><td><input name='mylog' value='' type='text' size='20' tabindex='1'></td>
+<td rowspan='2'><input style='padding:10px;' type='submit' value='LOGIN' tabindex='3'></td>
+</tr>
+<tr><td><b>пароль:</b></td><td><input name='mypas' type='password' size='20' tabindex='2'></td></tr>
+</table></form>
+
+<div title='процедура восстановления пароля через email<br>надо вспомнить логин или email' class='r l' onclick=\"otkryl('forgotpass');this.style.display='none';\">я не помню свой пароль</div>
+
+<div id='forgotpass' style='display:none'>
+<h2>Попробуем восстановить пароль:</h2>
+<form name='forgotpas' onsubmit=\"majax('module.php',{mod:'LOGIN',a:'forgotpas',log:this.mylog.value,mail:this.mymail.value});return false;\">
+<table cellspacing='10'>
+<tr><td><b>я помню логин:</b></td><td><input name='mylog' value='' type='text' size='20' tabindex='1'></td>
+<td rowspan='2'><input style='padding:10px;' type='submit' value='RESTORE' tabindex='3'></td>
+</tr>
+<tr><td><b>или помню email:</b></td><td><input name='mymail' type='text' size='20' tabindex='2'></td></tr>
+</table></form>
+</div>
+</center>");
+
+}
+
+
+
+
+
+/* =========== openid ============ */
+if(!servs || servs['openid']) {
+
+
+mtoken=function(e){ this.location.href='{thispage}?token='+e+'&QUERY='+encodeURIComponent(QUERY); };
+ulogin_callback=function(token){ location.href='{thispage}?ulogin='+token+'&QUERY='+encodeURIComponent(QUERY); };
+
+document.write("
+<p class='r'><b>Есть аккаунт в социальных сетях или openid?</b>
+<br>залогиньтесь соцсетью через любой из двух виджетов, какой-то из них уж точно сработает:
+
+<p class=r><i>виджет ulogin.ru:</i></p>
+
+<center><div style='display:inline' id='uLogin' data-ulogin='callback=ulogin_callback;display=panel;fields=nickname;optional=real_identity,full_name,first_name,last_name,email,bdate,sex,photo,photo_big,city,country;providers=openid,livejournal,facebook,google,yandex,twitter,vkontakte,mailru,odnoklassniki;hidden=other;redirect_uri;'></div>
+</center>
+
+<p class=r><i>виджет loginza.ru:</i></p>
+
+<iframe src='http://loginza.ru/api/widget?overlay=loginza&token_url="+encodeURIComponent('{#xd_url}?'+QUERY)+"&providers_set=openid,google,facebook,livejournal,vkontakte,odnoklassniki,twitter,yandex,mailru,myopenid,webmoney,linkedin,loginza,rambler,flickr,lastfm,verisign,aol,steam&ajax=true' style='width:640px;height:150px;' scrolling='no' frameborder='no'></iframe>
+");
+
+loadScript('https://ulogin.ru/js/ulogin.js');
+
+
+}
+
+
+
+
+/* =========== TEDDYID.COM ================ */
+/*loadScript('https://code.jquery.com/jquery-1.11.1.min.js');*/
+
+
+if(!servs || servs['teddyid'] || servs['teddy']) {
+
+
+
+var TeddyIDProperties = new function(){
+    this.node_id='{teddyid_nodeid}';
+    this.local_easyxdm_file='{httphost}extended/easyxdm_name.html';
+    this.onAuth=function(auth_token_id, auth_token, url){
+        majax('module.php',{mod:'LOGIN',a:'teddyid',auth_token_id:auth_token_id,auth_token:auth_token,url:url,QUERY:h(QUERY)});
+    };
+};
+
+teddy_start=function(){ if(typeof('TeddyID')=='function') return TeddyID.displayAuthIframe();
+    var async_js = document.createElement('script');
+    async_js.type = 'text/javascript';
+    async_js.async = true;
+    async_js.src = "https://www.teddyid.com/js/auth.js";
+    async_js.onload = async_js.onreadystatechange = function(){ async_js.onload = async_js.onreadystatechange = null; TeddyID.displayAuthIframe(); };
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(async_js, s);
+};
+
+if(servslength==1 && ( servs['teddyid'] || servs['teddy'] ) && '{#teddyid_nodeid}'!='0') page_onstart.push('teddy_start();');
+else document.write("
+<p class='r'><b>Логин с помощью смартфона через <a href='https://www.teddyid.com'>teddyid.com</a></b></p>
+
+<center>{?teddyid_nodeid:
+0:<i>на этом сайте не включен</i>
+*:<div title='сервис teddyid.com<br>логин при помощи смартфона' style='cursor:pointer;display:inline;text-align:center' onclick='teddy_start()'><img src='https://www.teddyid.com/images/main/teddy_logo.png'><br class=r><span class=l>залогиниться через teddyid.com</span><div>
+?}</center>
+");
+
+
+
+}
+
+
+
+/* =========== no ============ */
+
+if(!servs) {
+
+document.write("
+<p class='r'><b>Не имеется никаких внешних сервисов?<b>
+
+<p class='r'>Достаточно заполнить поля логин и пароль в <span class='l r' onclick=\"majax('login.php',{a:'getinfo'})\">личной карточке</span>, и вы уже автоматически залогинены.
+");
+
+}
+
+/* =========== other ============ */
+
+document.write("</td></tr></table>");
+
+var IMBLOAD_MYID='logz_ifr'; page_onstart.push('resize_me(1,80,80)');
+setTimeout('resize_me(1,80,80);ajaxoff();',1000);
+
+ajaxoff();
+
+}
+
+</script>

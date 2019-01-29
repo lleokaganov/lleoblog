@@ -1,0 +1,42 @@
+
+fclipboard=function(e){ if(!idd(e+'_textarea')) return;
+    var m=l_read('clipboard_mode'); if(m!='') {
+    if(m=='Copy link') {
+        var l=l_read('clipboard_link'),t=l_read('clipboard_text');
+        ti(e+'_textarea',l+"\n\n[i]"+t+"[/i]\n{select}");
+        l_save('clipboard_mode','');
+	}
+    }
+    setTimeout(function(){fclipboard(e);},1000);
+}; fclipboard('{hid}');
+
+ohelpc('{hid}',"КОМУ: {to}","{?njs:
+
+<form onsubmit="return ajaxform(this,'mailbox.php',{a:'new',unicto:'{#unicto}',hid:'{hid}',answerid:'{answerid}'})">
+
+<div>
+<i class='knop e_nbsp' onClick="ti('{hid}_textarea','{?chr:160?}{select}')"></i>
+<i class='knop e_copy' onClick="ti('{hid}_textarea','{?chr:169?}{select}')"></i>
+<i class='knop e_mdash' onClick="ti('{hid}_textarea','{?chr:151?}{select}')"></i>
+<i class='knop e_ltgt' onClick="ti('{hid}_textarea','{?chr:171?}{select}{?chr:187?}')"></i>
+<i class='knop e_bold' onClick="ti('{hid}_textarea','[b]{select}[/b]')"></i>
+<i class='knop e_italic' onClick="ti('{hid}_textarea','[i]{select}[/i]')"></i>
+<i class='knop e_strikethrough' onClick="ti('{hid}_textarea','[s]{select}[/s]')"></i>
+<i class='knop e_underline' onClick="ti('{hid}_textarea','[u]{select}[/u]')"></i>
+</div>
+
+{?text:
+:
+*:<div><textarea name='orig' style='border: 1px dotted #ccc; margin:0; padding:0;' disabled cols=80 rows=2>{text}</textarea></div>
+?}
+
+<div><textarea name='text' id='{hid}_textarea' style='border: 1px dotted #ccc; margin:0; padding:0;' cols=80 rows=10></textarea></div>
+
+<p><input id='submit_{hid}' type='submit' value='SEND' title='Ctrl+Enter'>
+</form>
+
+?}");
+
+idd('{hid}_textarea').focus();
+setkey('enter','ctrl',function(){idd('submit_{hid}').click()},false,1);
+setkey('esc','',function(e){ if( (e.target && e.target.value.length<2)||confirm('Закрыть без сохранения?')) clean('{hid}'); },false,1);

@@ -1,0 +1,43 @@
+ohelpc('editproject{n}','{header} #{n}',"{?njsn:
+
+<form onsubmit="return ajaxform(this,'{ajax}',{a:'add_project_'})">
+
+<input type='hidden' name='project_id' value='{#project_id}'>
+<input type='hidden' name='window' value='editproject{n}'>
+
+<table border=0>
+<tr><td width=80%>Имя проекта</td><td><input type='text' name='project_name' value="{#project_name}"></td></tr>
+<tr><td>Мессенжер</td><td><select class='select-multi' size='10' name='messanger' value='{#messenger}' onchange="if(this.value!='livezilla'){idie('Sorry, <b>'+this.value+'</b> is not supported yet!');this.value='livezilla';}">
+<option value='apple'       class='ic' style="background:url('{www_design}/ico/ico-apple.png') no-repeat;      ">Apple Messanger</option>
+<option value='binoniq'     class='ic' style="background:url('{www_design}/ico/ico-binoniq.png') no-repeat;    ">Binoniq</option>
+<option value='blogspot'    class='ic' style="background:url('{www_design}/ico/ico-blogspot.png') no-repeat;   ">Blogspot</option>
+<option value='facebook'    class='ic' style="background:url('{www_design}/ico/ico-facebook.png') no-repeat;   ">Facebook Messanger</option>
+<option value='google'      class='ic' style="background:url('{www_design}/ico/ico-google.png') no-repeat;     ">Google Talk</option>
+<option value='instagram'   class='ic' style="background:url('{www_design}/ico/ico-instagram.png') no-repeat;  ">Instagram Chat</option>
+<option value='livejournal' class='ic' style="background:url('{www_design}/ico/ico-livejournal.png') no-repeat;">LiveJournal Chat</option>
+<option value='livezilla'   class='ic' style="background:url('{www_design}/ico/ico-livezilla.png') no-repeat;  ">LiveZilla</option>
+<option value='ljrossia'    class='ic' style="background:url('{www_design}/ico/ico-ljrossia.png') no-repeat;   ">LJrossia Chat</option>
+<option value='lleo'        class='ic' style="background:url('{www_design}/ico/ico-lleo.png') no-repeat;       ">LLeo Chat</option>
+<option value='mailru'      class='ic' style="background:url('{www_design}/ico/ico-mailru.png') no-repeat;     ">MailRu Forum</option>
+<option value='moikrug'     class='ic' style="background:url('{www_design}/ico/ico-moikrug.png') no-repeat;    ">MoiKrug</option>
+<option value='myopenid'    class='ic' style="background:url('{www_design}/ico/ico-myopenid.png') no-repeat;   ">MyOpenid</option>
+<option value='openid'      class='ic' style="background:url('{www_design}/ico/ico-openid.png') no-repeat;     ">OpenId</option>
+<option value='pripyachka'  class='ic' style="background:url('{www_design}/ico/ico-pripyachka.png') no-repeat; ">Pripyachka</option>
+<option value='skype'       class='ic' style="background:url('{www_design}/ico/ico-skype.png') no-repeat;      ">Skype</option>
+<option value='telegram'    class='ic' style="background:url('{www_design}/ico/ico-telegram.png') no-repeat;   ">Telegram</option>
+<option value='twitter'     class='ic' style="background:url('{www_design}/ico/ico-twitter.png') no-repeat;    ">Twitter</option>
+<option value='vk'          class='ic' style="background:url('{www_design}/ico/ico-vk.png') no-repeat;         ">VK</option>
+<option value='wikipedia'   class='ic' style="background:url('{www_design}/ico/ico-wikipedia.png') no-repeat;  ">Wikipedia</option>
+<option value='yandex'      class='ic' style="background:url('{www_design}/ico/ico-yandex.png') no-repeat;     ">Yandex</option>
+<option value='ya'          class='ic' style="background:url('{www_design}/ico/ico-ya.png') no-repeat;         ">Ya</option>
+<option value='youtube'     class='ic' style="background:url('{www_design}/ico/ico-youtube.png') no-repeat;    ">Youtube.png</option>
+</select></td></tr>
+<tr><td>E-mail для уведомлений</td><td><input type='text' name='mail' value="{#mail}"></td></tr>
+<tr><td>Для дополнительных комментариев</td><td><textarea name='comment' rows='5'>{#comment}</textarea></td></tr>
+</table>
+
+<p><input type=submit value='Submit'>
+
+</form>
+
+?}");

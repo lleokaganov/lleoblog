@@ -1,0 +1,41 @@
+{?ifpodzamok:|1:{?newuser:|1:<input style='padding:10px' title='Только для подзамков:<br>забанить свежего тролля<br>и удалить все его комментарии?' type=button value='ЗАБАНИТЬ?' onclick="if(confirm('Точно забанить?')) majax('comment.php',{a:'deltroll',id:{#id}});">|*:|?}|:?}
+
+<div class=il>{paren}
+<div class=ctim><a class='noa' href='#{id}' onclick='kl(this)' title='link'>{date} {datetime}</a></div>
+<div class=cbro title='скрыть' onclick='skm(this)'>{#BRO}</div>
+
+<div class='cwho'{?country:
+:><a title='откуда он пишет?' href="javascript:majax('comment.php',{a:'whois',id:{id}})">whois</a>
+*: title='<b>{#countryname}</b>{?ifpodzamok:|1:&nbsp;&nbsp;&nbsp;{#ip}<br>{#BROlong}|:?}<br>{#citylong}'><i class="flag-{#country}"></i>&nbsp;{?city:|:{#countryname}|*:{#city}|?}
+?}</div>
+<div class='rul{rul}'{?admin:1: onclick='rul(this);'|*:?}></div>
+
+<div class=cplu onclick='kpl(this)'>{#golos_plu}</div>
+<div class=cmin onclick='kmi(this)'>{#golos_min}</div>
+
+<i class='e_kmail' title='написать' onclick="majax('mailbox.php',{a:'newform',unic:{unic}})"></i>
+
+<div class=cnam onclick='kus({unic})'>
+
+
+{?ifpodzamok:|1:{?capchakarma:|0:|1:|*:<div class=kr>{capchakarma}</div>?}|:?}
+{?ifpodzamok:|1:{?admin:|user:|:<img src='http://lleo.me/blog/design/e/podzamok.gif'>?}|:?}
+
+ {name}</div>
+</div>
+<table width=100%><tr valign=top><td width=100%><div class=ctxt style='font-size:6px;' id='{id}text'>{text}</div>
+
+<input type=button style='border-radius: 20px; margin:10px;padding:20px 100px 20px 100px;font-size:30px' value='PLAY' onclick="playshow('{id}text')">
+
+</td>
+<td>{?img:|:|*:<img src="{#img}" align='right' style='max-width:150px;max-height:150px'>?}</td></tr></table>
+
+<div class=kn>
+{?kn_answer:1:<div class=ka onclick='ka(this)'></div>|0:?}
+{?admin:1:<div class='ko{ans}' onclick='ko(this)'></div>|0:?}
+{?kn_del:1:<div class=kd onclick='kd(this)'></div>|0:?}
+{?kn_edit:1:<div class=ked onclick='ked(this)'></div>|0:?}
+{?kn_screen:1:<div class='ks{scr}' onclick='ksc(this)'></div>|0:?}
+
+#//$c['karma'] = ($podzamok ? "<div class=kr>".zamok($p['admin']).($p['capchakarma']>1?$p['capchakarma']:'')."</div>" : '');
+</div>

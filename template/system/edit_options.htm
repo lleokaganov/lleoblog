@@ -1,0 +1,47 @@
+ohelpc('editor{num}_options','options',"
+
+<form id='editor{num}_options_form' style='margin:0 0 0 0' onsubmit=\"return send_this_form(this,'editor.php',{a:'submit',asave:1,num:'{num}'})\">
+
+<div id='editor{num}_options_pan' class=r><label>Visible: <input type='checkbox' name='visible'{?visible:|1: checked|*:|?} onchange='ch_edit_pole(this)'></label></div>
+
+<div class=r>{s}</div>
+
+<!-- input type='submit' title='{?LL:shift+Enter?}' value='{?LL:Save?}' -->
+
+</form>");
+
+{zopt}
+
+add_edit_opt=function(txt,nn,vvt1,vvt2){ var n=(nn.indexOf(' ')<0?nn:nn.split(/ /)[0]),v=(vvt1.indexOf(' ')<0?vvt1:vvt1.split(/ /)[0]);
+    i=(zopt[n].v==v?'e_ledgreen':'e_ledred');
+    zabil('editor{num}_options_pan',vzyal('editor{num}_options_pan')+txt+"<i n='"+nn+"' val1='"+vvt1+"' val2='"+vvt2+"' class='knop "+i+"' onclick='ch_edit_pole_pan(this)'></i> &nbsp;");
+};
+
+add_edit_opt(' автоформат:','autoformat autokaw','pd auto','no no');
+add_edit_opt(' комменты:','Comment_write Comment_view Comment_screen','on on open','off off screen');
+
+ch_edit_pole_pan=function(e) { var val1=e.getAttribute('val1'),val2=e.getAttribute('val2'),n=e.getAttribute('n');
+    var v=(e.className.indexOf('red')<0?val2:val1);
+    e.className='knop '+(v==val1?'e_ledgreen':'e_ledred');
+    ara={a:'submit',asave:2,num:'{num}',names:n};
+
+    if(n.indexOf(' ')<0) { ara[n]=v; idd('editor{num}_options_form')[n].value=v; }
+    else {
+	var nn=n.split(/ /),vv=v.split(/ /); for(var i=0;i<nn.length;i++) {
+	    ara[nn[i]]=vv[i];
+	    idd('editor{num}_options_form')[nn[i]].value=vv[i];
+	}
+    }
+    majax('editor.php',ara);
+};
+
+ch_edit_pole=function(e){
+    var ara={a:'submit',asave:2,num:'{num}',names:e.name};
+    if(e.type!='checkbox') ara[e.name]=e.value; else ara[e.name]=(e.value=='on'?1:0);
+    majax('editor.php',ara);
+};
+
+/*
+setkey('esc','',function(e){ var e=idd('editor{num}_Body'); if(e.value==e.defaultValue || confirm('{?LL:exit_no_save?}')) clean('editor{num}'); },false,1);
+setkey('enter','ctrl',function(e){savea(idd('editor{num}_form'))},false,1);
+*/

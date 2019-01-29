@@ -1,0 +1,43 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset={wwwcharset}" />
+{_SNAPSHOT:_}{_MAIN:_}{_STYLE_ADD: {www_css}blog.css _}{_STYLE_ADD: {www_css}sys.css _}
+<title>{admin_name}: {_TITLE:_}</title>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="{admin_name}" href="{httphost}rss" />
+{_OEMBED:_}
+<link rel="prev" href="{prevlink}" id="PrevLink" />
+<link rel="next" href="{nextlink}" id="NextLink" />
+<link rel="UpLink" href="{uplink}" id="UpLink" />
+<link rel="DownLink" href="{downlink}" id="DownLink" />
+</head>
+
+<body>
+<table cellspacing=0 cellpadding=0><tr valign=top>
+<td><img src="{www_design}userpick.jpg" width=120 height=155 border=0></td>
+
+<td><div style="float:left; margin: 10px; border: 1px solid #ccc">{_CALENDAR:_}</div></td>
+<td>{_OTHERBLOGS:_}</td>
+<td width=50%>{_REKOMENDA:_}</td>
+</tr></table>
+
+<center><table cellspacing=0 cellpadding=0 width=100%><tr valign=top align=center class=r>
+<td>{_UNIC:_}</td>
+<td>Счетчик: {_COUNTER:_}</td>
+<td><p class=r>{_STATISTIC:_}</td>
+<td><p class=r><a href={wwwhost}contents>содержание</a></td>
+<td><a href={wwwhost}lleoblog>ДВИЖОК БЛОГА</a></td>
+<td><a href={wwwhost}rss><i class="e_rss" width=36 height=14 border=0 alt="RSS вход" title='Мой дневник поддерживает RSS'></i></a></td>
+<td><FORM METHOD=get ACTION={httphost}contents/><INPUT class=t TYPE="text" NAME="search" SIZE=6 VALUE="" MAXLENGTH=160><INPUT TYPE=SUBMIT VALUE=">"></FORM></td>
+</tr></table><center>
+
+<hr color=red width=100%>
+{_PREWORD:_}
+{_PREVNEXT:_}
+<div id="post">{_HEAD:_}<div id="bodyz">{_TEXT:_}</div></div>
+
+<div>test: {_tutu_}</div>
+
+<div id="copyright">{signature}</div>
+{_PREVNEXT:_}
+<div id="comments">{_COMENTS:_}</div>
+
+</body></html>

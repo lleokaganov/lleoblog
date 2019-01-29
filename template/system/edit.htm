@@ -1,0 +1,42 @@
+delit=function(){ if(confirm('Delete `{#name}`?')) { majax('{ajax}',{a:'del',name:'{#name}'}); clean('edit_{#num}'); } };
+
+get_edit_width=function(){ var W=(1*'{W}')||getWinW(); W=Math.min(W,1300); return Math.floor(W*0.90); };
+get_edit_height=function(){ var H=(1*'{H}')||getWinH(); H=Math.min(H,1300); return Math.floor(H*0.80); };
+
+window.onbeforeunload=function(){ var e=idd('edit_{#num}_Body'); if(e && e.value!=e.defaultValue && confirm('{LL:save_before_exit}')===true) savea(e); };
+
+savea=function(e){ return send_this_form(e,'{ajax}',{a:'{submit}'}); };
+
+savea_noclose=function(e){
+	if(idd('edit_{#num}_Body').value==idd('edit_{#num}_Body').defaultValue) return salert('{?LL:save_not_need?}',500);
+	send_this_form(e,'{ajax}',{a:'{submit}',noclose:1});
+        idd('edit_{#num}_Body').defaultValue=idd('edit_{#num}_Body').value;
+};
+
+helpc('edit_{#num}',"<div><b>{#name}</b>
+ &nbsp;
+<i class='knop e_remove' title='Delete' onclick='delit()'></i></div>
+
+<form style='margin:0 0 0 0' id='edit_{#num}_form'>
+<input type='hidden' name='num' value='{#num}'>
+
+<input type='hidden' name='name' value='{#name}'>
+
+<div style='width:"+get_edit_width()+"px'>
+<textarea style='margin:0 0 0 0;padding:0 0 0 0; width:"+get_edit_width()+"px;height:"+get_edit_height()+"px;
+font-size:15pt;' id='edit_{#num}_Body' name='text'>{#njsn#:Body}</textarea>
+</div>
+
+<br><input title='{?LL:ctrl+Enter?}' type='button' value='{?LL:Save+exit?}' onclick='savea(this)'>
+ <input title='{?LL:shift+Enter?}' type='button' value='{?LL:Save?}' onclick='savea_noclose(this)'>
+
+
+</form>");
+
+if(idd('edit_{#num}_Body')) idd('edit_{#num}_Body').focus();
+
+setkey('esc','',function(e){ var e=idd('edit_{#num}_Body'); if(e.value==e.defaultValue || confirm('{?LL:exit_no_save?}')) clean('edit_{#num}'); },false,1);
+setkey('enter','ctrl',function(e){savea(idd('edit_{#num}_form'))},false,1);
+setkey('enter','shift',function(e){savea_noclose(idd('edit_{#num}_form'))},false,1);
+setkey('del','ctrl',delit,false,1);
+setkey('tab','shift',function(){ti('edit_{#num}_Body','\\t{select}')},false,1);

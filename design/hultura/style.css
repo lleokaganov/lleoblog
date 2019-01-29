@@ -1,0 +1,888 @@
+.hultura-pic2,.hultura-pic,.j { cursor: pointer; }
+
+.hultura-pic2 {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+/*            height: 300px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+*/
+}
+
+
+
+/* fix */
+.js--sidebar-opened {
+    overflow: inherit;
+    position: inherit;
+    }
+
+
+
+BODY {
+    font: 15px/1.4 "Noto Sans",Helvetica,Arial,sans-serif;
+    background: #F2F2F2;
+    color: #1B2326;
+    }
+
+
+
+/* links */
+A:link {
+    text-decoration: none;
+    color: #6790A8;
+    }
+A:visited {
+    text-decoration: none;
+    color: #6A8899;
+    }
+A:hover {
+    text-decoration: none;
+    color: #000;
+    }
+A:active {
+    text-decoration: none;
+    color: #000;
+    }
+
+
+
+
+/* header */
+.j-l-header {
+    position: relative;
+    height: 207px;
+    margin: 0 0 10px;
+    background: url(http://lleo.me/dnevnik/design/hultura/img/s2/header.png) no-repeat 50% 0;
+    }
+    .j-l-header-link {
+        overflow: hidden;
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        width: 300px;
+        height: 100px;
+        margin: 0 0 0 -150px;
+        text-indent: 300px;
+        font: 0/0 a;
+        }
+
+
+
+/* layout */
+.j-l-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    }
+
+/* alpha */
+.j-p-layout-wt .j-l-alpha-content,
+.j-p-layout-wt .j-l-alpha-footer {
+    margin-left: 0;
+    }
+
+/* beta */
+.j-p-layout-wt .j-l-beta {
+    position: relative;
+    z-index: 1;
+    }
+    .j-pageview-popular .j-l-beta-inner,
+    .j-pageview-commented .j-l-beta-inner,
+    .j-pageview-authors .j-l-beta-inner,
+    .j-view-archive .j-l-beta-inner,
+    .j-view-month .j-l-beta-inner,
+    .j-view-day .j-l-beta-inner {
+        padding-top: 38px; /* = 18 + 20 */
+        }
+    .j-view-entry .j-l-beta-inner,
+    .j-view-reply .j-l-beta-inner {
+        padding-top: 41px; /* = 21 + 20 */
+        }
+
+.j-page-nav {
+    margin: 0;
+    }
+
+/* page title */
+.j-page-title,
+.j-month-nav,
+.j-years-nav {
+    height: 18px;
+    margin: 0 0 20px 20px;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    }
+
+/* month */
+.j-day {
+    margin: 0 0 15px;
+    padding: 15px 0 0;
+    border-top: 2px solid #F1F5F8;
+    }
+.j-day:first-child {
+    padding-top: 0;
+    border-top: 0;
+    }
+    .j-day-subjects-item {
+        margin: 0 0 5px;
+        }
+        .j-day .e-time {
+            font-size: 10px;
+            color: #999;
+            }
+
+/* tags */
+.j-p-tagcloud .j-w-item {
+    padding: 0;
+    border-top: 0;
+    }
+
+/* add post */
+.j-addpost {
+    }
+    .j-addpost-item {
+        margin: 0 0 20px;
+        }
+        .j-addpost-item SMALL {
+            display: block;
+            }
+        .j-addpost-textarea-counter {
+            display: block;
+            }
+
+
+
+/* entry */
+.j-e {
+    position: relative;
+    margin: 0 0 40px;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 3px 5px 0 rgba(155,155,155,0.1);
+    background: #FFF;
+    }
+
+    /* marker */
+    .j-e-marker {
+        position: absolute;
+        top: -5px;
+        right: 20px;
+        width: 10px;
+        height: 34px;
+        border-radius: 8px;
+        font: 0/0 a;
+        }
+
+    /* date */
+    .j-e-date {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        text-transform: uppercase;
+        font-size: 10px;
+        color: #999;
+        }
+
+    /* title */
+    .j-e-title {
+        margin: 0 100px 20px 0;
+        line-height: 1.1;
+        font-weight: bold;
+        font-size: 30px;
+        color: #6790A8;
+        }
+        /* title link on entrypage */
+        .j-view-entry .j-e-title A {
+            color: #000;
+            }
+
+    /* meta */
+    .j-e-meta {
+        margin: 0 0 20px;
+        padding: 0 0 20px;
+        border-bottom: 1px solid #E4EDF2;
+        font-size: 10px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        }
+        .j-e-tags {
+            margin: 0;
+            }
+            .j-e-meta-label {
+                display: none;
+                }
+
+    /* text */
+    .j-e-text {
+        overflow: visible;
+        margin: 0 0 20px;
+        line-height: 1.9;
+        }
+    .j-e-text P {
+            margin: 0 0 10px;
+            }
+
+    /* author's comments */
+    .j-e-acomments {
+        position: relative;
+        margin: 0 -20px;
+        padding: 20px;
+        box-sizing: border-box;
+        border-top: 1px solid #E4EDF2;
+        font-size: 13px;
+        }
+    .j-e-acomments:last-child {
+        margin-bottom: -20px;
+        }
+        .j-e-acomments-items {
+            margin: 0 0 -20px;
+            padding: 0;
+            }
+            .j-e-acomments-item {
+                display: inline-block;
+                position: relative;
+                max-width: 200px;
+                margin: 0 20px 20px 20px;
+                padding: 10px 15px;
+                border-radius: 4px;
+                vertical-align: top;
+                background-color: #000;
+                color: #FFF;
+                }
+                .j-e-acomments-item::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: -20px;
+                    width: 10px;
+                    height: 30px;
+                    border-radius: 8px;
+                    background: inherit;
+                    font: 0/0 a;
+                    }
+                .j-e-acomments-body {
+                    overflow: hidden;
+                    position: relative;
+                    max-height: 7em;
+                    }
+                .j-e-acomments-corner {
+                    content: "";
+                    position: absolute;
+                    top: 1px;
+                    left: -8px;
+                    font: 0/0 a;
+                    }
+    .j-e-acomments.j-e-acomments-expanded {
+        overflow: visible;
+        max-height: none;
+        }
+        .j-e-acomments.j-e-acomments-expanded::before,
+        .j-e-acomments.j-e-acomments-expanded::after {
+            display: none;
+            }
+.j-e-acomments-items-rendered .j-e-acomments-item {
+    animation: bounce_comments 2s;
+    }
+@keyframes bounce_comments {
+    0%, 20%, 50%, 80%, 100% { transform: scale(1) translateX(0); }
+    40% { transform: scale(0.9) translateX(10px); }
+    60% { transform: scale(0.95) translateX(5px); }
+}
+
+    /* nav */
+    .j-e-nav {
+        margin: 0 -20px;
+        padding: 20px 0 0;
+        border-top: 1px solid #E4EDF2;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 10px;
+        text-align: center;
+        }
+        .j-e-nav-list {
+            margin: 0 0 -15px;
+            }
+            .j-e-nav-item {
+                display: none;
+                float: none;
+                position: relative;
+                margin: 0 15px 15px;
+                padding: 0;
+                font-weight: bold;
+                letter-spacing: 1px;
+                }
+                .j-e-nav-item::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: -15px;
+                    width: 1px;
+                    height: 28px;
+                    margin: -13px 0 0;
+                    background: #E4EDF2;
+                    }
+                .j-e-nav-item:first-child::before {
+                    display: none;
+                    }
+            .j-e-nav-item-comments,
+            .j-e-nav-item-reply,
+            .j-e-nav-item-edit_entry {
+                display: inline-block;
+                }
+.j-e-view-entry {
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+    }
+
+
+
+/* type: text */
+.jj-e {
+max-height:250px;
+min-height:250px;
+overflow: hidden;
+}
+
+.j-e[data-type="text"] { }
+.j-view-recent .j-e[data-type="text"] .j-e-title {  margin-left: 220px;   }
+.j-view-recent .j-e[data-type="text"] .j-e-text { min-height: 250px;
+
+max-height:250px;
+min-height:250px;
+overflow: hidden;
+
+/*background: #fc0;*/
+
+margin-left: 220px;  }
+.j-view-recent .j-e[data-type="text"] .j-e-text .hultura-pic {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 300px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+}
+        .j-view-recent .j-e[data-type="text"] .j-e-text .hultura-pic IMG { display: none; }
+
+        .j-view-recent .j-e[data-type="text"] .j-e-text .hultura-pic + BR,
+        .j-view-recent .j-e[data-type="text"] .j-e-text .hultura-pic + BR + BR,
+        .j-view-recent .j-e[data-type="text"] .j-e-text .hultura-caption { display: none; }
+        .j-view-entry .j-e[data-type="text"] .j-e-text .hultura-pic IMG,
+        .j-view-reply .j-e[data-type="text"] .j-e-text .hultura-pic IMG { display: block; width: 100%; height: auto;  }
+        .j-view-entry .j-e[data-type="text"] .j-e-text .hultura-pic + BR,
+        .j-view-reply .j-e[data-type="text"] .j-e-text .hultura-pic + BR { display: none; }
+        .j-view-entry .j-e[data-type="text"] .j-e-text .hultura-caption,
+        .j-view-reply .j-e[data-type="text"] .j-e-text .hultura-caption { display: block; color: #A9AAB5;  }
+
+/* type: photo */
+.j-e[data-type="photo"] { }
+    .j-e[data-type="photo"] .j-e-text { }
+        .j-e[data-type="photo"] .j-e-text IMG { width: 100%; height: auto; vertical-align: top; }
+
+/* type: video */
+.j-e[data-type="video"] { }
+    .j-e[data-type="video"] .j-e-text { }
+        .j-e[data-type="video"] .j-e-text IFRAME { width: 100%; }
+
+/* type: audio */
+.j-e[data-type="audio"] { }
+    .j-view-recent .j-e[data-type="audio"] .j-e-title { margin-left: 220px; }
+    .j-view-recent .j-e[data-type="audio"] .j-e-text { min-height: 250px; margin-left: 220px; }
+        .j-e[data-type="audio"] .j-e-text IFRAME {
+            width: 100%;
+            }
+        .j-view-recent .j-e[data-type="audio"] .j-e-text .hultura-pic {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 300px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+            }
+            .j-view-recent .j-e[data-type="audio"] .j-e-text .hultura-pic IMG {
+                display: none;
+                }
+        .j-view-recent .j-e[data-type="audio"] .j-e-text .hultura-pic + BR,
+        .j-view-recent .j-e[data-type="audio"] .j-e-text .hultura-pic + BR + BR,
+        .j-view-recent .j-e[data-type="audio"] .j-e-text .hultura-caption {
+            display: none;
+            }
+        .j-view-entry .j-e[data-type="audio"] .j-e-text .hultura-pic IMG,
+        .j-view-reply .j-e[data-type="audio"] .j-e-text .hultura-pic IMG {
+            display: block;
+            width: 100%;
+            height: auto;
+            }
+        .j-view-entry .j-e[data-type="audio"] .j-e-text .hultura-pic + BR,
+        .j-view-reply .j-e[data-type="audio"] .j-e-text .hultura-pic + BR {
+            display: none;
+            }
+        .j-view-entry .j-e[data-type="audio"] .j-e-text .hultura-caption,
+        .j-view-reply .j-e[data-type="audio"] .j-e-text .hultura-caption {
+            display: block;
+            color: #A9AAB5;
+            }
+
+
+
+/* hide widgets on their pages */
+.j-pageview-latest .j-w-latest,
+.j-pageview-popular .j-w-popular,
+.j-pageview-commented .j-w-commented {
+    display: none;
+    }
+
+
+/* prev-next */
+.j-prevnext {
+    height: 21px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+    .j-prevnext::after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+    .j-prevnext-item {
+        width: 49%;
+        }
+        .j-prevnext-link {
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+            max-width: 90%;
+            box-sizing: border-box;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            vertical-align: top;
+            }
+            .j-prevnext-link::before {
+                content: " ";
+                overflow: hidden;
+                position: absolute;
+                top: 50%;
+                width: 20px;
+                height: 20px;
+                margin: -10px 0 0;
+                font: 0/0 a;
+                }
+    .j-prevnext-item-prev {
+        float: left;
+        text-align: left;
+        }
+        .j-prevnext-item-prev .j-prevnext-link {
+            float: left;
+            padding-left: 30px;
+            }
+            .j-prevnext-item-prev .j-prevnext-link::before {
+                left: 0;
+                background: url(http://lleo.me/dnevnik/design/hultura/img/s2/prev-blue.png) no-repeat 50% 50% / contain, url(http://lleo.me/dnevnik/design/hultura/img/s2/prev-black.png) no-repeat -100px -100px;
+                }
+            .j-prevnext-item-prev .j-prevnext-link:hover::before {
+                background-image: url(http://lleo.me/dnevnik/design/hultura/img/s2/prev-black.png);
+                }
+    .j-prevnext-item-next {
+        float: right;
+        text-align: right;
+        }
+        .j-prevnext-item-next .j-prevnext-link {
+            float: right;
+            padding-right: 30px;
+            }
+            .j-prevnext-item-next .j-prevnext-link::before {
+                right: 0;
+                background: url(http://lleo.me/dnevnik/design/hultura/img/s2/next-blue.png) no-repeat 50% 50% / contain, url(http://lleo.me/dnevnik/design/hultura/img/s2/next-black.png) no-repeat -100px -100px;
+                }
+            .j-prevnext-item-next .j-prevnext-link:hover::before {
+                background-image: url(http://lleo.me/dnevnik/design/hultura/img/s2/next-black.png);
+                }
+.j-view-entry .j-prevnext:first-child {
+    margin-bottom: 20px;
+    }
+.j-view-entry .j-prevnext:last-child {
+    margin-top: 30px;
+    }
+
+
+
+/* closing */
+.j-l-closing {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    }
+    .j-closing {
+        margin: 30px 250px 30px 0;
+        padding: 30px 0 0;
+        border-top: 1px solid #DCE4E8;
+        font-size: 13px;
+        }
+        .j-closing::after {
+            content: "";
+            display: table;
+            clear: both;
+            }
+        .j-closing-authors {
+            float: left;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            }
+            .j-closing-author {
+                display: inline-block;
+                margin: 0 3px 0 0;
+                padding: 7px 5px;
+                border-radius: 10px;
+                background: transparent;
+                font: 0/0 a;
+                }
+            .j-closing-link {
+                margin: 0 0 0 5px;
+                vertical-align: 2px;
+                }
+        .j-closing-copyright {
+            float: right;
+            color: #999;
+            }
+
+
+
+
+@media only screen and (max-width: 1000px) {
+
+    /* header */
+    .j-l-header {
+        height: 170px;
+        background-size: cover;
+        }
+
+    /* closing */
+    .j-closing {
+        margin-right: 0;
+        }
+
+    /* aside */
+    .j-p-layout-wt .j-l-beta {
+        position: static;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        margin: 0 0 20px;
+        }
+        .j-beta-controls {
+            position: static;
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: auto;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+            transition: all 0s ease 0s;
+            }
+            .j-beta-control {
+                width: 40px;
+                height: 40px;
+                }
+                .j-beta-control-icon {
+                    width: 40px;
+                    height: 40px;
+                    padding: 0;
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                    background-size: cover;
+                    }
+                .j-beta-control-icon--open {
+                    background-image: url(http://lleo.me/dnevnik/design/hultura/img/s2/menu.png);
+                    }
+                .j-beta-control-icon--close {
+                    background-image: url(http://lleo.me/dnevnik/design/hultura/img/s2/cross.png);
+                    }
+        .j-l-beta-inner {
+            position: static;
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: auto;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            }
+        .j-l-beta .j-l-beta-inner {
+            margin: 0;
+            padding: 0;
+            }
+        .js--sidebar-opened .j-l-beta-inner {
+            overflow: visible;
+            height: auto;
+            box-shadow: none;
+            margin: 10px 0 0;
+            }
+            .j-l-beta::before {
+                display: none;
+                }
+            .j-beta-w {
+                width: auto;
+                margin: 0;
+                padding: 0;
+                border-radius: 0;
+                box-shadow: none;
+                background: transparent;
+                }
+            .j-l-beta .j-beta-w {
+                display: block;
+                }
+                .j-beta-w .j-w-title {
+                    margin: 0;
+                    }
+                    .j-beta-w .j-w-title A {
+                        display: inline-block;
+                        padding: 10px 15px;
+                        border-radius: 3px;
+                        }
+                    .j-beta-w .j-w-title A:link,
+                    .j-beta-w .j-w-title A:visited {
+                        color: #6790A8;
+                        }
+                    .j-beta-w .j-w-title A:hover,
+                    .j-beta-w .j-w-title A:active {
+                        background: #6790A8;
+                        color: #FFF;
+                        }
+                    .j-pageview-latest .j-w-latest .j-w-title A:link,
+                    .j-pageview-latest .j-w-latest .j-w-title A:visited,
+                    .j-pageview-popular .j-w-popular .j-w-title A:link,
+                    .j-pageview-popular .j-w-popular .j-w-title A:visited,
+                    .j-pageview-commented .j-w-commented .j-w-title A:link,
+                    .j-pageview-commented .j-w-commented .j-w-title A:visited {
+                        background: #6790A8;
+                        color: #FFF;
+                        }
+                .j-beta-w .j-w-content {
+                    display: none;
+                    }
+
+}
+
+@media only screen and (max-width: 650px) {
+
+    /* header */
+    .j-l-header {
+        height: 150px;
+        }
+        .j-l-header-link {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: auto;
+            height: auto;
+            margin: 0;
+            }
+
+    /* layout */
+    .j-l-content,
+    .j-l-closing {
+        padding-left: 10px;
+        padding-right: 10px;
+        }
+
+    /* aside */
+    .j-beta-controls {
+        width: 20px;
+        height: 20px;
+        }
+        .j-beta-control {
+            width: 20px;
+            height: 20px;
+            }
+            .j-beta-control-icon {
+                width: 20px;
+                height: 20px;
+                }
+
+    /* entry */
+    .j-e-title {
+        font-size: 22px;
+        }
+
+    /* sentence */
+    .j-sentence {
+        padding-right: 20px;
+        text-align: center;
+        }
+        .j-sentence-pic {
+            display: none;
+            }
+
+    /* comments */
+    .j-c-date {
+        display: block;
+        margin: 0 0 5px;
+        }
+    .j-c-controls {
+        display: block;
+        }
+        .j-c-controls IMG {
+            width: 16px;
+            height: 16px;
+            }
+
+    /* closing */
+    .j-closing-authors {
+        float: none;
+        margin: 0 0 20px;
+        }
+    .j-closing-copyright {
+        float: none;
+        }
+
+/* type: text, audio */
+.j-e[data-type="text"],
+.j-e[data-type="audio"] {
+    }
+    .j-view-recent .j-e[data-type="text"] .j-e-title,
+    .j-view-recent .j-e[data-type="audio"] .j-e-title {
+        margin-left: 0;
+        }
+    .j-view-recent .j-e[data-type="text"] .j-e-text,
+    .j-view-recent .j-e[data-type="audio"] .j-e-text {
+        min-height: 0;
+        margin-left: 0;
+        }
+        .j-view-recent .j-e[data-type="text"] .j-e-text .hultura-pic,
+        .j-view-recent .j-e[data-type="audio"] .j-e-text .hultura-pic {
+            display: inline;
+            position: static;
+            top: auto;
+            left: auto;
+            width: auto;
+            height: auto;
+            background-image: none !important;
+            }
+            .j-view-recent .j-e[data-type="text"] .j-e-text .hultura-pic IMG,
+            .j-view-recent .j-e[data-type="audio"] .j-e-text .hultura-pic IMG {
+                display: inline-block;
+                vertical-align: top;
+                }
+        .j-view-recent .j-e[data-type="text"] .j-e-text .hultura-pic + BR,
+        .j-view-recent .j-e[data-type="text"] .j-e-text .hultura-pic + BR + BR,
+        .j-view-recent .j-e[data-type="audio"] .j-e-text .hultura-pic + BR,
+        .j-view-recent .j-e[data-type="audio"] .j-e-text .hultura-pic + BR + BR {
+            display: block;
+            }
+
+}
+
+@media only screen and (max-width: 400px) {
+
+    /* aside */
+    .j-w-title {
+        font-size: 11px;
+        }
+
+    /* entry */
+    .j-e-date {
+        position: static;
+        margin: 0 0 5px;
+        }
+    .j-e-title {
+        margin-right: 0;
+        }
+
+    /* ljcut */
+    .ljcut-link {
+        margin: 20px -20px;
+        padding: 10px 20px;
+        border-top: 1px solid #DCE4E8;
+        border-bottom: 1px solid #DCE4E8;
+        text-align: center;
+        }
+
+    /* sentence */
+    .j-sentence {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        line-height: 1.6;
+        }
+        .j-sentence-text {
+            position: static;
+            padding-left: 0;
+            padding-right: 0;
+            }
+            .j-sentence-text::before {
+                top: 20px;
+                left: 50%;
+                margin-left: -14px;
+                }
+            .j-sentence-text::after {
+                top: auto;
+                right: auto;
+                left: 50%;
+                bottom: 20px;
+                margin-left: -14px;
+                }
+
+    /* author's comments */
+    .j-e-acomments {
+        overflow: hidden;
+        max-height: 200px;
+        }
+        .j-e-acomments::before {
+            content: "";
+            position: absolute;
+            top: 150px; /* = 200px - 50px */
+            left: 0;
+            right: 0;
+            z-index: 1;
+            height: 50px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+            font: 0/0 a;
+            }
+        .j-e-acomments::after {
+            content: "";
+            position: absolute;
+            top: 170px; /* = 200px - 20px - 10px */
+            left: 50%;
+            z-index: 1;
+            width: 20px;
+            height: 20px;
+            margin: 0 0 0 -10px;
+            padding: 0;
+            background: url(http://lleo.me/dnevnik/design/hultura/img/s2/down.png) no-repeat 50% 50% / contain;
+            font: 0/0 a;
+            cursor: pointer;
+            }
+}
+
+@media only screen and (max-width: 330px) {
+
+    /* header */
+    .j-l-header {
+        height: 128px;
+        background-image: url(http://lleo.me/dnevnik/design/hultura/img/s2/header-320.png);
+        background-size: auto;
+        }
+
+}
