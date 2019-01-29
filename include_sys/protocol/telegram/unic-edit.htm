@@ -1,0 +1,111 @@
+<fieldset><legend>редактор карточки {id}</legend><div class=r>
+<div id='openidotvet'></div>
+
+<div style='max-width:500px;text-align:justify;font-size:13px;'>
+
+{?admin:|podzamok:<i class='e_podzamok'></i><font color=green> У вас подзамочный доступ! </font>|*:?}
+
+{?loginlevel:|3:<font color=green>Вы успешно залогинены!</font>|*:<font color=red>Вы не залогинены!</font>|?}
+
+<div class=br>зарегистрирован: {#time_reg}</div><div class=br>последнее появление: {#timelast}</div>
+
+{?loginlevel:
+1:&nbsp;Ваш браузер способен помнить авторизацию, но регистрационная карточка пока пуста, либо создалась заново - тогда чтобы войти в свой прежний аккаунт, используйте кнопку "залогиниться":
+2:&nbsp;Вы оставляли некоторую информацию - может быть, ник или емайл, когда писали комментарий. Но этого недостаточно, чтобы считаться залогиненным.
+3:
+*:&nbsp;Ваш браузер стер куки или не умеет их хранить. Для начала разок перегрузите страницу, чтобы браузер получил хоть какие-то куки, иначе с сайтом работать не получится.
+?}
+
+<p><center><input onclick="majax('login.php',{a:'do_login'})" value="залогиниться" type="button">&nbsp;&nbsp;&nbsp;<input onclick="majax('login.php',{a:'do_logout'})" value="разлогиниться" type="button"></center>
+
+{?loginlevel:
+2:{?mailconfirm:|0:<font color=red><p>Раз вы не залогинены соцсетью, должен быть хотя бы подтвержден email (и, само собой, придуман логин/пароль).<p></font>|*:|?}
+3:
+*:<p>Если вы хотите завести новую регистрационную запись, то прямо здесь, в этой личной карточке, придумайте и впишите логин, пароль, и укажите свой адрес электронной почты &mdash; после его подтверждения вы будете считаться полностью залогиненым! Также (или вместо этого) вы можете залогиниться через openid или свою любимую соцсеть, привязав ее к этой карточке, либо через мобильную авторизацию Teddyid. Впрочем, лучше логин-пароль все равно придумать и вписать: кто знает, что учудят завтра соцсети, а вход по паролю на этом сайте сохранится.
+?}
+</div>
+
+
+<form onsubmit="return ajaxform(this,'login.php',{a:'save_card'})">
+
+<p><input type='hidden' name='unic' value='{id}'>
+
+<div style='position:relative;min-width:100px;min-height:100px;max-width:500px;max-width:500px;display:inline;float:right;border:3px dotted #ccc;'>
+<div id='img_no' style='display:{?img:|:inline|*:none|?}'><center>иконка<p><input title='добавить иконку' type='file' multiple accept='image/*' name='img'" size=13 onchange="idd('sbmt').click()"></center></div>
+<div id='img_yes' style='display:{?img:|:none|*:inline|?}'><img id='img_src' src='{#img}' style='min-width:100px;min-height:100px;'><div onclick="if(confirm('Удалить иконку?')) majax('login.php',{a:'remove_img'});" style='position:absolute;top:-9px;right:-9px;'><i title="удалить<br>иконку" class='e_remove'></i></div></div>
+</div>
+
+
+<div style='font-weight:bold; font-size:16px'>{imgicourl}</div>
+
+<div style='color:#888'>
+<br>доступ:&nbsp;{admin}{?adm:|1:<font color=red> админ</font> <input class=br type='button' value='цвет комментов' onclick="majax('comment.php',{a:'select_color_form'})">|*:?}
+<br>доступ админа:&nbsp;{adm}
+<br>уровень&nbsp;логина:&nbsp;{loginlevel}
+<br>карма:&nbsp;{capchakarma}
+<br>IP:&nbsp;{ip}
+<br>зарегистрирован:&nbsp;{time_reg_date}
+<br>последнее обновление:&nbsp;{timelast}
+<br>комментарии: {?ncomm:|0:нет|*:<span class=ll onclick="majax('okno.php',{a:'hiscomment',id:{id},n:{ncomm}})">показать {ncomm}</span>|?}
+</div>
+
+<div><b>соцсеть:</b>&nbsp;
+<div id='openid_no' style='display:{?openid:|:inline|*:none|?}'><input class=br onclick="ifhelpc(wwwhost+'login?opt=openid&clean=userid','logz','Login from social networks');" type=button value='добавить'></div>
+<div id='openid_yes' style='display:{?openid:|:none|*:inline|?}'><a id='openid_id' href='{#openid}'>{#openid}</a>&nbsp;<i onclick="if(confirm('Убрать {#openid}?'))majax('login.php',{a:'remove_openid'})" title="Убрать {#openid}" class='e_remove'></i></div>
+</div>
+
+<div><b>teddiyd:</b>&nbsp;
+<div id='teddyid_no' style='display:{?teddyid:|0:inline|*:none|?}'><input class=br onclick="ifhelpc(wwwhost+'login?opt=teddyid&clean=userid','logz','Login from TeddyId.com');" type=button value='добавить'></div>
+
+<div id='teddyid_yes' style='display:{?teddyid:|0:none|*:inline|?}'><span id='teddyid_id'>{#teddyid}</span>&nbsp; <i onclick="if(confirm('Убрать TeddyId?'))majax('login.php',{a:'remove_teddyid'})" title="Убрать TeddyId" class='e_remove'></i>
+<p><fieldset><legend>настройки безопасности с TeddyId</legend>
+    <label title="спрашивать разрение на изменения в личной карточке"><input type='checkbox'{?opt_ttcard:|0:|1: checked|?} name='opt_ttcard'> запрос изменений карточки</label>
+<br><label title="спрашивать разрешение на чтение архивов личной переписки"><input type='checkbox'{?opt_ttmailarh:|0:|1: checked|?} name='opt_ttmailarh'> запрос архива личных собщений</label>
+<br><label title="уведомлять о новом личном сообщении"><input type='checkbox'{?opt_ttmailnew:|0:|1: checked|?} name='opt_ttmailnew'> уведомление о новом личном сообщении</label>
+<br><label title="уведомлять о любых ответах на ваш комментарий"><input type='checkbox'{?opt_ttcom:|0:|1: checked|?} name='opt_ttcom'> ответ на комментарий</label>
+<br><label title="уведомлять об ответе автора блога на ваш комментарий"><input type='checkbox'{?opt_ttcom1:|0:|1: checked|?} name='opt_ttcom1'> ответ автора блога</label>
+</fieldset>
+</div>
+
+</div>
+
+<br>login:&nbsp;{?login:|:<input type=text name='login' size=13>|*:<b>{#login}</b>|?}
+<br>{?password:|:установить пароль|*:новый пароль|?}:&nbsp;<input type=text name='password' onclick="if(idd('oldpass')&&idd('oldpass').style.display=='none'){otkryl('oldpass');resize_me();}" size=13>
+{?password:|:|*:<div id='oldpass' style='display:none'><font color='red'>старый пароль</font>:<input title='введите старый пароль<br>чтоб знать, что это вы' type=text name='oldpassword' size=13><div class=l onclick="majax('login.php',{a:'send_me_pass'})">но я не помню старый пароль!</div></div>|?}
+<br>realname:&nbsp;<input type=text name='realname' size=13 value='{#realname}'>
+
+<br>mail:&nbsp;{?mail_confirm:
+1:<span style='color:green' title="подтвержден">{#mail}</span><br><span style='color:{?mailw_confirm:|0:black|1:green|?}'>дополнительный mail:</span>&nbsp;<input type=text name='mailw' size=15 value='{#mailw}'>{?mailw:|:|*:{?mailw_confirm:|0:<br><label><input type='checkbox' name='mailw_confirm' title="повторно подтвердить {#mailw}"> повторно подтвердить {#mailw}</label>|1:|?}|?}
+*:<input type=text name='mail' size=30 value='{#mail}'>{?mail_confirm:|0:<br><font color=red>email ещё не подтвержден</font><br><label><input type='checkbox' name='mail_confirm' title="повторно подтвердить {#mail}"> повторно подтвердить {#mail}</label>|1:|?}
+?}
+
+<br><label><input type='checkbox' name='mail_comment' title='присылать' {?mail_comment:|1: checked|*:|?}>&nbsp;присылать комментарии на email</label>
+
+<br>мобильный:&nbsp;{?tel_confirm:
+1:<span style='color:green' title="подтвержден">{#tel}</span>
+*:<input title='в полном формате<br>напр. +79166801685' type=text name='tel' size=13 value='{#tel}'>
+?}
+
+{?tel_confirm:|0:|*:<br>дополнительный мобильный:&nbsp;<input type=text name='telw' size=13 value='{#telw}'>|?}
+
+<br>site:&nbsp;<input type=text name='site' size=20 value='{#site}'>
+<br>день&nbsp;рождения:&nbsp;{set_birth}
+
+<p><fieldset><legend>настройки сайта</legend>
+    <label title="звуки на страницах разрешены, если опция установлена"><input type='checkbox'{?opt_s:|0:|1: checked|?} name='opt_s'> разрешить звуки сайта</label>
+<br><label title="переход между страницами по стрелкам клавиатуры разрешен, если опция установлена"><input type='checkbox'{?opt_n:|0:|1: checked|?} name='opt_n'> разрешить навигацию стрелками</label>
+<br><label title="если опция установлена, недоступные картинки будут заменяться таким значком: <i class='e_kgpg_photo'></i>"><input type='checkbox'{?opt_i:|0:|1: checked|?} name='opt_i'> заменять недоступные картинки</label>
+<br><label title="опция установлена - правка опечаток будет вызываться сразу при выделении мышкой<br>опция сброшена - по ctr_enter после выделения мышкой"><input type='checkbox'{?opt_ope:|0:|1: checked|?} name='opt_ope'>окно опечатки без нажатия ctrl+enter</label>
+<br><label title="вывод JS-ошибок страницы (отладочная функция для разработчика, вам не пригодится)"><input type='checkbox'{?opt_er:|0:|1: checked|?} name='opt_er'>показывать ошибки браузера</label>
+<br><label title="заменять мат звездочками"><input type='checkbox'{?opt_mat:|0:|1: checked|?} name='opt_mat'>заменять мат звездочками</label>
+<br><label title="эффекты анимации"><input type='checkbox'{?opt_ani:|0:|1: checked|?} name='opt_ani'>эффекты анимации</label>
+</fieldset>
+
+{?jurs:|:|*:<p>{jurs}|?}
+
+<div class=l onclick="majax('comment.php',{a:'my_ueban',ueban:f5_read('ueban')})">список моих забаненных</div>
+
+<p><input id='sbmt' type=submit value='Сохранить'>
+</form>
+
+</div></fieldset>

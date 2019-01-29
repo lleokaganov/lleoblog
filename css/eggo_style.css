@@ -1,0 +1,959 @@
+@charset "utf-8";
+
+html,
+body {
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0;
+	background:#fff;
+	font:normal 16px/30px Georgia, "Times New Roman", Times, serif;
+#	font:normal 20px/20px Georgia, "Times New Roman", Times, serif;
+	color:#2b2b2b;
+}
+
+#form,
+#fieldset {
+#	margin:0;
+#	padding:0;
+#	border:0;
+#}
+
+input,
+select,
+textarea,
+button {
+	font:normal 15px Georgia, "Times New Roman", Times, serif;
+	color:#070707;
+	outline:none;
+}
+
+#textarea { resize:none; }
+
+img { border:0;	vertical-align:top; }
+
+a {
+	color:#2147c2;
+	text-decoration:underline;
+	outline:none;
+	cursor:pointer;
+}
+
+a:hover {
+	color:#fc2223!important;
+}
+
+table {
+	border-collapse:collapse;
+}
+
+p {
+	margin:0 0 30px 0;
+}
+
+h1 {
+	font:normal 26px/30px "Times New Roman", Times, serif;
+	color:#000;
+	margin:0;
+}
+
+h2 {
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	font-size:16px;
+	margin:0 0 5px 0;
+}
+
+h3 {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	font-weight:bold;
+	margin:0 0 17px 0;
+}
+
+h4 {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	font-weight:bold;
+	margin:0 0 9px 0;
+}
+
+.sup {
+	display:inline-block;
+	font-size:65%;
+	vertical-align:middle;
+	top:-4px;
+	position:relative;
+}
+
+.clearfloat {
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+.clearfix {
+	zoom: 1
+}
+
+.clearfix:after {
+	content: ' ';
+	clear:both;
+	display: block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	font-size: 0;
+}
+
+.red,
+.red:hover {
+	color:#fc2223!important;
+}
+
+.grey {
+	color:#b2b2b2!important;
+}
+
+.blue,
+.blue:hover {
+	color:#1624b8!important;
+}
+
+.opt-link {
+	text-decoration:none;
+	position:relative;
+	border-bottom:1px dashed #2147c2;
+}
+
+.opt-link:hover,
+a:hover .opt-link {
+	border-color:#fc2223;
+}
+
+.min-h {
+	min-height:100%;
+	height:auto!important;
+	height:100%;
+	position:relative;
+}
+
+#wrapper {
+	min-width:1000px;
+	max-width:10000px;
+	margin:0 auto;
+	position:relative;
+	overflow:hidden;
+}
+
+#container {
+	min-width:1000px;
+	max-width:1256px;
+	margin: 0 auto;
+	text-align: left;
+	position:relative;
+}
+
+.main-indent {
+	width:93%;
+	margin:0 auto;
+	position:relative;
+}
+
+.header {
+	#position:fixed;
+	width:100%;
+	background:#f5f5f5 url(http://lleo.me/dnevnik/design/eggo/dark-line.png) repeat-x;
+	#height:162px;
+	#border: 10px solid green;
+	border-bottom:1px solid #e5e5e5;
+	z-index:100;
+}
+
+.header-place {
+#	height:163px;
+	margin:0 0 21px 0;
+}
+
+.header .in {
+	min-width:1000px;
+	max-width:1256px;
+	margin:0 auto;
+	position:relative;
+	height:162px;
+}
+
+.content {
+	zoom:1;
+}
+
+.content:after {
+	content: ' ';
+	clear:both;
+	display: block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	font-size: 0;
+}
+
+.two-cols {
+	zoom:1;
+	padding:0 308px 0 0;
+}
+
+.aside {
+	float:left;
+	width:274px;
+	margin:0 0 0 -274px;
+	position:relative;
+	left:308px;
+}
+
+.mainContent {
+	float:left;
+	width:100%;
+}
+
+.footer-place {
+	clear:both;
+	height:30px;
+	padding:21px 0 0 0;
+}
+
+.footer {
+	height:30px;
+	margin:-30px 0 0 0;
+	position:relative;
+	color:#fff;
+	background:#2d2d2d;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+.footer span {
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:16px;
+}
+
+.footer a {
+	color:#818fb2;
+}
+
+.footer .in {
+	min-width:1000px;
+	max-width:1256px;
+	margin:0 auto;
+	position:relative;
+}
+
+.mail {
+	padding:0 0 0 23px;
+	background:url(http://lleo.me/dnevnik/design/eggo/pic-mail.png) no-repeat 0 50%;
+	margin:0 0 0 5px;
+}
+
+.menu {
+	list-style:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	zoom:1;
+	overflow:hidden;
+	float:left;
+	margin:0;
+	padding:0;
+	color:#fff;
+}
+
+.menu a,
+.menu2 a {
+	color:#fff;
+}
+
+.menu a:hover,
+.menu2 a:hover {
+	color:#ff0100!important;
+}
+
+.menu .opt-link,
+.menu2 .opt-link {
+	border-color:#fff;
+}
+
+.menu .opt-link:hover,
+.menu2 .opt-link:hover {
+	border-color:#ff0100;
+}
+
+.menu li {
+	float:left;
+	margin:0 40px 0 0;
+}
+
+.menu3 {
+	float:right;
+	list-style:none;
+	margin:0 0 0 11px;
+	padding:8px 0 0 0;
+	line-height:0;
+}
+
+.menu3 li {
+	float:left;
+	margin:0 0 0 6px;
+}
+
+.menu2 {
+	list-style:none;
+	margin:0;
+	padding:0;
+	float:right;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+.menu2 li {
+	float:left;
+	margin:0 0 0 18px;
+}
+
+.cms {
+	padding:0 0 0 22px;
+	background:url(http://lleo.me/dnevnik/design/eggo/pic-cms.png) no-repeat 0 50%;
+}
+
+.stat {
+	padding:0 0 0 19px;
+	text-decoration:none;
+	background:url(http://lleo.me/dnevnik/design/eggo/pic-stat.png) no-repeat 0 50%;
+}
+
+.user-block {
+	zoom:1;
+	position:relative;
+	padding:17px 0 0 110px;
+	height:100px;
+	font:italic 14px/18px Arial, Helvetica, sans-serif;
+	color:#545454;
+}
+
+.user-block img {
+	position:absolute;
+	top:19px;
+	left:0;
+	border:1px solid #c2c2c2;
+}
+
+.user-block h2 {
+	font:italic 20px/18px "Times New Roman", Times, serif;
+	color:#000;
+	margin:0 0 3px 0;
+	zoom:1;
+	position:relative;
+	top:2px;
+}
+
+.user-block .hello {
+	font:italic 18px/18px "Times New Roman", Times, serif;
+	color:#000;
+	#position:absolute;
+	bottom:0;
+	left:110px;
+	width:840px;
+}
+
+.prev {
+	display:inline-block;
+	vertical-align:top;
+	width:30px;
+	height:31px;
+	overflow:hidden;
+	background:url(http://lleo.me/dnevnik/design/eggo/nav.png) no-repeat;
+	margin:0 0 0 3px;
+}
+
+.prev:hover {
+	background-position:0 -34px;
+}
+
+.next {
+	display:inline-block;
+	vertical-align:top;
+	width:30px;
+	height:31px;
+	overflow:hidden;
+	background:url(http://lleo.me/dnevnik/design/eggo/nav.png) no-repeat -33px 0;
+	margin:0 0 0 3px;
+}
+
+.next:hover {
+	background-position:-33px -34px;
+}
+
+.nav {
+	margin:0 0 0 10px;
+}
+
+.date {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#545454;
+	font-style:italic;
+	margin:0 0 7px 0;
+}
+
+.image {
+	display:block;
+	margin:19px 0 29px 0;
+}
+
+.image img {
+	max-width:100%;
+	height:auto!important;
+}
+
+.tags {
+	margin:25px 0 18px -12px;
+	zoom:1;
+	overflow:hidden;
+	font:italic 12px/28px Arial, Helvetica, sans-serif;
+	color:#000;
+}
+
+.tags .bg {
+	float:left;
+	border:1px solid #dcdcdc;
+	background:#f5f5f5;
+	padding:0 12px;
+	position:relative;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	behavior: url(http://lleo.me/dnevnik/design/eggo/js/PIE.htc);
+}
+
+.tags a {
+	color:#000;
+}
+
+.tags strong {
+	font-weight:normal;
+}
+
+.adding {
+	zoom:1;
+	position:relative;
+	border:2px solid #e4e4e4;
+	margin:0 0 22px -12px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	box-shadow:0 3px 4px #f3f2f2;
+	-moz-box-shadow:0 3px 4px #f3f2f2;
+	-webkit-box-shadow:0 3px 4px #f3f2f2;
+	behavior: url(http://lleo.me/dnevnik/design/eggo/js/PIE.htc);
+	padding:0 12px 39px 12px;
+	background:#fff;
+}
+
+.adding textarea {
+	width:100%;
+	padding:10px 0;
+	height:63px;
+	border:0;
+	margin:0;
+	background:#fff;
+}
+
+.adding .submit {
+	border:0;
+	cursor:pointer;
+	position:absolute;
+	bottom:0;
+	right:0;
+	width:45px;
+	height:36px;
+	background:url(http://lleo.me/dnevnik/design/eggo/enter.png) no-repeat 11px 0;
+}
+
+.for-keyboard {
+	display:block;
+	cursor:pointer;
+	background:url(http://lleo.me/dnevnik/design/eggo/keyboard.png) no-repeat;
+	width:32px;
+	height:28px;
+	position:absolute;
+	bottom:11px;
+	left:12px;
+}
+
+.comment {
+	zoom:1;
+	position:relative;
+	margin:20px 0 20px -12px;
+	font-size:15px;
+	line-height:24px;
+	color:#070707;
+}
+
+.comment:after {
+	content: ' ';
+	clear:both;
+	display: block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	font-size: 0;
+}
+
+.comment.hidden {
+	margin-top:7px;
+	margin-bottom:7px;
+}
+
+.comment.lvl2 {
+	margin-left:0;
+	left:27px;
+}
+
+.comment.lvl2.hidden {
+	left:0;
+}
+
+.comment .bg {
+	padding:15px 12px;
+	box-shadow:0 3px 4px #f3f2f2;
+	-moz-box-shadow:0 3px 4px #f3f2f2;
+	-webkit-box-shadow:0 3px 4px #f3f2f2;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	behavior: url(http://lleo.me/dnevnik/design/eggo/js/PIE.htc);
+	zoom:1;
+	position:relative;
+	border:1px solid #e1e1e1;
+	background:#f5f5f5;
+}
+
+.comment .bg:after {
+	content: ' ';
+	clear:both;
+	display: block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	font-size: 0;
+}
+
+.comment.lvl2 .bg {
+	background-color:#fff;
+}
+
+.comment.hidden .bg {
+	display:none;
+}
+
+.comment .toggler {
+	display:inline-block;
+	cursor:pointer;
+	border:1px solid #e2e2e2;
+	padding:0 12px;
+	font:normal 12px/21px Arial, Helvetica, sans-serif;
+	position:relative;
+	border-radius:11px;
+	-moz-border-radius:11px;
+	-webkit-border-radius:11px;
+	behavior: url(http://lleo.me/dnevnik/design/eggo/js/PIE.htc);
+	display:none;
+}
+
+.comment.hidden .toggler {
+	display:inline-block;
+}
+
+.comment .info {
+	float:right;
+	font-size:12px;
+	font-style:italic;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#9b9b9b;
+}
+
+.comment .info .browser {
+	font-style:normal;
+	padding:0 24px 0 0;
+	display:inline-block;
+	margin:0 10px 0 0;
+}
+
+.comment .info .browser.firefox {
+	background:url(http://lleo.me/dnevnik/design/eggo/firefox.png) no-repeat 100% 50%;
+}
+
+.comment .info .browser.safari {
+	background:url(http://lleo.me/dnevnik/design/eggo/safari.png) no-repeat 100% 50%;
+}
+
+.comment .text {
+	height:100%;
+	overflow:hidden;
+}
+
+.comment .user {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	color:#292728;
+}
+
+.comment .ava {
+	float:right;
+	margin:0 0 0 20px;
+}
+
+.comment h3 {
+	font-size:16px;
+	font-weight:normal;
+	margin:0;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+.rating {
+	float:left;
+	font-weight:normal;
+	margin:0 3px 0 0;
+}
+
+.rating a {
+	text-decoration:none;
+	float:left;
+	margin:0 10px 0 0;
+}
+
+.rating a:hover {
+	text-decoration:underline;
+}
+
+.rating .right {
+	float:right;
+}
+
+.mess {
+	display:block;
+	float:left;
+	background:url(http://lleo.me/dnevnik/design/eggo/pic-mail.png) no-repeat;
+	width:16px;
+	height:12px;
+	margin:6px 7px 0 0;
+}
+
+.social {
+	display:block;
+	text-align:left;
+	text-indent:-9999px;
+	width:14px;
+	height:14px;
+	overflow:hidden;
+	float:left;
+	margin:5px 7px 0 0;
+}
+
+.social.lj {
+	background:url(http://lleo.me/dnevnik/design/eggo/lj.png) no-repeat;
+}
+
+.total {
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	font-size:16px;
+	margin:15px 0 20px 0;
+}
+
+.recommend {
+	line-height:24px;
+}
+
+.calendar {
+	margin:0 0 24px 0;
+	zoom:1;
+	box-shadow:0 3px 4px #f3f2f2;
+	-moz-box-shadow:0 3px 4px #f3f2f2;
+	-webkit-box-shadow:0 3px 4px #f3f2f2;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	behavior: url(http://lleo.me/dnevnik/design/eggo/js/PIE.htc);
+	border:1px solid #e0e0e0;
+	background:#f5f5f5;
+}
+
+.calendar .head {
+	height:58px;
+	position:relative;
+	text-align:center;
+	font:bold 14px/58px Arial, Helvetica, sans-serif;
+	color:#2b2b2b;
+}
+
+.calendar .head .prev {
+	position:absolute;
+	top:22px;
+	left:13px;
+	background:url(http://lleo.me/dnevnik/design/eggo/nav-arrs.png) no-repeat;
+	width:9px;
+	height:16px;
+	overflow:hidden;
+	display:block;
+	text-indent:-9999px;
+	text-align:left;
+	cursor:pointer;
+	display:block;
+}
+
+.calendar .head .next {
+	position:absolute;
+	top:22px;
+	right:13px;
+	background:url(http://lleo.me/dnevnik/design/eggo/nav-arrs.png) no-repeat -18px 0;
+	width:9px;
+	height:16px;
+	overflow:hidden;
+	display:block;
+	text-indent:-9999px;
+	text-align:left;
+	cursor:pointer;
+	display:block;
+}
+
+.calendar .head .prev:hover {
+	background-position:0 -21px;
+}
+
+.calendar .head .next:hover {
+	background-position:-18px -21px;
+}
+
+.calendar .table {
+	zoom:1;
+	position:relative;
+	margin:0 0 0 -2px;
+	left:1px;
+}
+
+.calendar table {
+	width:100%;
+	margin:0;
+}
+
+.calendar table tr th {
+	height:32px;
+	text-align:center;
+	padding:0;
+	vertical-align:middle;
+	color:#fff;
+	font:bold 14px/20px Arial, Helvetica, sans-serif;
+	background:#2d2d2d;
+	border:1px solid #2d2d2d;
+	border-bottom:1px solid #e5e5e5;
+	border-top:0;
+}
+
+.calendar table tr td {
+	margin:0;
+	padding:0;
+	text-align:center;
+	vertical-align:top;
+	border:1px solid #e5e5e5;
+	background:#fff;
+	width:14.28%;
+}
+
+.calendar .link {
+	display:block;
+	position:relative;
+	text-align:center;
+	font:bold 14px/37px Arial, Helvetica, sans-serif;
+	height:37px;
+}
+
+.calendar .link .arr {
+	display:block;
+	background:url(http://lleo.me/dnevnik/design/eggo/descr-arr.png) no-repeat;
+	width:26px;
+	height:37px;
+	display:none;
+	overflow:hidden;
+	position:absolute;
+	top:-1px;
+	left:-27px;
+	border:1px solid #e6e6e6;
+	border-left:0;
+}
+
+.calendar table tr td:hover .link {
+	color:#fc2223!important;
+}
+
+.calendar .other-month .link {
+	font-style:italic;
+	color:#9d9d9d;
+}
+
+.calendar span.link,
+.calendar table tr td:hover span.link {
+	color:#9d9d9d!important;
+}
+
+.calendar table tr td:hover .link .arr {
+	display:block;
+}
+
+.calendar .today .link,
+.calendar table tr td.today:hover .link {
+	color:#fff!important;
+	background:#f77039;
+	text-decoration:none;
+}
+
+.calendar .descr {
+	position:absolute;
+	top:-59px;
+	right:100%;
+	margin:0 26px 0 0;
+	display:none;
+	width:584px;
+	border:1px solid #ececec;
+	background:#f5f5f5;
+	padding:20px 23px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	behavior: url(http://lleo.me/dnevnik/design/eggo/js/PIE.htc);
+	text-align:left;
+	color:#7f7f7f;
+}
+
+.calendar table tr td:hover .descr {
+	display:block;
+}
+
+.calendar .descr h2 {
+	font:normal 26px/30px "Times New Roman", Times, serif;
+	color:#000;
+	margin:0;
+}
+
+.calendar .descr a {
+	color:#3a00f5;
+}
+
+.visits {
+	font:bold 14px/46px Arial, Helvetica, sans-serif;
+	color:#2b2b2b;
+	text-align:center;
+}
+
+.visits strong {
+	font-weight:bold;
+	font-size:18px;
+}
+
+.search {
+	zoom:1;
+	position:relative;
+	margin:0 0 43px 0;
+	box-shadow:0 3px 4px #f3f2f2;
+	-moz-box-shadow:0 3px 4px #f3f2f2;
+	-webkit-box-shadow:0 3px 4px #f3f2f2;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	behavior: url(http://lleo.me/dnevnik/design/eggo/js/PIE.htc);
+	border:1px solid #e0e0e0;
+	background:#fff url(http://lleo.me/dnevnik/design/eggo/search.png) no-repeat 100% 3px;
+	line-height:normal;
+}
+
+.search input[type="text"] {
+	border:0;
+	background:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	margin:0;
+	float:left;
+	padding:1px 0 1px 9px;
+	width:240px;
+}
+
+.search input[type="submit"] {
+	position:absolute;
+	top:0;
+	right:0;
+	height:19px;
+	width:25px;
+	border:0;
+	background:none;
+	margin:0;
+	padding:0;
+	cursor:pointer;
+}
+
+.block {
+	margin:0 0 30px 0;
+	zoom:1;
+	position:relative;
+	box-shadow:0 3px 4px #f3f2f2;
+	-moz-box-shadow:0 3px 4px #f3f2f2;
+	-webkit-box-shadow:0 3px 4px #f3f2f2;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	behavior: url(http://lleo.me/dnevnik/design/eggo/js/PIE.htc);
+	border:1px solid #e0e0e0;
+	background:#fff;
+	padding:16px 20px;
+}
+
+.books {
+	list-style:none;
+	margin:-15px 0 0 0;
+	padding:0;
+	font:normal 16px/19px Arial, Helvetica, sans-serif;
+	color:#000;
+	zoom:1;
+	position:relative;
+	top:15px;
+}
+
+.books li {
+	margin:0 0 36px 0;
+	padding:0 0 0 43px;
+	zoom:1;
+	vertical-align:bottom;
+}
+
+.books h4 {
+	margin-top:13px;
+}
+
+.tooltip {
+	zoom:1;
+	position:absolute;
+	z-index:3000;
+	background:#fff;
+	font:normal 12px/18px Arial, Helvetica, sans-serif;
+	color:#8a8a8a;
+	padding:3px 12px;
+	max-width:180px;
+	box-shadow:0 3px 4px rgba(0, 0, 0, 0.07);
+	-moz-box-shadow:0 3px 4px rgba(0, 0, 0, 0.07);
+	-webkit-box-shadow:0 3px 4px rgba(0, 0, 0, 0.07);
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	behavior: url(http://lleo.me/dnevnik/design/eggo/js/PIE.htc);
+	top:50px;
+	left:30%;
+	border:1px solid #e0e0e0;
+}

@@ -1,0 +1,4 @@
+http://lleo.me/blog Beta
+http://lleo.me/dnevnik Stable
+http://lleo.me Super Stable
+http://binoniq.net Server Stable

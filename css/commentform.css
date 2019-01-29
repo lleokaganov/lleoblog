@@ -1,0 +1,17 @@
+@charset "windows-1251";
+
+#commentform .in, #commentform .l1, #commentform .l2, #commentform .e, #commentform .o, #commentform .txt
+{ font-size: 10px; text-align: left; }
+
+#commentform .in { width: 100pt; border: 1px dotted #ccc;}
+
+#commentform .textar { width: 300pt; height: 80pt; border: 1px dotted #ccc;}
+#commentform .capcha { width: 60px; height: 30px; margin: 0; padding: 0; border: 1px solid #ccc; font-size: 30px; }
+
+#commentform .l1 { float: left; width: 150pt; }
+#commentform .l2 { float: left; width: 150pt; }
+
+#commentform .e { color: red; }
+
+#commentform { border: 1px solid gray; display: inline; }
+LEGEND { font-weight: bold; color: #FF6200; font-size: 10px; text-align: left; }

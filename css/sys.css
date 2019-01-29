@@ -1,0 +1,782 @@
+@charset "windows-1251";
+
+html{ height: 100%; width:100%; font-family: "comic sans ms"; line-height: 1.4em; }
+
+body { font: 100% sans-serif, Helvetica, Arial, Verdana;
+margin: auto; /*margin: 0; padding: 0;*/
+/* background-image: url('/design/fon1.jpg'); */
+text-align: center; /* хак для IE 5* */
+color: #000000; /*position:relative; border-bottom: red 1px dotted;*/
+word-wrap: break-word;
+}
+
+/*.bodyz { line-height: 1.4em; }*/
+
+img {max-width: 100% !important; height: auto !important;}
+iframe, textarea, input, button, submit, select, video, object, embed {max-width: 99% !important;}
+
+
+
+
+/*
+table, span, ins {max-width: 100% !important;}
+table, span, ins {max-width: 100%;}
+*/
+
+.rama {border:1px solid #ccc; box-shadow:0px 15px 15px 15px rgba(0,0,0,0.6); border-radius: 7px 7px 7px 7px; padding: 15px 15px 15px 15px;}
+
+/*
+#post {max-width: 1024px; margin-left: auto; margin-right: auto; line-height: 1.4em; }
+*/
+
+.c2 .il div { margin-left: 3px; }
+
+/* тень при активном окне */
+.tenek {position:absolute;left:0;right:0;top:0;background-color:#000000;pointer-events:none;}
+.ik { cursor:pointer; border: 1px solid red; box-shadow: 0px 15px 15px 15px rgba(0,0,0,0.6); border-radius: 7px 7px 7px 7px; padding: 15px 15px 15px 15px; }
+
+/* Календарь */
+.cld_top,.cld_days,.cld_red,.cld,.cld_this,.cld_ed {font-size: 10px;}
+.cld_days {background-color: #F0F0F0;}
+.cld_red {background-color: #FFE8D0;text-align:right;}
+.cld {text-align:right;}
+.cld_this {background-color:red; color:white;}
+.cld_ed {color: black; text-decoration: none; }
+
+/* рамка форм - мне так нравится */
+.t { border: 1px solid #330000; }
+.r { font-size: 12px; }
+.l,.ll { cursor: pointer; color: blue; text-decoration: underline; } .ll,.il { display: inline; }
+.l:hover,.ll:hover { color: violet; }
+.kr:hover,.kus:hover,.kd:hover,.ked:hover,.ks0:hover,.ks1:hover,.ka:hover,.ko1:hover,.ko0:hover,.kou:hover { color: violet; }
+
+/* кнопки панели управления */
+.knop { border: 1px solid #ccc; margin-left: 1px;}
+.knop:hover { border: 1px solid black; }
+
+.noa {color:black; text-decoration: none; }
+.noa:hover {color:#ccc;}
+
+/* фотоальбом */
+
+#bigfoto { box-sizing: border-box; }
+#bigfostr { width: 100% !important; }
+
+
+
+
+
+/* комментарии */
+.opc, .cnam, .rul1,.rul0 {cursor: pointer}
+.rul1,.rul0,.cplu,.cmin,.kmail {float:left}
+.c0 /*, .c1, .c2, .c3, .c4, .c5, .c6*/ {
+font: 80% sans-serif, Helvetica, Arial, Verdana; max-width: 60%; border: 1px solid #bbb;
+/* IE */ filter: progid:DXImageTransform.Microsoft.shadow(direction=120, color=#888888, strength=10);
+box-shadow: #888 5px 5px 5px; border-radius: 0.8em 0.8em 0.8em 0.8em; overflow: auto; padding: 0.4em 0.4em 0.4em 0.4em; margin: 0.4em 0 0 0.4em; }
+/*
+.c0 { background-color: #AAFAFA; }
+.c1, .opc { background-color: #F1F1F1 !important; }
+
+.c2 { background-color: #FFFBDF; border: 1px solid red; }
+.c3 { background-color: #FFEBCD; border: 1px solid red; }
+.c4 { background-color: #eAf; border: 1px solid red; }
+.c5 { background-color: #Aef; border: 1px solid red; }
+.c6 { background-color: #Aef; border: 1px solid red; }
+*/
+
+.ctxt { padding: 5pt; text-align: justify; }
+.cwho,.ctim,.cbro { font-size: 8pt; display:inline; margin: 0 10pt 0 10px; top: 0px; position: relative; float: right; }
+.ctim,.cbro,.cwho,.kr,.rul0,.rul1,.kmail,.cnam,.cplu,.cmin { display:inline; }
+.cnam { font-size: 12pt; font-weight: bold; }
+.cplu,.cmin { font-size:10pt; }
+.cplu {color:#f99;cursor:n-resize} .cplu:before { content:'+'} .cplu:after { content:' '}
+.cmin {color:#99f;cursor:s-resize} .cmin:before { content:'\2212'} .cmin:after { content:' '}
+.cplu:hover,.cplu:active {color: red;}
+.cmin:hover,.cmin:active {color: blue;}
+
+/*
+.kmail:after {content:url('/design/e2/kmail.png') }
+.rul1:before {content:url('/design/e3/button_accept.png')}
+.rul0:before {content:url('/design/e3/list-remove.png')}
+.opc { font-size: 11px; } .opc:before {content:url('/design/e3/expand_plus.gif')'показать'}
+*/
+
+/* кнопки */
+.kr,.kus,.kd,.ked,.ks0,.ks1,.ka,.ko1,.ko0,.kou { cursor: pointer; float:left; font-size: 10pt; color: blue; padding: 0 2pt 0 7pt; }
+.kus:hover,.kd:hover,.ked:hover,.ks0:hover,.ks1:hover,.ka:hover,.ko1:hover,.ko0:hover,.kou:hover { color: violet; }
+.kus:before {content:'info'} /* показать личную карточку автора */
+.kd:before {content:'del'} /* удалить комментарий */
+.ked:before {content:'edit'} /* редактировать комментарий */
+.ks0:before {content:'скрыть'}
+.ks1:before {content:'раскрыть'}  /* скрыть-раскрыть */
+.ka:before {content:'ответить'} /* ответить */
+.ko1:before {content:'разрешено'; background-color: #FBDFAA;}
+.ko0:before {content:'запрещено'; background-color: #AAFAFA;}
+.kou:before {content:'-';}
+
+.cscr,.cdel { max-width: 20%; border: 1px dotted #bbb; padding: 0 0 0 5px; margin-top: 5px; }
+.cscr {font-size:8px; font-weight: bold; background-color: #AAFAFA; } .cscr:before {content:'* комментарий скрыт'}
+.cdel {font-size:8px; font-weight: bold; } .cdel:before {content:'* комментарий удален'}
+
+.br { font-size: 10px; }
+.search { font-weight: bold; color: black; background-color: rgb(255, 204, 0); }
+
+p.d {text-align:justify;text-indent:5%;margin-top:0pt;margin-bottom:0pt;}
+p.pd {text-align:justify;text-indent:5%;margin-top:2%;margin-bottom:0pt;}
+p.name {text-indent:0pt;margin-top:4%;margin-bottom:6%;text-align:center;font-weight:bold;font-size:150%;}
+p.podp {text-indent:0pt;margin-top:30pt;margin-bottom:12%;text-align:right;font-style:italic;}
+p.z {text-indent:0pt;margin-top:4%;margin-bottom:4%;text-align:center;font-weight:bold;font-size:100%;}
+p.epigraf {text-indent:0pt;text-align:justify;margin-top:10pt;margin-bottom:0pt;margin-right:4%;margin-left:60%;font-size:80%;}
+p.epigrafp {text-indent:0pt;text-align:right;margin-top:0pt;margin-bottom:4%;margin-right:4%;margin-left:60%;font-size:80%;font-style:italic;}
+
+/* киносценарий */
+p.persona { margin-top: 40pt; font-weight:bold; font-size: 16pt; text-align:center; text-transform: uppercase; }
+p.rep { margin-left: 25%; margin-right: 25%; font-size: 14pt; } /* replica */
+p.cmn { margin-left: 15%; margin-right: 15%; font-style:italic; font-size: 12pt; } /* comment */
+p.scena,.pag { font-weight:bold; font-size: 16pt; padding: 5px 50px 5px 50px; text-transform: uppercase; margin: 5% 5% 0 5%; background-color: #E0E0E0; border: 1px solid black; } /* page */
+p.litsa { font-weight:bold; font-size: 14pt; text-transform: uppercase; margin: 5%; padding: 0 50px 0 50px; } /* действующие лица */
+
+.fieldset { position:relative; border: 1px solid #797676; margin:0px; padding:0px; border-radius: 3px; width:100% }
+.legend { position:absolute; left:10px; top:-10px; background-color:#F0F0EA; overflow:hidden; font-weight:bold; color:#FF6200; font-size:14px; text-align:left; display:inline-block; padding:0 10px 0 10px; }
+.textbody { padding: 20px; }
+
+.pop2 { max-width:95%; cursor:move; overflow:visible; top:100px;position:absolute;z-index:999; text-align:left; background:#F0F0EA;
+border:5px solid #e75100;box-shadow:0px 16px 16px 16px rgba(0,0,0,0.6);border-radius:16px 16px 16px 16px;padding:16px 16px 16px 16px;
+margin-top:3%; margin-bottom:2%;
+word-wrap: break-word;
+}
+.pop2 TEXTAREA {width:100%;}
+.can { position:absolute; right:-19px;top:-19px; width:32px; height:32px; cursor:pointer; }
+
+LEGEND { font-weight: bold; color: #FF6200; font-size: 14px; text-align: left; }
+
+a[href *=".livejournal.com"] { background: transparent url('/design/ico/ico-livejournal.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *="lj.rossia.org"] { background: transparent url('/design/ico/ico-ljrossia.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *="facebook.com"] { background: transparent url('/design/ico/ico-facebook.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *="vk.com"] { background: transparent url('/design/ico/ico-vk.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *="twitter.com"] { background: transparent url('/design/ico/ico-twitter.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *="://lleo.me"], a[href *="://lleo.aha.ru"] { background: transparent url('/design/ico/ico-lleo.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *="binoniq.net"] { background: transparent url('/design/ico/ico-binoniq.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *=".blogspot.com"] { background: transparent url('/design/ico/ico-blogspot.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *="instagram.com"] { background: transparent url('/design/ico/ico-instagram.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *=".moikrug.ru"] { background: transparent url('/design/ico/ico-moikrug.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *=".myopenid.com"] { background: transparent url('/design/ico/ico-myopenid.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *=".ya.ru"] { background: transparent url('/design/ico/ico-ya.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *=".yandex.ru"] { background: transparent url('/design/ico/ico-yandex.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *=".youtube.com"] { background: transparent url('/design/ico/ico-youtube.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *=".wikipedia.org"] { background: transparent url('/design/ico/ico-wikipedia.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *=".apple.com"] { background: transparent url('/design/ico/ico-apple.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *=".google.com"],a[href *=".google.ru"] { background: transparent url('/design/ico/ico-google.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+a[href *="://telegram.org"],a[href *="://t.me/"] { background: transparent url('/design/ico/ico-telegram.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
+
+
+.clearfloat,.cf,.q { clear:both; height:0; font-size: 1px; line-height: 0px; }
+
+
+.qTip {
+padding: 5px; border: 1px solid #666; border-right-width: 2px; border-bottom-width: 2px;
+background: #999; color: #FFF; font: bold 11px Verdana, Arial, sans-serif;
+text-align: left; position: absolute; z-index: 999999; max-width: 30%;
+}
+
+    /* Popups with arrows
+--------------------------- */
+/* Must be removed after implementation of Framework! */
+.b-popup {
+    position: absolute;
+    font-size:12px;
+    z-index: 99999;
+    background-color:transparent;
+    }
+    .b-popup input,
+    .b-popup div,
+    .b-popup strong,
+    .b-popup label { color:#000; }
+    .b-popup-outer {
+position: relative;
+padding: 1px;
+background: #FFF;
+border: 1px solid #CCC;
+border-radius: 7px;
+
+        box-shadow: 0 0 20px 10px #555;
+    filter: progid:DXImageTransform.Microsoft.shadow(direction=120, color=#000000, strength=10);
+z-index: 99999;
+}
+    .b-popup-inner {
+padding: 10px 15px;
+border: 1px solid #E7E7E7;
+border-radius: 7px;
+}
+    /* Put here styles for popups that need to reset */
+    .b-popup,
+    .b-popup-outer,
+    .b-popup-inner,
+    .popup-inner,
+    .w-cs-filter-inner,
+    .w-cs-filter-sort,
+    .b-sharethis,.b-sharethis-services { float: none; }
+    .b-popup-withclosecontrol .b-popup-inner { padding: 10px 25px 10px 15px; }
+    .i-popup-arr,
+    .i-popup-arr-brdr-outer,
+    .i-popup-arr-brdr-inner,
+    .i-popup-arr-bg {
+position: absolute;
+width: 0;
+height: 0;
+font: 0/0 serif;
+}
+    .b-popup-inner A,
+    .b-popup-inner A:link,
+    .b-popup-inner A:visited,
+    .b-popup-inner A:hover,
+    .b-popup-inner A:active { color: #036; }
+
+    .i-popup-arrt.i-popup-arr,
+    .i-popup-arrtl.i-popup-arr,
+    .i-popup-arrtr.i-popup-arr {
+/*border-left: 6px solid transparent;border-right: 6px solid transparent;*/
+border-left: 6px solid rgba(255,255,255,.01);
+border-right: 6px solid rgba(255,255,255,.01);
+border-bottom: 6px solid #CCC;
+}
+    .i-popup-arrt .i-popup-arr-brdr-outer,
+    .i-popup-arrtl .i-popup-arr-brdr-outer,
+    .i-popup-arrtr .i-popup-arr-brdr-outer {
+top: 1px;
+left: -6px;
+/*border-left: 6px solid transparent;border-right: 6px solid transparent;*/
+border-left: 6px solid rgba(255,255,255,.01);
+border-right: 6px solid rgba(255,255,255,.01);
+border-bottom: 6px solid #FFF;
+}
+    .i-popup-arrt .i-popup-arr-brdr-inner,
+    .i-popup-arrtl .i-popup-arr-brdr-inner,
+    .i-popup-arrtr .i-popup-arr-brdr-inner {
+top: 2px;
+left: -6px;
+/*border-left: 6px solid transparent;border-right: 6px solid transparent;*/
+border-left: 6px solid rgba(255,255,255,.01);
+border-right: 6px solid rgba(255,255,255,.01);
+border-bottom: 6px solid #E7E7E7;
+}
+    .i-popup-arrt .i-popup-arr-bg,
+    .i-popup-arrtl .i-popup-arr-bg,
+    .i-popup-arrtr .i-popup-arr-bg {
+top: 4px;
+left: -6px;
+/*border-left: 6px solid transparent;border-right: 6px solid transparent;*/
+border-left: 6px solid rgba(255,255,255,.01);
+border-right: 6px solid rgba(255,255,255,.01);
+border-bottom: 6px solid #FFF;
+}
+
+    .i-popup-arrb.i-popup-arr,
+    .i-popup-arrbl.i-popup-arr,
+    .i-popup-arrbr.i-popup-arr {
+/*border-left: 6px solid transparent;border-right: 6px solid transparent;*/
+border-left: 6px solid rgba(255,255,255,.01);
+border-right: 6px solid rgba(255,255,255,.01);
+border-top: 6px solid #CCC;
+}
+    .i-popup-arrb .i-popup-arr-brdr-outer,
+    .i-popup-arrbl .i-popup-arr-brdr-outer,
+    .i-popup-arrbr .i-popup-arr-brdr-outer {
+bottom: 1px;
+left: -6px;
+/*border-left: 6px solid transparent;border-right: 6px solid transparent;*/
+border-left: 6px solid rgba(255,255,255,.01);
+border-right: 6px solid rgba(255,255,255,.01);
+border-top: 6px solid #FFF;
+}
+    .i-popup-arrb .i-popup-arr-brdr-inner,
+    .i-popup-arrbl .i-popup-arr-brdr-inner,
+    .i-popup-arrbr .i-popup-arr-brdr-inner {
+bottom: 2px;
+left: -6px;
+/*border-left: 6px solid transparent;border-right: 6px solid transparent;*/
+border-left: 6px solid rgba(255,255,255,.01);
+border-right: 6px solid rgba(255,255,255,.01);
+border-top: 6px solid #E7E7E7;
+}
+    .i-popup-arrb .i-popup-arr-bg,
+    .i-popup-arrbl .i-popup-arr-bg,
+    .i-popup-arrbr .i-popup-arr-bg {
+bottom: 4px;
+left: -6px;
+/*border-left: 6px solid transparent;border-right: 6px solid transparent;*/
+border-left: 6px solid rgba(255,255,255,.01);
+border-right: 6px solid rgba(255,255,255,.01);
+border-top: 6px solid #FFF;
+}
+
+    .i-popup-arrl.i-popup-arr,
+    .i-popup-arrlt.i-popup-arr,
+    .i-popup-arrlb.i-popup-arr {
+border-top: 6px solid transparent;
+border-bottom: 6px solid transparent;
+border-top: 6px solid rgba(255,255,255,.01);
+border-bottom: 6px solid rgba(255,255,255,.01);
+border-right: 6px solid #CCC;
+}
+    .i-popup-arrl .i-popup-arr-brdr-outer,
+    .i-popup-arrlt .i-popup-arr-brdr-outer,
+    .i-popup-arrlb .i-popup-arr-brdr-outer {
+left: 1px;
+top: -6px;
+/*border-top: 6px solid transparent;border-bottom: 6px solid transparent;*/
+border-top: 6px solid rgba(255,255,255,.01);
+border-bottom: 6px solid rgba(255,255,255,.01);
+border-right: 6px solid #FFF;
+}
+    .i-popup-arrl .i-popup-arr-brdr-inner,
+    .i-popup-arrlt .i-popup-arr-brdr-inner,
+    .i-popup-arrlb .i-popup-arr-brdr-inner {
+left: 2px;
+top: -6px;
+border-top: 6px solid transparent;
+border-bottom: 6px solid transparent;
+border-top: 6px solid rgba(255,255,255,.01);
+border-bottom: 6px solid rgba(255,255,255,.01);
+border-right: 6px solid #E7E7E7;
+}
+    .i-popup-arrl .i-popup-arr-bg,
+    .i-popup-arrlt .i-popup-arr-bg,
+    .i-popup-arrlb .i-popup-arr-bg {
+left: 4px;
+top: -6px;
+/*border-top: 6px solid transparent;border-bottom: 6px solid transparent;*/
+border-top: 6px solid rgba(255,255,255,.01);
+border-bottom: 6px solid rgba(255,255,255,.01);
+border-right: 6px solid #FFF;
+}
+
+    .i-popup-arrr.i-popup-arr,
+    .i-popup-arrrt.i-popup-arr,
+    .i-popup-arrrb.i-popup-arr {
+/*border-top: 6px solid transparent;border-bottom: 6px solid transparent;*/
+border-top: 6px solid rgba(255,255,255,.01);
+border-bottom: 6px solid rgba(255,255,255,.01);
+border-left: 6px solid #CCC;
+}
+    .i-popup-arrr .i-popup-arr-brdr-outer,
+    .i-popup-arrrt .i-popup-arr-brdr-outer,
+    .i-popup-arrrb .i-popup-arr-brdr-outer {
+right: 1px;
+top: -6px;
+/*border-top: 6px solid transparent;border-bottom: 6px solid transparent;*/
+border-top: 6px solid rgba(255,255,255,.01);
+border-bottom: 6px solid rgba(255,255,255,.01);
+border-left: 6px solid #FFF;
+}
+    .i-popup-arrr .i-popup-arr-brdr-inner,
+    .i-popup-arrrt .i-popup-arr-brdr-inner,
+    .i-popup-arrrb .i-popup-arr-brdr-inner {
+right: 2px;
+top: -6px;
+border-top: 6px solid transparent;
+border-bottom: 6px solid transparent;
+border-top: 6px solid rgba(255,255,255,.01);
+border-bottom: 6px solid rgba(255,255,255,.01);
+border-left: 6px solid #E7E7E7;
+}
+    .i-popup-arrr .i-popup-arr-bg,
+    .i-popup-arrrt .i-popup-arr-bg,
+    .i-popup-arrrb .i-popup-arr-bg {
+right: 4px;
+top: -6px;
+/*border-top: 6px solid transparent;border-bottom: 6px solid transparent;*/
+border-top: 6px solid rgba(255,255,255,.01);
+border-bottom: 6px solid rgba(255,255,255,.01);
+border-left: 6px solid #FFF;
+}
+
+    .i-popup-arrt { top: -7px; left: 50%; margin: 0 0 0 -6px; }
+    .i-popup-arrtl { top: -7px; left: 31px; }
+    .i-popup-arrtr { top: -7px; right: 31px; }
+    .i-popup-arrb { bottom: -7px; left: 50%; margin: 0 0 0 -6px; }
+    .i-popup-arrbl { bottom: -7px; left: 31px; }
+    .i-popup-arrbr { bottom: -7px; right: 31px; }
+    .i-popup-arrl { top: 50%; left: -7px; margin: -6px 0 0; }
+    .i-popup-arrlt { top: 15px; left: -7px; }
+    .i-popup-arrlb { bottom: 15px; left: -7px; }
+    .i-popup-arrr { top: 50%; right: -7px; margin: -6px 0 0; }
+    .i-popup-arrrt { top: 15px; right: -7px; }
+    .i-popup-arrrb { bottom: 15px; right: -7px; }
+
+/* BLOKI */
+.thmbns {margin: -3em 0 0 -2em; text-align:center;}
+.thmbn {text-decoration:none; display:inline-block; vertical-align:top; text-align:left; margin:3em 0 0 2em;}
+.thmbn .rth {float:left;}
+
+/* РџРёРєС‚РѕРіСЂР°РјРјС‹ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅС‹С… С„Р»Р°РіРѕРІ РІ СЃРїСЂР°Р№С‚Рµ @author РђСЂС‚С‘Рј РџРѕР»РёРєР°СЂРїРѕРІ, artpolikarpov.ru @author РќРёРєРёС‚Р° Р?РІР°РЅРѕРІ nickivanov.ru 
+ *display: inline; *zoom: 1;
+*/
+.flag-NOWHERE, .flag-ABKHAZIA, .flag-AD, .flag-AE, .flag-AF, .flag-AG, .flag-AI, .flag-AL, .flag-AM, .flag-AN, .flag-AO, .flag-AQ, .flag-AR, .flag-AS, .flag-AT, .flag-AU, .flag-AW, .flag-AX, .flag-AZ, .flag-BA, .flag-BB, .flag-BD, .flag-BE, .flag-BF, .flag-BG, .flag-BH, .flag-BI, .flag-BJ, .flag-BL, .flag-BM, .flag-BN, .flag-BO, .flag-BR, .flag-BS, .flag-BT, .flag-BV, .flag-BW, .flag-BY, .flag-BZ, .flag-CA, .flag-CC, .flag-CD, .flag-CF, .flag-CG, .flag-CH, .flag-CI, .flag-CK, .flag-CL, .flag-CM, .flag-CN, .flag-CO, .flag-CR, .flag-CU, .flag-CV, .flag-CX, .flag-CY, .flag-CZ, .flag-DE, .flag-DJ, .flag-DK, .flag-DM, .flag-DO, .flag-DZ, .flag-EC, .flag-EE, .flag-EG, .flag-EH, .flag-ER, .flag-ES-CE, .flag-ES-ML, .flag-ES, .flag-ET, .flag-EU, .flag-FI, .flag-FJ, .flag-FK, .flag-FM, .flag-FO, .flag-FR, .flag-GA, .flag-GB, .flag-GD, .flag-GE, .flag-GF, .flag-GG, .flag-GH, .flag-GI, .flag-GL, .flag-GM, .flag-GN, .flag-GP, .flag-GQ, .flag-GR, .flag-GS, .flag-GT, .flag-GU, .flag-GW, .flag-GY, .flag-HK, .flag-HM, .flag-HN, .flag-HR, .flag-HT, .flag-HU, .flag-IC, .flag-ID, .flag-IE, .flag-IL, .flag-IM, .flag-IN, .flag-IO, .flag-IQ, .flag-IR, .flag-IS, .flag-IT, .flag-JE, .flag-JM, .flag-JO, .flag-JP, .flag-KE, .flag-KG, .flag-KH, .flag-KI, .flag-KM, .flag-KN, .flag-KOSOVO, .flag-KP, .flag-KR, .flag-KW, .flag-KY, .flag-KZ, .flag-LA, .flag-LB, .flag-LC, .flag-LI, .flag-LK, .flag-LR, .flag-LS, .flag-LT, .flag-LU, .flag-LV, .flag-LY, .flag-MA, .flag-MC, .flag-MD, .flag-ME, .flag-MF, .flag-MG, .flag-MH, .flag-MK, .flag-ML, .flag-MM, .flag-MN, .flag-MO, .flag-MP, .flag-MQ, .flag-MR, .flag-MS, .flag-MT, .flag-MU, .flag-MV, .flag-MW, .flag-MX, .flag-MY, .flag-MZ, .flag-NA, .flag-NC, .flag-NE, .flag-NF, .flag-NG, .flag-NI, .flag-NKR, .flag-NL, .flag-NO, .flag-NP, .flag-NR, .flag-NU, .flag-NZ, .flag-OM, .flag-PA, .flag-PE, .flag-PF, .flag-PG, .flag-PH, .flag-PK, .flag-PL, .flag-PM, .flag-PN, .flag-PR, .flag-PS, .flag-PT, .flag-PW, .flag-PY, .flag-QA, .flag-RE, .flag-RO, .flag-RS, .flag-RU, .flag-RW, .flag-SA, .flag-SB, .flag-SC, .flag-SD, .flag-SE, .flag-SG, .flag-SH, .flag-SI, .flag-SJ, .flag-SK, .flag-SL, .flag-SM, .flag-SN, .flag-SO, .flag-SOUTH-OSSETIA, .flag-SR, .flag-SS, .flag-ST, .flag-SV, .flag-SY, .flag-SZ, .flag-TC, .flag-TD, .flag-TF, .flag-TG, .flag-TH, .flag-TJ, .flag-TK, .flag-TL, .flag-TM, .flag-TN, .flag-TO, .flag-TR, .flag-TT, .flag-TV, .flag-TW, .flag-TZ, .flag-UA, .flag-UG, .flag-UM, .flag-US, .flag-UY, .flag-UZ, .flag-VA, .flag-VC, .flag-VE, .flag-VG, .flag-VI, .flag-VN, .flag-VU, .flag-WF, .flag-WS, .flag-YE, .flag-YT, .flag-ZA, .flag-ZM, .flag-ZW { background: url('/design/flags.png') no-repeat 0 9px; -moz-box-orient: vertical; display: inline-block; vertical-align: baseline; position: relative; overflow: hidden; width: 16px; height: 9px; font-size: 0; line-height: 0; margin: 0; padding: 0; }
+.flag-ABKHAZIA{background-position:0 0px}
+.flag-ES-CE{background-position:0 -603px}
+.flag-ES-ML{background-position:0 -612px}
+.flag-KOSOVO{background-position:0 -1116px}
+.flag-SOUH-OSSETIA{background-position:0 -1908px}
+.flag-AD{background-position:0 -9px}
+.flag-AE{background-position:0 -18px}
+.flag-AF{background-position:0 -27px}
+.flag-AG{background-position:0 -36px}
+.flag-AI{background-position:0 -45px}
+.flag-AL{background-position:0 -54px}
+.flag-AM{background-position:0 -63px}
+.flag-AN{background-position:0 -72px}
+.flag-AO{background-position:0 -81px}
+.flag-AQ{background-position:0 -90px}
+.flag-AR{background-position:0 -99px}
+.flag-AS{background-position:0 -108px}
+.flag-AT{background-position:0 -117px}
+.flag-AU{background-position:0 -126px}
+.flag-AW{background-position:0 -135px}
+.flag-AX{background-position:0 -144px}
+.flag-AZ{background-position:0 -153px}
+.flag-BA{background-position:0 -162px}
+.flag-BB{background-position:0 -171px}
+.flag-BD{background-position:0 -180px}
+.flag-BE{background-position:0 -189px}
+.flag-BF{background-position:0 -198px}
+.flag-BG{background-position:0 -207px}
+.flag-BH{background-position:0 -216px}
+.flag-BI{background-position:0 -225px}
+.flag-BJ{background-position:0 -234px}
+.flag-BL{background-position:0 -243px}
+.flag-BM{background-position:0 -252px}
+.flag-BN{background-position:0 -261px}
+.flag-BO{background-position:0 -270px}
+.flag-BR{background-position:0 -279px}
+.flag-BS{background-position:0 -288px}
+.flag-BT{background-position:0 -297px}
+.flag-BV{background-position:0 -306px}
+.flag-BW{background-position:0 -315px}
+.flag-BY{background-position:0 -324px}
+.flag-BZ{background-position:0 -333px}
+.flag-CA{background-position:0 -342px}
+.flag-CC{background-position:0 -351px}
+.flag-CD{background-position:0 -360px}
+.flag-CF{background-position:0 -369px}
+.flag-CG{background-position:0 -378px}
+.flag-CH{background-position:0 -387px}
+.flag-CI{background-position:0 -396px}
+.flag-CK{background-position:0 -405px}
+.flag-CL{background-position:0 -414px}
+.flag-CM{background-position:0 -423px}
+.flag-CN{background-position:0 -432px}
+.flag-CO{background-position:0 -441px}
+.flag-CR{background-position:0 -450px}
+.flag-CU{background-position:0 -459px}
+.flag-CV{background-position:0 -468px}
+.flag-CX{background-position:0 -477px}
+.flag-CY{background-position:0 -486px}
+.flag-CZ{background-position:0 -495px}
+.flag-DE{background-position:0 -504px}
+.flag-DJ{background-position:0 -513px}
+.flag-DK{background-position:0 -522px}
+.flag-DM{background-position:0 -531px}
+.flag-DO{background-position:0 -540px}
+.flag-DZ{background-position:0 -549px}
+.flag-EC{background-position:0 -558px}
+.flag-EE{background-position:0 -567px}
+.flag-EG{background-position:0 -576px}
+.flag-EH{background-position:0 -585px}
+.flag-ER{background-position:0 -594px}
+.flag-ES{background-position:0 -621px}
+.flag-ET{background-position:0 -630px}
+.flag-EU{background-position:0 -639px}
+.flag-FI{background-position:0 -648px}
+.flag-FJ{background-position:0 -657px}
+.flag-FK{background-position:0 -666px}
+.flag-FM{background-position:0 -675px}
+.flag-FO{background-position:0 -684px}
+.flag-FR{background-position:0 -693px}
+.flag-GA{background-position:0 -702px}
+.flag-GB{background-position:0 -711px}
+.flag-GD{background-position:0 -720px}
+.flag-GE{background-position:0 -729px}
+.flag-GF{background-position:0 -738px}
+.flag-GG{background-position:0 -747px}
+.flag-GH{background-position:0 -756px}
+.flag-GI{background-position:0 -765px}
+.flag-GL{background-position:0 -774px}
+.flag-GM{background-position:0 -783px}
+.flag-GN{background-position:0 -792px}
+.flag-GP{background-position:0 -801px}
+.flag-GQ{background-position:0 -810px}
+.flag-GR{background-position:0 -819px}
+.flag-GS{background-position:0 -828px}
+.flag-GT{background-position:0 -837px}
+.flag-GU{background-position:0 -846px}
+.flag-GW{background-position:0 -855px}
+.flag-GY{background-position:0 -864px}
+.flag-HK{background-position:0 -873px}
+.flag-HM{background-position:0 -882px}
+.flag-HN{background-position:0 -891px}
+.flag-HR{background-position:0 -900px}
+.flag-HT{background-position:0 -909px}
+.flag-HU{background-position:0 -918px}
+.flag-IC{background-position:0 -927px}
+.flag-ID{background-position:0 -936px}
+.flag-IE{background-position:0 -945px}
+.flag-IL{background-position:0 -954px}
+.flag-IM{background-position:0 -963px}
+.flag-IN{background-position:0 -972px}
+.flag-IO{background-position:0 -981px}
+.flag-IQ{background-position:0 -990px}
+.flag-IR{background-position:0 -999px}
+.flag-IS{background-position:0 -1008px}
+.flag-IT{background-position:0 -1017px}
+.flag-JE{background-position:0 -1026px}
+.flag-JM{background-position:0 -1035px}
+.flag-JO{background-position:0 -1044px}
+.flag-JP{background-position:0 -1053px}
+.flag-KE{background-position:0 -1062px}
+.flag-KG{background-position:0 -1071px}
+.flag-KH{background-position:0 -1080px}
+.flag-KI{background-position:0 -1089px}
+.flag-KM{background-position:0 -1098px}
+.flag-KN{background-position:0 -1107px}
+.flag-KP{background-position:0 -1125px}
+.flag-KR{background-position:0 -1134px}
+.flag-KW{background-position:0 -1143px}
+.flag-KY{background-position:0 -1152px}
+.flag-KZ{background-position:0 -1161px}
+.flag-LA{background-position:0 -1170px}
+.flag-LB{background-position:0 -1179px}
+.flag-LC{background-position:0 -1188px}
+.flag-LI{background-position:0 -1197px}
+.flag-LK{background-position:0 -1206px}
+.flag-LR{background-position:0 -1215px}
+.flag-LS{background-position:0 -1224px}
+.flag-LT{background-position:0 -1233px}
+.flag-LU{background-position:0 -1242px}
+.flag-LV{background-position:0 -1251px}
+.flag-LY{background-position:0 -1260px}
+.flag-MA{background-position:0 -1269px}
+.flag-MC{background-position:0 -1278px}
+.flag-MD{background-position:0 -1287px}
+.flag-ME{background-position:0 -1296px}
+.flag-MF{background-position:0 -1305px}
+.flag-MG{background-position:0 -1314px}
+.flag-MH{background-position:0 -1323px}
+.flag-MK{background-position:0 -1332px}
+.flag-ML{background-position:0 -1341px}
+.flag-MM{background-position:0 -1350px}
+.flag-MN{background-position:0 -1359px}
+.flag-MO{background-position:0 -1368px}
+.flag-MP{background-position:0 -1377px}
+.flag-MQ{background-position:0 -1386px}
+.flag-MR{background-position:0 -1395px}
+.flag-MS{background-position:0 -1404px}
+.flag-MT{background-position:0 -1413px}
+.flag-MU{background-position:0 -1422px}
+.flag-MV{background-position:0 -1431px}
+.flag-MW{background-position:0 -1440px}
+.flag-MX{background-position:0 -1449px}
+.flag-MY{background-position:0 -1458px}
+.flag-MZ{background-position:0 -1467px}
+.flag-NA{background-position:0 -1476px}
+.flag-NC{background-position:0 -1485px}
+.flag-NE{background-position:0 -1494px}
+.flag-NF{background-position:0 -1503px}
+.flag-NG{background-position:0 -1512px}
+.flag-NI{background-position:0 -1521px}
+.flag-NK{background-position:0 -1530px}
+.flag-NL{background-position:0 -1539px}
+.flag-NO{background-position:0 -1548px}
+.flag-NP{background-position:0 -1557px}
+.flag-NR{background-position:0 -1566px}
+.flag-NU{background-position:0 -1575px}
+.flag-NZ{background-position:0 -1584px}
+.flag-OM{background-position:0 -1593px}
+.flag-PA{background-position:0 -1602px}
+.flag-PE{background-position:0 -1611px}
+.flag-PF{background-position:0 -1620px}
+.flag-PG{background-position:0 -1629px}
+.flag-PH{background-position:0 -1638px}
+.flag-PK{background-position:0 -1647px}
+.flag-PL{background-position:0 -1656px}
+.flag-PM{background-position:0 -1665px}
+.flag-PN{background-position:0 -1674px}
+.flag-PR{background-position:0 -1683px}
+.flag-PS{background-position:0 -1692px}
+.flag-PT{background-position:0 -1701px}
+.flag-PW{background-position:0 -1710px}
+.flag-PY{background-position:0 -1719px}
+.flag-QA{background-position:0 -1728px}
+.flag-RE{background-position:0 -1737px}
+.flag-RO{background-position:0 -1746px}
+.flag-RS{background-position:0 -1755px}
+.flag-RU{background-position:0 -1764px}
+.flag-RW{background-position:0 -1773px}
+.flag-SA{background-position:0 -1782px}
+.flag-SB{background-position:0 -1791px}
+.flag-SC{background-position:0 -1800px}
+.flag-SD{background-position:0 -1809px}
+.flag-SE{background-position:0 -1818px}
+.flag-SG{background-position:0 -1827px}
+.flag-SH{background-position:0 -1836px}
+.flag-SI{background-position:0 -1845px}
+.flag-SJ{background-position:0 -1854px}
+.flag-SK{background-position:0 -1863px}
+.flag-SL{background-position:0 -1872px}
+.flag-SM{background-position:0 -1881px}
+.flag-SN{background-position:0 -1890px}
+.flag-SO{background-position:0 -1899px}
+.flag-SR{background-position:0 -1917px}
+.flag-SS{background-position:0 -1926px}
+.flag-ST{background-position:0 -1935px}
+.flag-SV{background-position:0 -1944px}
+.flag-SY{background-position:0 -1953px}
+.flag-SZ{background-position:0 -1962px}
+.flag-TC{background-position:0 -1971px}
+.flag-TD{background-position:0 -1980px}
+.flag-TF{background-position:0 -1989px}
+.flag-TG{background-position:0 -1998px}
+.flag-TH{background-position:0 -2007px}
+.flag-TJ{background-position:0 -2016px}
+.flag-TK{background-position:0 -2025px}
+.flag-TL{background-position:0 -2034px}
+.flag-TM{background-position:0 -2043px}
+.flag-TN{background-position:0 -2052px}
+.flag-TO{background-position:0 -2061px}
+.flag-TR{background-position:0 -2070px}
+.flag-TT{background-position:0 -2079px}
+.flag-TV{background-position:0 -2088px}
+.flag-TW{background-position:0 -2097px}
+.flag-TZ{background-position:0 -2106px}
+.flag-UA{background-position:0 -2115px}
+.flag-UG{background-position:0 -2124px}
+.flag-UM{background-position:0 -2133px}
+.flag-US{background-position:0 -2142px}
+.flag-UY{background-position:0 -2151px}
+.flag-UZ{background-position:0 -2160px}
+.flag-VA{background-position:0 -2169px}
+.flag-VC{background-position:0 -2178px}
+.flag-VE{background-position:0 -2187px}
+.flag-VG{background-position:0 -2196px}
+.flag-VI{background-position:0 -2205px}
+.flag-VN{background-position:0 -2214px}
+.flag-VU{background-position:0 -2223px}
+.flag-WF{background-position:0 -2232px}
+.flag-WS{background-position:0 -2241px}
+.flag-YE{background-position:0 -2250px}
+.flag-YT{background-position:0 -2259px}
+.flag-ZA{background-position:0 -2268px}
+.flag-ZM{background-position:0 -2277px}
+.flag-ZW{background-position:0 -2286px}
+
+/* ВСЕ ИКОНКИ */
+
+
+.e_14_layer_deletelayer,.e_DiKiJ_l,.e_DiKiJ_r,.e__,.e_bird16,.e_blend,.e_bold,.e_button_accept,.e_button_cancel,.e_cancel,.e_cancel1,.e_color_line,.e_copy,.e_crop,.e_d,.e_document-revert,.e_edit-clear,.e_emptytrash,.e_expand_leaf,.e_expand_minus,.e_expand_plus,.e_false,.e_fido,.e_filenew,.e_finish,.e_foto,.e_gnome-help,.e_help,.e_i,.e_i_half,.e_ico-apple,.e_ico-binoniq,.e_ico-blogspot,.e_ico-facebook,.e_ico-google,.e_ico-instagram,.e_ico-livejournal,.e_ico-ljrossia,.e_ico-lleo,.e_ico-mailru,.e_ico-moikrug,.e_ico-myopenid,.e_ico-openid,.e_ico-twitter,.e_ico-vk,.e_ico-wikipedia,.e_ico-ya,.e_ico-yandex,.e_ico-youtube,.e_image,.e_italic,.e_jump-to,.e_justifycenter,.e_kgpg_photo,.e_kmail,.e_kontact_journal,.e_kontact_notes,.e_kr_invert,.e_kviewshell,.e_ledblue,.e_ledgreen,.e_ledlightblue,.e_ledlightgreen,.e_ledorange,.e_ledpurple,.e_ledred,.e_ledyellow,.e_link,.e_list-add,.e_list-remove,.e_ljuser,.e_ljvideo,.e_ltgt,.e_mail,.e_mail_forward,.e_mdash,.e_mob-ball,.e_mobilemenu,.e_n,.e_nbsp,.e_no,.e_pd,.e_play-youtube,.e_podzamok,.e_post-entry,.e_redo-ltr,.e_redo,.e_reload_page,.e_remove,.e_rotate_left,.e_rotate_right,.e_rss,.e_strikethrough,.e_system,.e_tableb1,.e_tableb2,.e_tableb3,.e_tableb_1,.e_tableb_pre,.e_tableb_r,.e_true,.e_twitter,.e_underline,.e_viewmagm,.e_viewmagp,.e_yes {display:inline-block;vertical-align:baseline;position:relative;overflow:hidden;font-size:0;line-height:0;margin:0;padding:0}
+
+.e_14_layer_deletelayer{background:url('/design/k.png') no-repeat 0 16px;background-position:0 0px;width:16px;height:16px}
+.e_DiKiJ_l{background:url('/design/k.png') no-repeat 0 34px;background-position:0 -16px;width:34px;height:38px}
+.e_DiKiJ_r{background:url('/design/k.png') no-repeat 0 34px;background-position:0 -54px;width:34px;height:38px}
+.e__{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -92px;width:21px;height:21px}
+.e_bird16{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -113px;width:16px;height:16px}
+.e_blend{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -129px;width:16px;height:16px}
+.e_bold{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -145px;width:21px;height:21px}
+.e_button_accept{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -166px;width:16px;height:16px}
+.e_button_cancel{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -182px;width:16px;height:16px}
+.e_cancel{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -198px;width:16px;height:16px}
+.e_cancel1{background:url('/design/k.png') no-repeat 0 8px;background-position:0 -214px;width:8px;height:8px}
+.e_color_line{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -222px;width:16px;height:16px}
+.e_copy{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -238px;width:21px;height:21px}
+.e_crop{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -259px;width:16px;height:16px}
+.e_d{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -275px;width:21px;height:21px}
+.e_document-revert{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -296px;width:16px;height:16px}
+.e_edit-clear{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -312px;width:16px;height:16px}
+.e_emptytrash{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -328px;width:16px;height:16px}
+.e_expand_leaf{background:url('/design/k.png') no-repeat 0 18px;background-position:0 -344px;width:18px;height:18px}
+.e_expand_minus{background:url('/design/k.png') no-repeat 0 18px;background-position:0 -362px;width:18px;height:18px}
+.e_expand_plus{background:url('/design/k.png') no-repeat 0 18px;background-position:0 -380px;width:18px;height:18px}
+.e_false{background:url('/design/k.png') no-repeat 0 32px;background-position:0 -398px;width:32px;height:32px}
+.e_fido{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -430px;width:16px;height:16px}
+.e_filenew{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -446px;width:16px;height:16px}
+.e_finish{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -462px;width:16px;height:16px}
+.e_foto{background:url('/design/k.png') no-repeat 0 22px;background-position:0 -478px;width:22px;height:22px}
+.e_gnome-help{background:url('/design/k.png') no-repeat 0 22px;background-position:0 -500px;width:22px;height:22px}
+.e_help{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -522px;width:16px;height:16px}
+.e_i{background:url('/design/k.png') no-repeat 0 18px;background-position:0 -538px;width:18px;height:18px}
+.e_i_half{background:url('/design/k.png') no-repeat 0 18px;background-position:0 -556px;width:18px;height:18px}
+.e_ico-apple{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -574px;width:16px;height:16px}
+.e_ico-binoniq{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -590px;width:16px;height:16px}
+.e_ico-blogspot{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -606px;width:16px;height:16px}
+.e_ico-facebook{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -622px;width:16px;height:16px}
+.e_ico-google{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -638px;width:16px;height:16px}
+.e_ico-instagram{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -654px;width:16px;height:16px}
+.e_ico-livejournal{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -670px;width:16px;height:16px}
+.e_ico-ljrossia{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -686px;width:16px;height:16px}
+.e_ico-lleo{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -702px;width:16px;height:16px}
+.e_ico-mailru{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -718px;width:16px;height:16px}
+.e_ico-moikrug{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -734px;width:16px;height:16px}
+.e_ico-myopenid{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -750px;width:16px;height:16px}
+.e_ico-openid{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -766px;width:16px;height:16px}
+.e_ico-twitter{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -782px;width:16px;height:16px}
+.e_ico-vk{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -798px;width:16px;height:16px}
+.e_ico-wikipedia{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -814px;width:16px;height:16px}
+.e_ico-ya{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -830px;width:16px;height:16px}
+.e_ico-yandex{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -846px;width:16px;height:16px}
+.e_ico-youtube{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -862px;width:16px;height:16px}
+.e_image{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -878px;width:21px;height:21px}
+.e_italic{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -899px;width:21px;height:21px}
+.e_jump-to{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -920px;width:16px;height:16px}
+.e_justifycenter{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -936px;width:21px;height:21px}
+.e_kgpg_photo{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -957px;width:16px;height:16px}
+.e_kmail{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -973px;width:16px;height:16px}
+.e_kontact_journal{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -989px;width:16px;height:16px}
+.e_kontact_notes{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1005px;width:16px;height:16px}
+.e_kr_invert{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1021px;width:16px;height:16px}
+.e_kviewshell{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1037px;width:16px;height:16px}
+.e_ledblue{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1053px;width:16px;height:16px}
+.e_ledgreen{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1069px;width:16px;height:16px}
+.e_ledlightblue{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1085px;width:16px;height:16px}
+.e_ledlightgreen{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1101px;width:16px;height:16px}
+.e_ledorange{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1117px;width:16px;height:16px}
+.e_ledpurple{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1133px;width:16px;height:16px}
+.e_ledred{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1149px;width:16px;height:16px}
+.e_ledyellow{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1165px;width:16px;height:16px}
+.e_link{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1181px;width:21px;height:21px}
+.e_list-add{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1202px;width:16px;height:16px}
+.e_list-remove{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1218px;width:16px;height:16px}
+.e_ljuser{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1234px;width:21px;height:21px}
+.e_ljvideo{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1255px;width:21px;height:21px}
+.e_ltgt{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1276px;width:21px;height:21px}
+.e_mail{background:url('/design/k.png') no-repeat 0 20px;background-position:0 -1297px;width:20px;height:20px}
+.e_mail_forward{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1317px;width:16px;height:16px}
+.e_mdash{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1333px;width:21px;height:21px}
+.can,.e_mob-ball{background:url('/design/k.png') no-repeat 0 32px;background-position:0 -1354px;width:32px;height:32px}
+.e_mobilemenu{background:url('/design/k.png') no-repeat 0 64px;background-position:0 -1386px;width:64px;height:64px}
+.e_n{background:url('/design/k.png') no-repeat 0 12px;background-position:0 -1450px;width:12px;height:12px}
+.e_nbsp{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1462px;width:21px;height:21px}
+.e_no{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1483px;width:16px;height:16px}
+.e_pd{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1499px;width:21px;height:21px}
+.e_play-youtube{background:url('/design/k.png') no-repeat 0 32px;background-position:0 -1520px;width:32px;height:32px}
+.e_podzamok{background:url('/design/k.png') no-repeat 0 14px;background-position:0 -1552px;width:14px;height:15px}
+.e_post-entry{background:url('/design/k.png') no-repeat 0 20px;background-position:0 -1567px;width:20px;height:18px}
+.e_redo-ltr{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1585px;width:16px;height:16px}
+.e_redo{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1601px;width:16px;height:16px}
+.e_reload_page{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1617px;width:16px;height:16px}
+.e_remove{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1633px;width:16px;height:16px}
+.e_rotate_left{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1649px;width:16px;height:16px}
+.e_rotate_right{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1665px;width:16px;height:16px}
+.e_rss{background:url('/design/k.png') no-repeat 0 36px;background-position:0 -1681px;width:36px;height:14px}
+.e_strikethrough{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1695px;width:21px;height:21px}
+.e_system{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1716px;width:16px;height:16px}
+.e_tableb1{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1732px;width:21px;height:21px}
+.e_tableb2{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1753px;width:21px;height:21px}
+.e_tableb3{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1774px;width:21px;height:21px}
+.e_tableb_1{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1795px;width:21px;height:21px}
+.e_tableb_pre{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1816px;width:21px;height:21px}
+.e_tableb_r{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1837px;width:21px;height:21px}
+.e_true{background:url('/design/k.png') no-repeat 0 32px;background-position:0 -1858px;width:32px;height:32px}
+.e_twitter{background:url('/design/k.png') no-repeat 0 22px;background-position:0 -1890px;width:22px;height:22px}
+.e_underline{background:url('/design/k.png') no-repeat 0 21px;background-position:0 -1912px;width:21px;height:21px}
+.e_viewmagm{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1933px;width:16px;height:16px}
+.e_viewmagp{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1949px;width:16px;height:16px}
+.e_yes{background:url('/design/k.png') no-repeat 0 16px;background-position:0 -1965px;width:16px;height:16px}

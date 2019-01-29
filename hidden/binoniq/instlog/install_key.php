@@ -1,0 +1,1 @@
+<?php die("Error 404"); $key="70b215ee42baf7076e2f04687e24689de52e28f6"; ?>

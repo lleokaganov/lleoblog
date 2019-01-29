@@ -1,0 +1,13 @@
+@charset "windows-1251";
+
+#openid .l0, #openid .in, #openid .l1, #openid .l2, #openid .e, #openid .o, LEGEND, #openid .txt
+{ font-size: 10px; text-align: left; }
+#openid .in { width: 130pt; border: 1px dotted #ccc;}
+#openid .l1 { float: left; width: 70pt; }
+#openid .l2 { float: left; width: 130pt; }
+#openid .e { color: red; max-width: 200pt;}
+#openid .o { color: green; max-width: 200pt;}
+#openid { border: 1px solid gray; display: inline; }
+LEGEND { font-weight: bold; color: #FF6200; }
+#openid .capcha { width: 60px; height: 30px; margin: 0; padding: 0; border: 1px solid #ccc; font-size: 30px; }
+
