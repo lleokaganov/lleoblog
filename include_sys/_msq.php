@@ -40,12 +40,10 @@ ms_connect(); // соединиться с базой - эта процедура в _autorize.php
 
 function ms_connect() { if(isset($GLOBALS['ms_connected'])) return;
 
-$GLOBALS['ms_connected']=(function_exists('mysqli_connect') ?
+if(!($GLOBALS['ms_connected']=(function_exists('mysqli_connect') ?
     @mysqli_connect($GLOBALS['msq_host'], $GLOBALS['msq_login'], $GLOBALS['msq_pass'],$GLOBALS['msq_basa'])
-    :@mysqli_connect($GLOBALS['msq_host'], $GLOBALS['msq_login'], $GLOBALS['msq_pass'])
-);
-
-    if(!$GLOBALS['ms_connected']) {
+    :@mysql_connect($GLOBALS['msq_host'], $GLOBALS['msq_login'], $GLOBALS['msq_pass'])
+))) {
 	logi("MSQ_ERRORS.txt","\n".date("Y-m-d H:i:s")." error");
 	idie("<p>MySQL error!"
     .($GLOBALS['admin']?"Check config.php:<ul> \$msq_host = '".$GLOBALS['msq_host']."';
@@ -53,41 +51,28 @@ $GLOBALS['ms_connected']=(function_exists('mysqli_connect') ?
 May be it is a temporarry problem? Try to reload page in several seconds or minutes."));
     }
 
-if(!function_exists('mysqli_connect')) {
-    @mysql_select_db($GLOBALS['msq_basa']) or idie("<p>Good news: engine is working! Then, MySQL detected and connect successfull.
+    if(function_exists('mysqli_connect')) {
+
+	// еще одна сраная йобаная заплатка
+	if(!function_exists('mysqli_fetch_all')) { function mysqli_fetch_all($sql) { for($res=array(); $tmp=mysqli_fetch_array($sql);) $res[]=$tmp; return $res; } }
+
+	@mysqli_query($GLOBALS['ms_connected'],"SET NAMES ".$GLOBALS['msq_charset']);
+	@mysqli_query($GLOBALS['ms_connected'],"SET @@local.character_set_client=".$GLOBALS['msq_charset']);
+	@mysqli_query($GLOBALS['ms_connected'],"SET @@local.character_set_results=".$GLOBALS['msq_charset']);
+	@mysqli_query($GLOBALS['ms_connected'],"SET @@local.character_set_connection=".$GLOBALS['msq_charset']);
+
+    } else {
+
+	@mysql_select_db($GLOBALS['msq_basa']) or idie("<p>Good news: engine is working! Then, MySQL detected and connect successfull.
 <br>Bad news: MySQL BASE <b>`".$GLOBALS['msq_basa']."`</b> is not exist.<br>You have to define base name in config.sys: <b>\$msq_basa = '".$GLOBALS['msq_basa']."';</b>");
-}
 
-if(function_exists('mysqli_connect')) {
-
-    // еще одна сраная йобаная заплатка
-    if(!function_exists('mysqli_fetch_all')) { function mysqli_fetch_all($sql) { for($res=array(); $tmp=mysqli_fetch_array($sql);) $res[]=$tmp; return $res; } }
-
-   @mysqli_query($GLOBALS['ms_connected'],"SET NAMES ".$GLOBALS['msq_charset']);
-   @mysqli_query($GLOBALS['ms_connected'],"SET @@local.character_set_client=".$GLOBALS['msq_charset']);
-   @mysqli_query($GLOBALS['ms_connected'],"SET @@local.character_set_results=".$GLOBALS['msq_charset']);
-   @mysqli_query($GLOBALS['ms_connected'],"SET @@local.character_set_connection=".$GLOBALS['msq_charset']);
-
-} else {
-   @mysql_query("SET NAMES ".$GLOBALS['msq_charset']);
-   @mysql_query("SET @@local.character_set_client=".$GLOBALS['msq_charset']);
-   @mysql_query("SET @@local.character_set_results=".$GLOBALS['msq_charset']);
-   @mysql_query("SET @@local.character_set_connection=".$GLOBALS['msq_charset']);
-//   $GLOBALS['ms_connected']=true;
-}
-
-// die('OKI: '.mysqli_error($GLOBALS['ms_connected'])." : ");
-
-// $r=ms("SELECT `Header`,`Date` FROM dnevnik_zapisi WHERE `Header`!='ererwerwr' LIMIT 3",'_a',0); die("<p>r: `".h($r)."` ms_type: ".gettype($r)." ".intval($r)."<p>MSQE: ".$GLOBALS['msqe']);
-
-// print "EE: type=".gettype($r)." intval:".intval($r);
-// dier($r);
-
-// ql=@mysqli_query($s);
-//	$e=@mysqli_error(); if($e!='') $msqe .= "<p><font color=green>mysql_query(\"$s\")</font><br><font color=red>$e</font>";
+	@mysql_query("SET NAMES ".$GLOBALS['msq_charset']);
+	@mysql_query("SET @@local.character_set_client=".$GLOBALS['msq_charset']);
+	@mysql_query("SET @@local.character_set_results=".$GLOBALS['msq_charset']);
+	@mysql_query("SET @@local.character_set_connection=".$GLOBALS['msq_charset']);
+    }
 
 }
-
 
 function msq_id() { return (function_exists('mysqli_connect')?mysqli_insert_id($GLOBALS['ms_connected']):mysql_insert_id()); }
 
