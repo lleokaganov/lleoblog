@@ -1,12 +1,10 @@
 # lleoblog
-Full CMS for Diary or Site
 
+ИНСТАЛЛЯЦИЯ
 
-INSTALLATION
+1. ПЕРЕД
 
-1. BEFORE START
-
-    Download content in the root of site or folder, move config.sys.tmpl to config.sys and edit. The most important is MySQL setting:
+    Скачайте двиок в кореньб сайта или выделенную папку, переименуйте config.sys.tmpl в config.sys and и отредактируйте. Самый важный параметр - установки MySQL:
 
         $msq_host = "localhost";
         $msq_login = "root";
@@ -14,40 +12,30 @@ INSTALLATION
         $msq_basa = "blogs";
         $msq_charset = "cp1251";
 
-    If you install engine NOT IN THE ROOT of site (folder blog/ for example):
-    -- set $blogdir = "blog/"; in config.sys
-    -- if you use apache: set "RewriteBase /dnevnik/" instead "RewriteBase /" in .htaccess
+    Если движок установлен не в корень, а выделенную папку (например blog/):
+    -- Пропишите $blogdir = "blog/"; в config.sys
+    -- Если используется apache, исправьте в .htaccess "RewriteBase /dnevnik/" вместо "RewriteBase /"
 
-    If you use nginx you have to:
-	-- disallow "hidden/" folder
-	-- redirect all unknown pages to index.php
-	Example of nginx.conf below.
+    Если используется nginx, вы должны:
+	-- Запретить доступ к папке hidden
+	-- Переадресовать вызовы любых несуществующих страниц на index.php
+	-- Пример конфигурации nginx.cong в конце
 
-2. STARTING
+2. ЗАПУСК
 
-    Try to open http://yoursite.com/install, reload the page and follow the instructions.
+    Попробуйте открыть http://мой.сайт/install, перегрузите страницу и следуйте инструкциям. Первым делом понажимайте все кнопки создания таблиц.
 
-3. AFTER INSTALLATION
+3. ПОСЛЕ УСТАНОВКИ
 
-    WARNING!!! All visitors has the admin permissions!!!
+    ВНИМАНИЕ!!! Любой посетитель во время установки имеет админские права! После установки следует прописать админа:
 
-    You have to set admin:
-    -- Set $admin_unics="99999999"; (unknown unic) in config.sys
-    -- Reload http://yoursite.com/install, press "U" button or click the right-top icon for open you Personal Card, read your unic in header (number 1 for example)
-    -- Set $admin_unics="1"; in config.sys
-    -- Reload http://yoursite.com/install The yellow ball in left-top corner means admin. Click one for open admin' menu.
-
+    -- Пропишите $admin_unics="99999999"; (несуществующий номер) в config.sys
+    -- Перегрузите http://мой.сайт/install нажмите на клавиатуре "U" или кликните на иконку в правом верхнем углу чтобы открыть свою Карточку и прочесть в заголовке номер (например 1)
+    -- Впшите его $admin_unics="1"; в config.sys
+    -- Перегрузите страницу чтобы увидеть желтый шарик слева вверху - это админское меню.
 
 
-
-
-
-
-
-
-
-If you use nginx, nginx.conf example below:
-
+Пример nginx.conf:
 
 upstream home {
   server unix:/var/run/home-fpm.sock;
