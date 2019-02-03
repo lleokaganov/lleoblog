@@ -1,203 +1,201 @@
 <?php
 
-ini_set('session.use_trans_sid', 0);
-ini_set('session.use_cookies', 0);
+$admin_unics=""; // сюда надо будет вписать через запятую номера админов, если эта строка пуста - админские права получает любой посетитель, что полезно лишь в момент первой установки
 
-$HTTPS=(isset($_SERVER['HTTPS'])||isset($_SERVER['HTTP_X_FORWARDED_PROTO'])&&'https'==$_SERVER['HTTP_X_FORWARDED_PROTO']?'https':'http');
+# важные настройки для PHP
 
-$a="1"; if(ini_get('register_globals')!=false) foreach(array_merge($_GET,$_POST,$_REQUEST,$_COOKIE) as $n=>$l) unset(${$n});
+    ini_set('session.use_trans_sid', 0);
+    ini_set('session.use_cookies', 0);
+    $HTTPS=(isset($_SERVER['HTTPS']) && 'off'!=$_SERVER['HTTPS'] || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && 'https'==$_SERVER['HTTP_X_FORWARDED_PROTO']?'https':'http');
+    $a="1"; if(ini_get('register_globals')!=false) foreach(array_merge($_GET,$_POST,$_REQUEST,$_COOKIE) as $n=>$l) unset(${$n});
 
 # Если memcache не установлен, оставьте false (отключен), иначе все повиснет! Если установлен - включите параметры соединения:
-$memcache = false;
-# if(($memcache=function_exists('memcache_connect'))) { $a=intval(ini_get('memcache.default_port')); if($a) $memcache=memcache_connect('localhost',$a); }
+    $memcache = false;
+    # if(($memcache=function_exists('memcache_connect'))) { $a=intval(ini_get('memcache.default_port')); if($a) $memcache=memcache_connect('localhost',$a); }
 
-// date_default_timezone_set("Etc/GMT-3"); //date_default_timezone_set('Europe/Moscow'); // установить принудительно время моего сервера если он не в России
+    // date_default_timezone_set("Etc/GMT-3"); //date_default_timezone_set('Europe/Moscow'); // установить принудительно время моего сервера если он не в России
 
 # Первоочередные параметры
 
-$admin_unics=""; // сюда надо будет вписать через запятую номера админов после установки движка, скорее всего вы будете первым и получите номер 1
+# КРАЙНЕ ВАЖНО!!! параметры mysql
+    $msq_host = "localhost";
+    $msq_login = "root";
+    $msq_pass = "MySIC1234";
+    $msq_basa = "blogs";
+    $msq_charset = "cp1251";
 
-# хэш пароля админа (сам пароль не хранится! при инсталляции переменная должна быть пустой, потом скрипт сам скажет, что вписать!)
-$newhash_user="";
-$hashinput = ""; // строка для вывода хэшиков каждой страницы и паролит оно же секретные линки
-$hashlogin = ""; // строка бп
-$hashrss = ""; // hash для rss-ленты
+# хэши (при инсталляции пустые, тогла /install сам их заполнит случайным значением
+    $newhash_user = ""; // хэшик для удиной системы авторизации
+    $hashinput = ""; // хэшики каждой страницы и паролит оно же секретные линки
+    $hashlogin = ""; // строка бп
+    $hashrss = ""; // hash для rss-ленты
 
-# $HTTPS_REDIRECT=1; // перекидывать все обращения http на https
+// $HTTPS_REDIRECT=1; // 1 - перекидывать все обращения http на https
+    $redirect_www=1; // 1 - редиректить все обращения http://www. на обычное http://
 
-$httpsite = $HTTPS."://lleo.me"; // $_SERVER['HTTP_HOST']
-$blogdir = ""; // имя папки блога при установке движка не в корень, например "dnevnik/", если движок в корне сайте - оставить пустым
+$httpsite = $HTTPS."://".$_SERVER['HTTP_HOST']; // в общем случае должно работать если движок в однопользовательском режиме
+// $httpsite = $HTTPS."://lleo.me"; // если режим многопользовательский, впишите точное сайта (lleo.me), тогда запросы vasya.lleo.me движок увидит как пользователя vasya
 
-# параметры mysql
-$msq_host = "localhost";
-$msq_login = "root";
-$msq_pass = "SukaLubov123";
-$msq_basa = "dnevnik"; // имя базы, созданной для движка
-$msq_charset = "cp1251";
+$blogdir = ""; // имя папки блога при установке движка в корень сайта
+// $blogdir = "dnevnik/"; // имя папки блога при установке движка не в корне, а в папке dnevnik. Также потребуется в dnevnik/.htaccess указать "RewriteBase /dnevnik/" (вместо RewriteBase /) или выполнить настройку nginx
+
+$rootpage = ''; // страница, которая открывается в корне (если пустая - откроется последняя заметка блога)
+// $rootpage = 'index.html'; // страница, которая открывается в корне (если не определена - откроется последняя заметка блога)
 
 # имя блога
-$admin_name = "Леонид Каганов";
-$admin_mail = "lleo@lleo.me";
-$blog_name = "lleo.me";
-$admin_site = "lleo.me"; // для формы поиска по яндексу - сюда можно записать не сайт, а блог
-
-// $rootpage = 'index.html'; // страница, которая открывается в корне (если не определена - откроется последняя заметка блога)
-$rootpage = ''; // страница, которая открывается в корне (если пустая - откроется последняя заметка блога)
-
+    $admin_name = "Леонид Каганов";
+    $admin_mail = "lleo@lleo.me";
+    $blog_name = "lleo.me";
+    $admin_site = "lleo.me"; // для формы поиска по яндексу - сюда можно записать не сайт, а блог
 
 $signature = "© ".$admin_name."  <a href='mailto:".$admin_mail."'>".$admin_mail."</a>";
 
 # настройки RSS блога
-$RSSZ_skip = 10; // сколько выдавать за раз в RSS записей
-$RSSC_skip = 30; // сколько выдавать за раз в RSS комментариев
-$RSSZ_mode = 0; // 0 - выдавать полный текст в rss, 1 - только начальный абзац
+    $RSSZ_skip = 10; // сколько выдавать за раз в RSS записей
+    $RSSC_skip = 30; // сколько выдавать за раз в RSS комментариев
+    $RSSZ_mode = 0; // 0 - выдавать полный текст в rss, 1 - только начальный абзац
 
 $cookie_site = ""; // на каком домене оставлять куки
-$pravka_paranoid=true; // true - записывать в базу даже собственные правки, чтобы после можно было отменить
-$pravki_npage=50; // сколько показывать правок на каждой странице при листании архива
 
 # настройки блога
-$maxcommlevel=10; // уровень, после которого комментарии скрываются под подзагрузку
-$enter_comentary_days = 7; // число дней, когда заметка устарела
-$N_maxkomm = 20000; // когда отключать возможность комментировать
-$max_comperday = 20; // максимальное число разрешенных комментариев от человека в сутки
-$comment_otstup=25; // добавочный отступ в пикселях от левой границы каждого комментария-ответа
-$comment_pokazscr=1; // 1 - показывать скрытые комментарии словом "скрыт", 0 - не показывать
+    $maxcommlevel=10; // уровень, после которого комментарии скрываются под подзагрузку
+    $enter_comentary_days = 7; // число дней, когда заметка устарела
+    $N_maxkomm = 20000; // когда отключать возможность комментировать
+    $max_comperday = 20; // максимальное число разрешенных комментариев от человека в сутки
+    $comment_otstup=25; // добавочный отступ в пикселях от левой границы каждого комментария-ответа
+    $comment_pokazscr=1; // 1 - показывать скрытые комментарии словом "скрыт", 0 - не показывать
 
 # место, где система хранит директорию блога
-$host = rtrim($_SERVER["DOCUMENT_ROOT"],'/').'/'; // $host = "/home/lleo/www/";
-$wwwhost = "/".$blogdir; // адрес блога относительно родного сервера (/dnevnik/)
-$httphost = $httpsite.$wwwhost; // полный адрес блога (http://lleo.me/dnevnik/)
-$filehost = $host.$blogdir; // физический адрес файла на сервере
-$wwwtmp = $wwwhost."hidden/tmp/"; // адрес временных файлов
-$hosttmp = $filehost."hidden/tmp/"; // путь до временных файлов
-$hosthidden = $filehost."hidden/"; // путь до скрытых файлов
+    $host = rtrim($_SERVER["DOCUMENT_ROOT"],'/').'/';
+    $wwwhost = "/".$blogdir; // адрес блога относительно родного сервера (/dnevnik/)
+    $httphost = $httpsite.$wwwhost; // полный адрес блога (http://lleo.me/dnevnik/)
+    $filehost = $host.$blogdir; // физический адрес файла на сервере
+    $wwwtmp = $wwwhost."hidden/tmp/"; // адрес временных файлов
+    $hosttmp = $filehost."hidden/tmp/"; // путь до временных файлов
+    $hosthidden = $filehost."hidden/"; // путь до скрытых файлов
 
-# параметры нежелательные для изменения
-$host_log = $filehost."hidden/log/"; // сюда будут писаться логи
-$cronfile = $host_log."cron.flag"; // индикатор крона
-$cache_get = true; // включить файловое кэширование (включается разработчиком только для отладки!)
-$wwwcharset = "windows-1251"; // кодировка страниц блога
-$syscharset = "koi8-r"; // кодировка файловой системы сервера
-$include_sys = $filehost."include_sys/"; // директория, где лежат системные модули
-$include_blog = $filehost."include_blog/"; // директория, где лежат модули блога
-$host_design = $filehost."design/"; // директория, где лежит дизайн
-$www_design = $wwwhost."design/"; // директория, где лежит дизайн
-$host_module = $filehost."module/"; // директория, где лежат модули
-$www_ico = $wwwhost."design/ico/"; // директория, где лежат иконки
-$www_css = $wwwhost."css/"; // директория, где лежат CSS
-$file_css = $filehost."css/"; // директория, где лежат CSS
-$www_js = $wwwhost."js/"; // директория, где лежат JS
-$www_ajax = $wwwhost."ajax/"; // директория, где лежит AJAX
-$file_template = $filehost."template/"; // директория, где лежат CSS
-$fileget_tmp = $hosttmp."get/";
+# прочие параметры
+
+    $host_log = $filehost."hidden/log/"; // сюда будут писаться логи
+    $cronfile = $host_log."cron.flag"; // индикатор крона
+    $cache_get = true; // включить файловое кэширование (включается разработчиком только для отладки!)
+    $wwwcharset = "windows-1251"; // кодировка страниц блога
+    $syscharset = "koi8-r"; // кодировка файловой системы сервера
+    $include_sys = $filehost."include_sys/"; // директория, где лежат системные модули
+    $include_blog = $filehost."include_blog/"; // директория, где лежат модули блога
+    $host_design = $filehost."design/"; // директория, где лежит дизайн
+    $www_design = $wwwhost."design/"; // директория, где лежит дизайн
+    $host_module = $filehost."module/"; // директория, где лежат модули
+    $www_ico = $wwwhost."design/ico/"; // директория, где лежат иконки
+    $www_css = $wwwhost."css/"; // директория, где лежат CSS
+    $file_css = $filehost."css/"; // директория, где лежат CSS
+    $www_js = $wwwhost."js/"; // директория, где лежат JS
+    $www_ajax = $wwwhost."ajax/"; // директория, где лежит AJAX
+    $file_template = $filehost."template/"; // директория, где лежат CSS
+    $fileget_tmp = $hosttmp."get/";
+
+    $site_mod = $filehost."site_mod/"; // директория, где лежат подключаемые модули сборки сайта
+    $site_module = $filehost."site_module/"; // директория, где лежат подключаемые модули сборки сайта
+
+    $db_unic="`unic`"; // имя базы логинов, вы можеет поменять на `basa1`.`unic` если у вас несколько движков в разных папках сайта
+    $db_mailbox="`mailbox`";  // имя базы личных сообщений, вы можеет поменять на `basa1`.`mailbox` если у вас несколько движков в разных папках сайта
+    $db_site = "site";
+    $db_pravka='pravki'; // имя таблицы MySQL, куда складывать правки.
+    // $db_rekomenda = "rekomenda"; $rekomenda_pass="dfgdfgfg"; // имя базы рекомендаций и пароль для него
+
+    $fchmod=0666; // =0644; create files with permissions
+    $dchmod=0777; // =0755; create folders with permissions
 
 ############ правки ###########################################################################
-$db_pravka='pravki'; // имя таблицы MySQL, куда складывать правки.
-$db_unic="`unic`"; // имя базы логинов, вы можеет поменять на `basa1`.`unic` если у вас несколько движков в разных папках сайта
-$db_mailbox="`mailbox`";  // имя базы личных сообщений, вы можеет поменять на `basa1`.`mailbox` если у вас несколько движков в разных папках сайта
-// $db_fkey="`lleoblog`.`fkey`"; // имя базы ключей, устаревшая фича, не используется
+    $pravka_paranoid=true; // true - записывать в базу даже собственные правки, чтобы после можно было отменить
+    $pravki_npage=50; // сколько показывать правок на каждой странице при листании архива
 
 ############ антибот ###########################################################################
-$antibot_pic = $include_sys."antibot_pic/";        // Путь до папки с картинками
-$antibot_cash = "antibot_cash/";
-$antibot_file = $filehost."tmp/".$antibot_cash; // Путь до папки с времеными файлами
-$antibot_www = $wwwhost."tmp/".$antibot_cash; // Адрес папки с времеными файлами для вэба
-$antibot_C = 3;   // Сколько нужно символов
-$antibot_W = 18;   // Ширина и высота символов
-$antibot_H = 20;
-$antibot_add2hash = $_SERVER["REMOTE_ADDR"].$hashinput; // Прилепена для хэша
-$antibot_deltime = 60*60; // удалять старые картинки через 1 час
-
-### сайт-менеджер ##############################################################################
-$db_site = "site";
-$site_mod = $filehost."site_mod/"; // директория, где лежат подключаемые модули сборки сайта
-$site_module = $filehost."site_module/"; // директория, где лежат подключаемые модули сборки сайта
+    $antibot_pic = $include_sys."antibot_pic/";        // Путь до папки с картинками
+    $antibot_cash = "antibot_cash/";
+    $antibot_file = $filehost."tmp/".$antibot_cash; // Путь до папки с времеными файлами
+    $antibot_www = $wwwhost."tmp/".$antibot_cash; // Адрес папки с времеными файлами для вэба
+    $antibot_C = 3;   // Сколько нужно символов
+    $antibot_W = 18;   // Ширина и высота символов
+    $antibot_H = 20;
+    $antibot_add2hash = $_SERVER["REMOTE_ADDR"].$hashinput; // Прилепена для хэша
+    $antibot_deltime = 60*60; // удалять старые картинки через 1 час
 
 ### удобства и отладка #########################################################################
-$foto_ttf=$host_design."ttf/PTC55F.ttf"; // файл шрифта, если используется автоподпись загруженных фотографий
-$foto_res_small=1024;
-$foto_qality_small=85;
-$foto_res_preview=100;
-$foto_qality_preview=70;
-$foto_logo=chr(169)." ".chr(171).$admin_name." ".$httpsite.chr(187); // автоматическая подпись фоток
+
+    $foto_ttf=$host_design."ttf/PTC55F.ttf"; // файл шрифта, если используется автоподпись загруженных фотографий
+    $foto_res_small=1024;
+    $foto_qality_small=85;
+    $foto_res_preview=100;
+    $foto_qality_preview=70;
+    $foto_logo=chr(169)." ".chr(171).$admin_name." ".$httpsite.chr(187); // автоматическая подпись фоток
 
 ### комментарии #################################################################################
-$comment_friend_scr = false; // true - доверить друзьям открывать и скрывать чужие и свои комментарии, false - только админу
-$podzamcolor = '#CADFEF'; // цвет подзамочных элементов
-$maxcommload = 15; // сколько уровней читать при подзагрузке
-$comments_on_page = 100; // комментариев на странице
-$zopt_Comment_view='on'; // on off rul load timeload
-$editor_height = 700; // количество пикселей по высоте в окне редактора заметки
-$editor_width = 1100; // количество пикселей по ширине в окне редактора заметки
-$zopt_Comment_foto_logo = ""; //chr(169)." ".chr(171)."{name}: ".$httpsite.chr(187);
-$zopt_Comment_foto_q = 75;
-$zopt_Comment_foto_x = 600;
-$zopt_Comment_media = 'all';
-$zopt_Comment_screen = 'open'; // open screen friends-open
-$zopt_Comment_tree = '0'; // 0 1
-$zopt_Comment_write = 'off'; // on off friends-only login-only timeoff login-only-timeoff
-$zopt_autoformat = 'p'; // no p pd
-$zopt_autokaw = 'auto'; // auto no
-$zopt_include = '';
-$zopt_template = 'blog'; // темплейт заметки по умолчанию blog (файл: template/blog.htm)
-$del_user_comments = 0; // разрешать пользователям удалять собственные комментарии? да - 1
-$comment_autosave_count=100; // комментарии: через сколько нажатий кнопки делать автозапись
-$comment_time_edit_sec=15*60; // комментарии: сколько секунд позволять редактировать отправленный комментарий (0 - вечно)";
+    $comment_friend_scr = false; // true - доверить друзьям открывать и скрывать чужие и свои комментарии, false - только админу
+    $podzamcolor = '#CADFEF'; // цвет подзамочных элементов
+    $maxcommload = 15; // сколько уровней читать при подзагрузке
+    $comments_on_page = 100; // комментариев на странице
+    $zopt_Comment_view='on'; // on off rul load timeload
+    $editor_height = 700; // количество пикселей по высоте в окне редактора заметки
+    $editor_width = 1100; // количество пикселей по ширине в окне редактора заметки
+    $zopt_Comment_foto_logo = ""; //chr(169)." ".chr(171)."{name}: ".$httpsite.chr(187);
+    $zopt_Comment_foto_q = 75;
+    $zopt_Comment_foto_x = 600;
+    $zopt_Comment_media = 'all';
+    $zopt_Comment_screen = 'open'; // open screen friends-open
+    $zopt_Comment_tree = '0'; // 0 1
+    $zopt_Comment_write = 'off'; // on off friends-only login-only timeoff login-only-timeoff
+    $zopt_autoformat = 'p'; // no p pd
+    $zopt_autokaw = 'auto'; // auto no
+    $zopt_include = '';
+    $zopt_template = 'blog'; // темплейт заметки по умолчанию blog (файл: template/blog.htm)
+    $del_user_comments = 0; // разрешать пользователям удалять собственные комментарии? да - 1
+    $comment_autosave_count=100; // комментарии: через сколько нажатий кнопки делать автозапись
+    $comment_time_edit_sec=15*60; // комментарии: сколько секунд позволять редактировать отправленный комментарий (0 - вечно)";
 
-$rekomenda_pass="blagovest"; // пароль для модуля REKOMENDA
-$redirect_www=1; // если включить - будет редиректить все обращения http://www. на обычное http://
 
-$uset=array();
-$uset['X']=900;
-$uset['x']=150;
-$uset['Q']=80;
-$uset['q']=90;
-$uset['dir']='';
-$uset['logo']="{name} {site}";
+
+    $uset=array();
+    $uset['X']=900;
+    $uset['x']=150;
+    $uset['Q']=80;
+    $uset['q']=90;
+    $uset['dir']='';
+    $uset['logo']="{name} {site}";
 
 // настройки дизайна всплывающих окон окна
-$wintempl_div='pop2 zoomIn animated'; // класс окна
-$wintempl="<div id='{id}_body'>{s}</div><i id='{id}_close' title='Close' class='can'></i>"; // шаблон содержания внутри окна
+    $wintempl_div='pop2 zoomIn animated'; // класс окна
+    $wintempl="<div id='{id}_body'>{s}</div><i id='{id}_close' title='Close' class='can'></i>"; // шаблон содержания внутри окна
 
-$uc='unic'; // имя переменной для кук
-$cookiepre='unic_'; // в случае если разные сервера, но в едином домене, то надо разносить их по именам кук
+    $uc='unic'; // имя переменной для кук
+    $cookiepre='unic_'; // в случае если разные сервера, но в едином домене, то надо разносить их по именам кук
 
-$ttl=60; // время кэша MySQL
-$ahtung=0;
-$ttl_longsite=10000; // длинное хранение данных
+    $ttl=60; // время кэша MySQL
+    $ahtung=0;
+    $ttl_longsite=10000; // длинное хранение данных
 
-# режим работы движка
-$mnogouser=0; // многопользовтаельский режим
-$mnogouser_html=0; // разрешить html юзерам
-$passip=0; // кодирование админского пароля через IP
-$xdomain='x';
-
-$fchmod=0666; // =0644; create files with permissions
-$dchmod=0777; // =0755; create folders with permissions
+# многопользовательский режим работы движка
+    $mnogouser=0; // 0 - многопользоваnельский режим выключен
+    $mnogouser_html=0; // разрешить html юзерам
+    $passip=0; // кодирование админского пароля через IP
+    $xdomain='x';
 
 # настройки вашего почтового ящика для высылки разных уведомлений
-$smtp_mail='sendmail@lleo.me';
-$smtp_pass='jdHDHshjJSDHJSJSJDSJDjsDHJthsdhdSDGhsdshdshH';
-$smtp_smtp='ssl://smtp.yandex.ru';
-$smtp_name='LLeo';
-$smtp_port='465';
+    $smtp_mail='sendmail@lleo.me';
+    $smtp_pass='tYSydnmYUD';
+    $smtp_smtp='ssl://smtp.yandex.ru';
+    $smtp_name='LLeo';
+    $smtp_port='465';
 
-// $SLONPLAY_DAT_CONVERT_SERVICE_SERVER='http://home.lleo.me';
-# $SLONPLAY_DAT_CONVERT_SERVICE_PASSWORD='danuna';
-# $findimg_microsoft_key="7faedb04b9ad4437b7867b62b3cf8ca6";
+# Телеграм для автопостинга
+    $telegram_API_key="251621442:fEtSFSgfRhsGHTnshhSTthdh112hsHshwsdhwshexehFc";
+    $telegram_API_myusername="lleokaganov";
+    $telegram_IP='149.154.167.204';
 
-// Телеграм для автопостинга
-// $telegram_API_key="284051442:fEtSFSgETEGHSShshhSTthdh112hsHshwsdhwshexehFc";
-// $telegram_API_myusername="lleokaganov";
-// $telegram_IP='149.154.167.204';
+// $realdom='kz'; // домен прямого обращения если сайт за ClawdFlare
 
-// $realdom='kz'; // домен прямого обращения ClawdFlare
+// $sendmail_service_pass='muha'; $sendmail_gate_pass='SJDjsyeE'; // разрешить использовать почтовую систему двитжка для сторонних систем почтовых рассылок
 
-# $sendmail_service_pass='muha'; $sendmail_gate_pass='SyuajsyeE'; // разрешить использовать почтовую систему двитжка для сторонних систем почтовых рассылок
-# $flatlogin='root'; $flatpassword='KuliBuli'; // разрешить авторизованный постинг в мой блог по протоколу ЖЖ flat
-# $uploadpassword='KruSiu'; // для /backup
-
-# $db_rekomenda = "`lleoblog`.`rekomenda`"; // имя базы рекомендаций
+// $flatlogin='root'; $flatpassword='KuliBuli'; // разрешить авторизованный постинг в мой блог по протоколу ЖЖ flat
 
 ?>

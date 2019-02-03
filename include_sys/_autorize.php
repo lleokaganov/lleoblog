@@ -25,7 +25,7 @@ $fico=array(
 
 
 # $HTTPS_REDIRECT=1;
-if(!isset($HTTPS)) $HTTPS=(isset($_SERVER['HTTPS'])||isset($_SERVER['HTTP_X_FORWARDED_PROTO'])&&'https'==$_SERVER['HTTP_X_FORWARDED_PROTO']?'https':'http');
+if(!isset($HTTPS)) $HTTPS=(isset($_SERVER['HTTPS']) && 'off'!=$_SERVER['HTTPS'] || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && 'https'==$_SERVER['HTTP_X_FORWARDED_PROTO']?'https':'http');
 
 if(get_magic_quotes_gpc()) { // бл€дь пиздец как заебал этот умный php на хостингах с неотключаемыми настройками // ini_set(Тmagic_quotes_gpcТ, СoffТ);
     function stripslashes_deep($s) { return is_array($s)?array_map('stripslashes_deep',$s):stripslashes($s); }
@@ -253,30 +253,30 @@ $jog_kuki='';
 // ===== ј¬“ќ–»«ј÷»я =====
 if(!isset($autorizatio)) { // не работать с авторизацией при а€ксе или €вном запрете (модуль restore_unic.php)
 
-if($mnogouser!==1) { // стара€ система авторизации
+if(empty($admin_unics)) admin1(); // свежеустановленный движок
+else {
+    if($mnogouser!==1) { // стара€ система авторизации
+	    $up=issor(array('_REQUEST|up','_COOKIE|'.$uc),''); // вз€ть куку авторизации
+	    if($up=='candidat') { if(!$jaajax) set_unic(); } // был кандидатом, зашел второй раз? получи свой номер!
+	    else { // ошибка парол€ или нет такого номера в базе - назначить кандидатом
+			$unic=u2unic($up);
+			if( !$unic || !upcheck($up) ) set_unic_candidat();
+			elseif(getis_global($unic)===false) remake_unic($unic); // если мы убили запись, но он снова пришел - восстановим
+	    }
+    } else { // нова€ система авторизации
+	    $ux=issor(array('_REQUEST|ux','_COOKIE|'.$ux_name),''); // вз€ть куку авторизации
 
-
-
-	$up=issor(array('_REQUEST|up','_COOKIE|'.$uc),''); // вз€ть куку авторизации
-	if($up=='candidat') { if(!$jaajax) set_unic(); } // был кандидатом, зашел второй раз? получи свой номер!
-	else { // ошибка парол€ или нет такого номера в базе - назначить кандидатом
-		$unic=u2unic($up);
-		if( !$unic || !upcheck($up) ) set_unic_candidat();
-		elseif(getis_global($unic)===false) remake_unic($unic); // если мы убили запись, но он снова пришел - восстановим
-	}
-} else { // нова€ система авторизации
-	$ux=issor(array('_REQUEST|ux','_COOKIE|'.$ux_name),''); // вз€ть куку авторизации
-
-	if(empty($ux) // если не была установлена кука
+	    if(empty($ux) // если не была установлена кука
 		|| ( 0==($unic=u2unic($ux)) ) // или если unic=0
 		|| !uxcheck($ux) // или не прошел проверку
-	) {
+	    ) {
 		$ux='c';
 		$uname='@logout';
-	} else {
+	    } else {
 		if(getis_global($unic)===false) remake_unic($unic); // если мы убили запись, но он снова пришел - восстановим
 		else $uname='@error';
-	}
+	    }
+    }
 }
 
 }
@@ -353,15 +353,11 @@ function WHERE($s='',$z='') { // какие заметки доступны?
 }
 
 function getis_global($unic) { global $IS,$admin_unics,$admin,$podzamok,$imgicourl,$admin_unics;
-
-	if(empty($admin_unics)) return admin1(); // свежеустановленный движок
-
 	if(($IS=getis($unic))!==false) { $GLOBALS['unic']=$unic;
 	    if(in_array($unic,explode(',',$admin_unics))) admin1(); // если этот unic из списка админов
 	    $podzamok=$admin||$IS['admin']=='podzamok'?1:0;
 	    $imgicourl=(!empty($IS['imgicourl'])?$IS['imgicourl']:'#'.$unic);
 	}
-
 	return $IS;
 }
 

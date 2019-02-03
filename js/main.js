@@ -75,32 +75,29 @@ if(window.top===window && mnogouser) page_onstart.push("if(ux=='c') ifhelpc(xdom
 if(typeof(hotkey_default)!='function') hotkey_default=function(){
 hotkey=[];
 
+// setkey('space','ctrl',function(e){alert('SPACE')},true); // test Ctrl+SPACE
+
 setkey('esc','',function(e){ clean(isHelps())},true,1); // закрыть последнее окно
 setkey('enter','ctrl',function(e){if(!isHelps()) helper_go()},true,1); // если не открыто окон - окно правки
 
 if(adm) {
-setkey('x','alt',function(e){alert('Scroll W/H='+getScrollW()+'/'+getScrollH()
-+'\ndocument.compatMode='+document.compatMode
-+'\nwindow.opera'+window.opera
-+'\ngetWin W/H='+getWinW()+'/'+getWinH()
-+'\ngetWin W0/H0='+getWinW0()+'/'+getWinH0()
-+'\ngetDoc W/H='+getDocW()+'/'+getDocH());},false);
+// setkey('x','alt',function(e){alert('Scroll W/H='+getScrollW()+'/'+getScrollH()+'\ndocument.compatMode='+document.compatMode+'\nwindow.opera'+window.opera+'\ngetWin W/H='+getWinW()+'/'+getWinH()+'\ngetWin W0/H0='+getWinW0()+'/'+getWinH0()+'\ngetDoc W/H='+getDocW()+'/'+getDocH());},false);
 setkey(['E','У','у'],'',function(e){majax('editor.php',{a:'editform',num:num,comments:(idd('commpresent')?1:0)})},false); // редактор заметки
 setkey(['N','Т','т'],'',function(e){majax('editor.php',{a:'newform',hid:++hid})},false); // новая заметка
-setkey(['A','Ф','ф'],'',function(e){if(idd('adminpanel').style.display=='block'){posdiv('adminpanel',0,0);zakryl('adminpanel')}else{otkryl('adminpanel');posdiv('adminpanel',-1,-1)}},false);
+// setkey(['A','Ф','ф'],'',function(e){if(idd('adminpanel').style.display=='block'){posdiv('adminpanel',0,0);zakryl('adminpanel')}else{otkryl('adminpanel');posdiv('adminpanel',-1,-1)}},false);
 }
 
 //setkey(['U','Г','г'],'',function(e){majax('login.php',{action:'openid_form'})},true); // личная карточка
 setkey(['U','Г','г'],'',function(e){majax('login.php',{a:'getinfo'})},true); // личная карточка
-setkey(['D','В','в'],'',function(e){document.location.href=wwwhost;},true); // в блог
-setkey(['K','Л','л'],'',function(e){document.location.href=wwwhost+'comms';},true); // комментарии
-setkey(['right','7'],'',function(e){rel_redirect('NextLink')},true);
-setkey(['left','4'],'',function(e){rel_redirect('PrevLink')},true);
+// setkey(['D','В','в'],'',function(e){document.location.href=wwwhost;},true); // в блог
+// setkey(['K','Л','л'],'',function(e){document.location.href=wwwhost+'comms';},true); // комментарии
+// setkey(['right','7'],'',function(e){rel_redirect('NextLink')},true);
+// setkey(['left','4'],'',function(e){rel_redirect('PrevLink')},true);
 // setkey(['F5'],'',function(e){setTimeout("salert('Боже, да сколько же вас, верующих в силу кнопки F5?',4000)",50);},false);
 // setkey(['A','Ф','ф'],'alt shift',function(e){keyalert=1;salert('Скан клавиш включен',1000);},false); // включение сканкодов
-setkey('up','ctrl',function(e){rel_redirect('UpLink')},true);
-setkey('down','ctrl',function(e){rel_redirect('DownLink')},true);
-setkey('home','ctrl',function(e){if(user_opt('n'))document.location.href='/'},true);
+// setkey('up','ctrl',function(e){rel_redirect('UpLink')},true);
+// setkey('down','ctrl',function(e){rel_redirect('DownLink')},true);
+// setkey('home','ctrl',function(e){if(user_opt('n'))document.location.href='/'},true);
 };
 
 page_onstart.push("hotkey_default()");
@@ -857,7 +854,7 @@ stopmp3x=function(ee){ ee.src=mp3imgs.play; setTimeout("clean('audiosrcx_win')",
 changemp3x=function(url,name,ee,mode,viewurl,strt){
 
     if(url=='') url=ee.getAttribute('media-url');
-    if(name=='') name=ee.getAttribute('media-text');
+    if(name=='') name=ee.getAttribute('media-text'); if(!name) name='';
 
     if(-1!=name.indexOf('</i>')) name=name.substring(name.split('</i>')[0].length+4);
     // else if(-1!=name.indexOf('<img ')) name=name.substring(name.split('>')[0].length+1); 

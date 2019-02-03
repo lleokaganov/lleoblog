@@ -1,4 +1,4 @@
-{_SNAPSHOT:_}{_MAIN:_}{_SIGNAL:log=rkm1.log_}<!DOCTYPE html>
+{_SNAPSHOT:_}{_MAIN:_}<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="{wwwcharset}"/>
@@ -16,10 +16,7 @@
 
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-{_STYLE_ADD: {www_css}sys.css?{_PHPEVAL: $o=rand(0,10000);_} _}
-{_NO: STYLE_ADD: {www_css}animate.css _}
-
-{_SCRIPT_ADD: {httphost}js/kuku.js _}
+{_STYLE_ADD: {www_css}sys.css?rand=2 _}
 
     <title>{admin_name}: {_TITLE:_}</title>
 
@@ -109,28 +106,9 @@ font-size: 16pt; font-weight: bold;
 }
 </style>
 
-{_NO:
-SCRIPT_ADD: /dnevnik/extended/snow-fall.js
-SIGNAL: redirect=/blocked.htm?redirect_from=http://lleo.me{url}
-SCRIPT_ADD: /dnevnik/2016/01/new_year.js
-STYLE_ADD: http://lleo.me/dnevnik/design/KIRILLIC.css
-SCRIPT_ADD: http://lleo.me/dnevnik/design/KIRILLIC.js
-SCRIPT_ADD: http://lleo.me/dnevnik/2015/12/johntravolta.js
-_}
-
 <body class="twoCol">
 
 {_UNIC:_}
-
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-49549692-1', 'lleo.me');ga('require','displayfeatures');ga('send','pageview');
-</script>
-
-
 
 <div id="container">
 
@@ -139,12 +117,10 @@ ga('create', 'UA-49549692-1', 'lleo.me');ga('require','displayfeatures');ga('sen
 <h1>Леонид Каганов: дневник</h1>
 </div>
 
-
-
 <aside><div id="sidebar1">
 
 <div><a href="/">
-<center><div style="background:url('http://lleo.me/dnevnik/design/userpick/userpick2016.jpg');width:120px;height:165px;border-radius:15px;" title='Дневник Леонида Каганова<br>перейти на главную страницу сайта'></div></center>
+<center><div style="background:url('http://lleo.me/dnevnik/design/userpick/userpick2016.jpg');width:120px;height:165px;border-radius:15px;" title='Дневник<br>перейти на главную страницу сайта'></div></center>
 </a></div>
 
 <nav>
@@ -154,11 +130,7 @@ ga('create', 'UA-49549692-1', 'lleo.me');ga('require','displayfeatures');ga('sen
 
 <div><a title='Скучный документ с правилами этого дневника.' href='{acc_link}whatis'>о дневнике</a></div>
 
-<div><a title='Хотите заказать рекламную статью или обзор?<br>Это возможно, но есть определенные ограничения.<br>Все подробности на странице рекламной политики.' href='/reklama'>реклама в блоге</a></div>
-
 <div><center>{_CALENDAR:_}</center></div>
-
-<div><a title='Перейти на страницу в техническом блоге /blog (вы-то находитесь в блоге /dnevnik), где рассказывается, как можно установить себе мой движок блога (он открытый).' href=/blog/lleoblog>движок сайта</a></div>
 
 </nav>
 
@@ -170,70 +142,11 @@ ga('create', 'UA-49549692-1', 'lleo.me');ga('require','displayfeatures');ga('sen
 
 <div><a href={acc_link}rss.xml><i class='e_rss' title='Мой дневник поддерживает RSS'></i></a></div>
 
-
-<div>{_NO: PHPEVAL: $o=file_get_contents('../home/pogodka-spb.htm').file_get_contents('../home/pogodka-msk.htm'); _}</div>
-
-<div class=r>Bitcoin: {_BTCINFO:
-val=USD
-floor=1
-_} USD</div><div class=br>ощущается как: {_PHPEVAL: $o=floor({_BTCINFO:
-val=USD
-floor=1
-_}*rand(60,90)/100);_} USD</div>
-
-
-<div><!--LiveInternet counter--><script type="text/javascript"><!--
-new Image().src = "//counter.yadro.ru/hit?r"+
-escape(document.referrer)+((typeof(screen)=="undefined")?"":
-";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
-screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
-";"+Math.random();//--></script><!--/LiveInternet-->
-<!--LiveInternet logo--><a href="https://www.liveinternet.ru/stat/lleo.me/dnevnik/" target="_blank"><img src="//counter.yadro.ru/logo?38.6" title="LiveInternet" border="0" width="31" height="31"/></a><!--/LiveInternet-->
-</div>
-
-
-<div title="Профессиональные измерительные приборы<br>мой друг одноклассник Сергей Мамаев:<br><img src='/dnevnik/2017/01/lupin/thumb_Lupin2.png'>"><img src='/dnevnik/2017/01/lupin/thumb_Lupin2.png'><br>Профессиональные измерительные приборы:<br><a href='http://eco-e.ru'>eco-e.ru</a></div>
+<div class=r>Bitcoin:  USD</div><div class=br>ощущается как:  USD</div>
 
 <div title='Фирма установки пластиковых окон моего друга Василия Ткачева, рекомендую.<br>Если скажете, что от меня и назовете пароль «ллео»,<br>то при любом заказе окон получите сувенир.'>Пластиковые окна:<br><a href='http://oknamigom.ru'>http://oknamigom.ru</a></div>
 
-<div><a href='http://onlime.ru'><img border=0 src='https://lleo.me/dnevnik/2015/03/onlimeru.gif' title='Мой любимый домашний провайдер, через него я хожу в интернет'></a></div>
-
-<div>{_NO: INCLUD: /var/www/home/dnevnik/tmp/upload-doc/tab/stat.htm _}</div>
-
-
-{_NO:
-
-5 декабря: вернул счетчики
-1 дек 2018 ccccc->ccc
-
-<div title="Грузоперевозки (Москва и межгород),<br>мой друг-одноклассник Алексей Крылов:<br><img src=/dnevnik/2015/10/lewa/lewa2.jpg>">Грузоперевозки Лева Крылов:<br><a href='http://lleo.me/dnevnik/2015/10/21_lewa.html'>+7(963)710-59-34</a></div>
-
-11 января - удалил openstat, не работает, говорят, с сентября
-<!--Openstat--><span id="openstat2191304"><a href='https://rating.openstat.ru/site/2191304'><img title='OpenStat' src='https://openstat.net/i/68.gif'></a></span>
-<script type="text/javascript">
-var openstat = { counter: 2191304, next: openstat };
-(function(d, t, p) {
-var j = d.createElement(t); j.async = true; j.type = "text/javascript";
-j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js";
-var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);
-})(document, "script", document.location.protocol);
-</script><!--/Openstat-->
-
-
-
-OTHERBLOGS:
-<p><div class='br' title='Популярный сайт знакомств, который создала команда моего знакомого Леона'>Знакомства в СНГ: <a href='http://rusdate.net'>http://rusdate.net</a></div>
-<p><div class='r' title='Клевый интернет-магазин детских товаров и игрушек Леонида и Ирины.'>Товары для детей:<br><a href='http://sb-znatok.ru'>http://sb-znatok.ru</a></div>
-<p><div class='br' title='Сайт моих знакомых по изделиям из самоцветов и бисера'>Бисер и самоцветы:<br><a href='http://biser.net.ru'>http://biser.net.ru</a></div>
-<p><div class='br' title='а просто так'>Разработка и продвижение сайтов <a href='http://offsky.ru'>offsky.ru</a></div>
-<p><a href='http://slava.soloway.su/rotator/redirect?place_id=333&banner_id=58' target='_blank'><img border=0 src='http://slava.soloway.su/upload/banner-item/origin/100x100_142927445990.gif'></a>
-<a class='br' href='http://koleso-kolesiko.ru/?utm_source=http://lleo.me/&utm_medium=blog&utm_' title='Пушистые новогодние ёлки от Саши Колесникова с доставкой!<br>Пароль «от лео» дает скидку 10%'><img border=0 src='/dnevnik/2016/12/kolesiko.jpg' ><br>Живая датская ёлка на дом</a>
-_}
-
 </div></aside><!--/sidebar-->
-
-
-
 
 <div id="mainContent">{_PREWORD:_}{_ANOTHER_DATE:_}
 {_PREVNEXT:
@@ -243,7 +156,6 @@ no =  
 template = <center><table width=98% cellspacing=0 cellpadding=0><tr valign=top><td width=50%><font size=1>{prev}</font></td><td width=50% align=right><font size=1>{next}</font></td></tr></table></center>
 _}
 
-
 <div id="post">
     <header>{_HEAD:_}</header>
     <article><div id="bodyz">{_TEXT:_}</div></article>
@@ -251,7 +163,7 @@ _}
 
 <div id="copyright"><footer>{signature}</footer>
 {_TAGS: template = <div style='font-size: 10pt; text-align:right;'><div class=ll onclick="majax('search.php',{a:'alltag'})">тэги записи:</div> {tags}</div> _}
-{_NO: <div>{_NO: YANDEXCOUNT:_}   {_NO: ADDTHIS:_}</div> _}
+
 <div style='margin-top:10pt'>{_SHARE:_}</div>
 {_CROSSPOSTED: tmpl=<div style='word-break:break-all'><i>{adminkeys}<a href='{#link}'>{#link}</a></i></div>
 template={_nobr:
@@ -259,8 +171,6 @@ template={_nobr:
 <div align=right><table border=0><tr><td align=left>
 <i>Копия заметки в моих аккаунтах соцсетей:</i>
 <br>{tmpl}
-<div><a href='https://www.instagram.com/lleokaganov/'> https://www.instagram.com/lleokaganov</a></div>
-<div>Как читать мой сайт <a href='http://lleo.me/dnevnik/free'>если что</a></div>
 
 </td></tr></table></div>
 
@@ -270,16 +180,11 @@ _}_}
 {_PREVNEXT:_}
 
 <!--Comments --><div id="comments">
-<div style='margin-left:15px;margin-bottom:10px;' class='l r' alt='Сообщите администрации портала о нарушениях владельца этого аккаунта' onclick="majax('mailbox.php',{a:'newform',tmpl:'provider',unic:4})">пожаловаться на эту публикацию администрации портала</div>
-{_REKOMENDA: template=<div style='background: #ffffff; border-radius: 5px;font-size:13px; font-weight:bold; border:1px dashed #ccc; margin: 0 10pt 10pt 10pt; padding: 10pt;'>Страницы, которые привлекли мое внимание за последние дни, рекомендую:<br>{s}<div class='br l' onclick="majax('okno.php',{a:'rekomenda'})">архив ссылок</div></div> _}
 
 {_COMENTS:
-socialmedia=lj:lleo
 off_socialmedia=<p><a href='{0}?mode=reply#add_comment' class='l' style='font-weight:bold;margin:20pt;font-size:16px;' alt='В целях импортозамещения и во исполнение закона 14 № 242-ФЗВ от 21.07.2014<br>все дальнейшие комментарии оставляйте в моем дневнике на сайте Живого Журнала,<br>производящем сбор и обработку персональных данных на территории Российской Федерации.'>Оставить комментарий</a>
 _}
 </div><!--/Comments-->
-
-
 
 </div><!--/mainContent -->
 <!-- верстку :( --><br class=q />

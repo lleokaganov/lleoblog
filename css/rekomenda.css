@@ -1,5 +1,4 @@
 @charset "windows-1251";
-
 .popup { overflow:auto; top:100px;left:100px;position:absolute;z-index:9999; }
 .popup .content{padding:4px 4px; background:#F3F1E0}
 .corners{position:relative;height:1%;background:url('/design/pravka/popup_l.png') repeat-y;margin:9px 0;padding:1px 9px;}
@@ -8,10 +7,7 @@
 .corners .inner:before{display:block;height:9px;content:'';background:url('/design/pravka/popup_t.png') repeat-x;font-size:0;margin:-10px 0 0}
 .corners:after{display:block;height:9px; content:url('/design/pravka/popup_lb.png'); background:url('/design/pravka/popup_rb.png') 100% 10px no-repeat; font-size:0;margin:0 -9px -10px}
 .corners .inner:after{display:block;height:9px;content:'';background:url('/design/pravka/popup_b.png') repeat-x;font-size:0;margin:0 0 -10px}
-
 .can { position:absolute; top:1px; right:8px; width:16px; height:16px; cursor: pointer; }
 .can:after { content: url('/design/e3/button_cancel.png'); }
-
 .q { clear:both; height:0; font-size: 1px; line-height: 0px; }
-
 LEGEND { font-weight: bold; color: #FF6200; font-size: 10px; text-align: left; }

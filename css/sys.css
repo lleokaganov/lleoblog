@@ -1,7 +1,5 @@
 @charset "windows-1251";
-
 html{ height: 100%; width:100%; font-family: "comic sans ms"; line-height: 1.4em; }
-
 body { font: 100% sans-serif, Helvetica, Arial, Verdana;
 margin: auto; /*margin: 0; padding: 0;*/
 /* background-image: url('/design/fon1.jpg'); */
@@ -9,32 +7,21 @@ text-align: center; /* хак для IE 5* */
 color: #000000; /*position:relative; border-bottom: red 1px dotted;*/
 word-wrap: break-word;
 }
-
 /*.bodyz { line-height: 1.4em; }*/
-
 img {max-width: 100% !important; height: auto !important;}
 iframe, textarea, input, button, submit, select, video, object, embed {max-width: 99% !important;}
-
-
-
-
 /*
 table, span, ins {max-width: 100% !important;}
 table, span, ins {max-width: 100%;}
 */
-
 .rama {border:1px solid #ccc; box-shadow:0px 15px 15px 15px rgba(0,0,0,0.6); border-radius: 7px 7px 7px 7px; padding: 15px 15px 15px 15px;}
-
 /*
 #post {max-width: 1024px; margin-left: auto; margin-right: auto; line-height: 1.4em; }
 */
-
 .c2 .il div { margin-left: 3px; }
-
 /* тень при активном окне */
 .tenek {position:absolute;left:0;right:0;top:0;background-color:#000000;pointer-events:none;}
 .ik { cursor:pointer; border: 1px solid red; box-shadow: 0px 15px 15px 15px rgba(0,0,0,0.6); border-radius: 7px 7px 7px 7px; padding: 15px 15px 15px 15px; }
-
 /* Календарь */
 .cld_top,.cld_days,.cld_red,.cld,.cld_this,.cld_ed {font-size: 10px;}
 .cld_days {background-color: #F0F0F0;}
@@ -42,30 +29,20 @@ table, span, ins {max-width: 100%;}
 .cld {text-align:right;}
 .cld_this {background-color:red; color:white;}
 .cld_ed {color: black; text-decoration: none; }
-
 /* рамка форм - мне так нравится */
 .t { border: 1px solid #330000; }
 .r { font-size: 12px; }
 .l,.ll { cursor: pointer; color: blue; text-decoration: underline; } .ll,.il { display: inline; }
 .l:hover,.ll:hover { color: violet; }
 .kr:hover,.kus:hover,.kd:hover,.ked:hover,.ks0:hover,.ks1:hover,.ka:hover,.ko1:hover,.ko0:hover,.kou:hover { color: violet; }
-
 /* кнопки панели управления */
 .knop { border: 1px solid #ccc; margin-left: 1px;}
 .knop:hover { border: 1px solid black; }
-
 .noa {color:black; text-decoration: none; }
 .noa:hover {color:#ccc;}
-
 /* фотоальбом */
-
 #bigfoto { box-sizing: border-box; }
 #bigfostr { width: 100% !important; }
-
-
-
-
-
 /* комментарии */
 .opc, .cnam, .rul1,.rul0 {cursor: pointer}
 .rul1,.rul0,.cplu,.cmin,.kmail {float:left}
@@ -76,14 +53,12 @@ box-shadow: #888 5px 5px 5px; border-radius: 0.8em 0.8em 0.8em 0.8em; overflow: 
 /*
 .c0 { background-color: #AAFAFA; }
 .c1, .opc { background-color: #F1F1F1 !important; }
-
 .c2 { background-color: #FFFBDF; border: 1px solid red; }
 .c3 { background-color: #FFEBCD; border: 1px solid red; }
 .c4 { background-color: #eAf; border: 1px solid red; }
 .c5 { background-color: #Aef; border: 1px solid red; }
 .c6 { background-color: #Aef; border: 1px solid red; }
 */
-
 .ctxt { padding: 5pt; text-align: justify; }
 .cwho,.ctim,.cbro { font-size: 8pt; display:inline; margin: 0 10pt 0 10px; top: 0px; position: relative; float: right; }
 .ctim,.cbro,.cwho,.kr,.rul0,.rul1,.kmail,.cnam,.cplu,.cmin { display:inline; }
@@ -93,14 +68,12 @@ box-shadow: #888 5px 5px 5px; border-radius: 0.8em 0.8em 0.8em 0.8em; overflow: 
 .cmin {color:#99f;cursor:s-resize} .cmin:before { content:'\2212'} .cmin:after { content:' '}
 .cplu:hover,.cplu:active {color: red;}
 .cmin:hover,.cmin:active {color: blue;}
-
 /*
 .kmail:after {content:url('/design/e2/kmail.png') }
 .rul1:before {content:url('/design/e3/button_accept.png')}
 .rul0:before {content:url('/design/e3/list-remove.png')}
 .opc { font-size: 11px; } .opc:before {content:url('/design/e3/expand_plus.gif')'показать'}
 */
-
 /* кнопки */
 .kr,.kus,.kd,.ked,.ks0,.ks1,.ka,.ko1,.ko0,.kou { cursor: pointer; float:left; font-size: 10pt; color: blue; padding: 0 2pt 0 7pt; }
 .kus:hover,.kd:hover,.ked:hover,.ks0:hover,.ks1:hover,.ka:hover,.ko1:hover,.ko0:hover,.kou:hover { color: violet; }
@@ -113,14 +86,11 @@ box-shadow: #888 5px 5px 5px; border-radius: 0.8em 0.8em 0.8em 0.8em; overflow: 
 .ko1:before {content:'разрешено'; background-color: #FBDFAA;}
 .ko0:before {content:'запрещено'; background-color: #AAFAFA;}
 .kou:before {content:'-';}
-
 .cscr,.cdel { max-width: 20%; border: 1px dotted #bbb; padding: 0 0 0 5px; margin-top: 5px; }
 .cscr {font-size:8px; font-weight: bold; background-color: #AAFAFA; } .cscr:before {content:'* комментарий скрыт'}
 .cdel {font-size:8px; font-weight: bold; } .cdel:before {content:'* комментарий удален'}
-
 .br { font-size: 10px; }
 .search { font-weight: bold; color: black; background-color: rgb(255, 204, 0); }
-
 p.d {text-align:justify;text-indent:5%;margin-top:0pt;margin-bottom:0pt;}
 p.pd {text-align:justify;text-indent:5%;margin-top:2%;margin-bottom:0pt;}
 p.name {text-indent:0pt;margin-top:4%;margin-bottom:6%;text-align:center;font-weight:bold;font-size:150%;}
@@ -128,18 +98,15 @@ p.podp {text-indent:0pt;margin-top:30pt;margin-bottom:12%;text-align:right;font-
 p.z {text-indent:0pt;margin-top:4%;margin-bottom:4%;text-align:center;font-weight:bold;font-size:100%;}
 p.epigraf {text-indent:0pt;text-align:justify;margin-top:10pt;margin-bottom:0pt;margin-right:4%;margin-left:60%;font-size:80%;}
 p.epigrafp {text-indent:0pt;text-align:right;margin-top:0pt;margin-bottom:4%;margin-right:4%;margin-left:60%;font-size:80%;font-style:italic;}
-
 /* киносценарий */
 p.persona { margin-top: 40pt; font-weight:bold; font-size: 16pt; text-align:center; text-transform: uppercase; }
 p.rep { margin-left: 25%; margin-right: 25%; font-size: 14pt; } /* replica */
 p.cmn { margin-left: 15%; margin-right: 15%; font-style:italic; font-size: 12pt; } /* comment */
 p.scena,.pag { font-weight:bold; font-size: 16pt; padding: 5px 50px 5px 50px; text-transform: uppercase; margin: 5% 5% 0 5%; background-color: #E0E0E0; border: 1px solid black; } /* page */
 p.litsa { font-weight:bold; font-size: 14pt; text-transform: uppercase; margin: 5%; padding: 0 50px 0 50px; } /* действующие лица */
-
 .fieldset { position:relative; border: 1px solid #797676; margin:0px; padding:0px; border-radius: 3px; width:100% }
 .legend { position:absolute; left:10px; top:-10px; background-color:#F0F0EA; overflow:hidden; font-weight:bold; color:#FF6200; font-size:14px; text-align:left; display:inline-block; padding:0 10px 0 10px; }
 .textbody { padding: 20px; }
-
 .pop2 { max-width:95%; cursor:move; overflow:visible; top:100px;position:absolute;z-index:999; text-align:left; background:#F0F0EA;
 border:5px solid #e75100;box-shadow:0px 16px 16px 16px rgba(0,0,0,0.6);border-radius:16px 16px 16px 16px;padding:16px 16px 16px 16px;
 margin-top:3%; margin-bottom:2%;
@@ -147,9 +114,7 @@ word-wrap: break-word;
 }
 .pop2 TEXTAREA {width:100%;}
 .can { position:absolute; right:-19px;top:-19px; width:32px; height:32px; cursor:pointer; }
-
 LEGEND { font-weight: bold; color: #FF6200; font-size: 14px; text-align: left; }
-
 a[href *=".livejournal.com"] { background: transparent url('/design/ico/ico-livejournal.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
 a[href *="lj.rossia.org"] { background: transparent url('/design/ico/ico-ljrossia.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
 a[href *="facebook.com"] { background: transparent url('/design/ico/ico-facebook.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
@@ -168,17 +133,12 @@ a[href *=".wikipedia.org"] { background: transparent url('/design/ico/ico-wikipe
 a[href *=".apple.com"] { background: transparent url('/design/ico/ico-apple.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
 a[href *=".google.com"],a[href *=".google.ru"] { background: transparent url('/design/ico/ico-google.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
 a[href *="://telegram.org"],a[href *="://t.me/"] { background: transparent url('/design/ico/ico-telegram.png') no-repeat center left; padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none; background-size: 1em 1em; padding-left: 1em; }
-
-
 .clearfloat,.cf,.q { clear:both; height:0; font-size: 1px; line-height: 0px; }
-
-
 .qTip {
 padding: 5px; border: 1px solid #666; border-right-width: 2px; border-bottom-width: 2px;
 background: #999; color: #FFF; font: bold 11px Verdana, Arial, sans-serif;
 text-align: left; position: absolute; z-index: 999999; max-width: 30%;
 }
-
     /* Popups with arrows
 --------------------------- */
 /* Must be removed after implementation of Framework! */
@@ -198,7 +158,6 @@ padding: 1px;
 background: #FFF;
 border: 1px solid #CCC;
 border-radius: 7px;
-
         box-shadow: 0 0 20px 10px #555;
     filter: progid:DXImageTransform.Microsoft.shadow(direction=120, color=#000000, strength=10);
 z-index: 99999;
@@ -231,7 +190,6 @@ font: 0/0 serif;
     .b-popup-inner A:visited,
     .b-popup-inner A:hover,
     .b-popup-inner A:active { color: #036; }
-
     .i-popup-arrt.i-popup-arr,
     .i-popup-arrtl.i-popup-arr,
     .i-popup-arrtr.i-popup-arr {
@@ -270,7 +228,6 @@ border-left: 6px solid rgba(255,255,255,.01);
 border-right: 6px solid rgba(255,255,255,.01);
 border-bottom: 6px solid #FFF;
 }
-
     .i-popup-arrb.i-popup-arr,
     .i-popup-arrbl.i-popup-arr,
     .i-popup-arrbr.i-popup-arr {
@@ -309,7 +266,6 @@ border-left: 6px solid rgba(255,255,255,.01);
 border-right: 6px solid rgba(255,255,255,.01);
 border-top: 6px solid #FFF;
 }
-
     .i-popup-arrl.i-popup-arr,
     .i-popup-arrlt.i-popup-arr,
     .i-popup-arrlb.i-popup-arr {
@@ -350,7 +306,6 @@ border-top: 6px solid rgba(255,255,255,.01);
 border-bottom: 6px solid rgba(255,255,255,.01);
 border-right: 6px solid #FFF;
 }
-
     .i-popup-arrr.i-popup-arr,
     .i-popup-arrrt.i-popup-arr,
     .i-popup-arrrb.i-popup-arr {
@@ -390,7 +345,6 @@ border-top: 6px solid rgba(255,255,255,.01);
 border-bottom: 6px solid rgba(255,255,255,.01);
 border-left: 6px solid #FFF;
 }
-
     .i-popup-arrt { top: -7px; left: 50%; margin: 0 0 0 -6px; }
     .i-popup-arrtl { top: -7px; left: 31px; }
     .i-popup-arrtr { top: -7px; right: 31px; }
@@ -403,13 +357,11 @@ border-left: 6px solid #FFF;
     .i-popup-arrr { top: 50%; right: -7px; margin: -6px 0 0; }
     .i-popup-arrrt { top: 15px; right: -7px; }
     .i-popup-arrrb { bottom: 15px; right: -7px; }
-
 /* BLOKI */
 .thmbns {margin: -3em 0 0 -2em; text-align:center;}
 .thmbn {text-decoration:none; display:inline-block; vertical-align:top; text-align:left; margin:3em 0 0 2em;}
 .thmbn .rth {float:left;}
-
-/* РџРёРєС‚РѕРіСЂР°РјРјС‹ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅС‹С… С„Р»Р°РіРѕРІ РІ СЃРїСЂР°Р№С‚Рµ @author РђСЂС‚С‘Рј РџРѕР»РёРєР°СЂРїРѕРІ, artpolikarpov.ru @author РќРёРєРёС‚Р° Р?РІР°РЅРѕРІ nickivanov.ru 
+/* РџРёРєС‚РѕРіСЂР°РјРјС‹ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅС‹С… С„Р»Р°РіРѕРІ РІ СЃРїСЂР°Р№С‚Рµ @author РђСЂС‚С‘Рј РџРѕР»РёРєР°СЂРїРѕРІ, artpolikarpov.ru @author РќРёРєРёС‚Р° Р?РІР°РЅРѕРІ nickivanov.ru
  *display: inline; *zoom: 1;
 */
 .flag-NOWHERE, .flag-ABKHAZIA, .flag-AD, .flag-AE, .flag-AF, .flag-AG, .flag-AI, .flag-AL, .flag-AM, .flag-AN, .flag-AO, .flag-AQ, .flag-AR, .flag-AS, .flag-AT, .flag-AU, .flag-AW, .flag-AX, .flag-AZ, .flag-BA, .flag-BB, .flag-BD, .flag-BE, .flag-BF, .flag-BG, .flag-BH, .flag-BI, .flag-BJ, .flag-BL, .flag-BM, .flag-BN, .flag-BO, .flag-BR, .flag-BS, .flag-BT, .flag-BV, .flag-BW, .flag-BY, .flag-BZ, .flag-CA, .flag-CC, .flag-CD, .flag-CF, .flag-CG, .flag-CH, .flag-CI, .flag-CK, .flag-CL, .flag-CM, .flag-CN, .flag-CO, .flag-CR, .flag-CU, .flag-CV, .flag-CX, .flag-CY, .flag-CZ, .flag-DE, .flag-DJ, .flag-DK, .flag-DM, .flag-DO, .flag-DZ, .flag-EC, .flag-EE, .flag-EG, .flag-EH, .flag-ER, .flag-ES-CE, .flag-ES-ML, .flag-ES, .flag-ET, .flag-EU, .flag-FI, .flag-FJ, .flag-FK, .flag-FM, .flag-FO, .flag-FR, .flag-GA, .flag-GB, .flag-GD, .flag-GE, .flag-GF, .flag-GG, .flag-GH, .flag-GI, .flag-GL, .flag-GM, .flag-GN, .flag-GP, .flag-GQ, .flag-GR, .flag-GS, .flag-GT, .flag-GU, .flag-GW, .flag-GY, .flag-HK, .flag-HM, .flag-HN, .flag-HR, .flag-HT, .flag-HU, .flag-IC, .flag-ID, .flag-IE, .flag-IL, .flag-IM, .flag-IN, .flag-IO, .flag-IQ, .flag-IR, .flag-IS, .flag-IT, .flag-JE, .flag-JM, .flag-JO, .flag-JP, .flag-KE, .flag-KG, .flag-KH, .flag-KI, .flag-KM, .flag-KN, .flag-KOSOVO, .flag-KP, .flag-KR, .flag-KW, .flag-KY, .flag-KZ, .flag-LA, .flag-LB, .flag-LC, .flag-LI, .flag-LK, .flag-LR, .flag-LS, .flag-LT, .flag-LU, .flag-LV, .flag-LY, .flag-MA, .flag-MC, .flag-MD, .flag-ME, .flag-MF, .flag-MG, .flag-MH, .flag-MK, .flag-ML, .flag-MM, .flag-MN, .flag-MO, .flag-MP, .flag-MQ, .flag-MR, .flag-MS, .flag-MT, .flag-MU, .flag-MV, .flag-MW, .flag-MX, .flag-MY, .flag-MZ, .flag-NA, .flag-NC, .flag-NE, .flag-NF, .flag-NG, .flag-NI, .flag-NKR, .flag-NL, .flag-NO, .flag-NP, .flag-NR, .flag-NU, .flag-NZ, .flag-OM, .flag-PA, .flag-PE, .flag-PF, .flag-PG, .flag-PH, .flag-PK, .flag-PL, .flag-PM, .flag-PN, .flag-PR, .flag-PS, .flag-PT, .flag-PW, .flag-PY, .flag-QA, .flag-RE, .flag-RO, .flag-RS, .flag-RU, .flag-RW, .flag-SA, .flag-SB, .flag-SC, .flag-SD, .flag-SE, .flag-SG, .flag-SH, .flag-SI, .flag-SJ, .flag-SK, .flag-SL, .flag-SM, .flag-SN, .flag-SO, .flag-SOUTH-OSSETIA, .flag-SR, .flag-SS, .flag-ST, .flag-SV, .flag-SY, .flag-SZ, .flag-TC, .flag-TD, .flag-TF, .flag-TG, .flag-TH, .flag-TJ, .flag-TK, .flag-TL, .flag-TM, .flag-TN, .flag-TO, .flag-TR, .flag-TT, .flag-TV, .flag-TW, .flag-TZ, .flag-UA, .flag-UG, .flag-UM, .flag-US, .flag-UY, .flag-UZ, .flag-VA, .flag-VC, .flag-VE, .flag-VG, .flag-VI, .flag-VN, .flag-VU, .flag-WF, .flag-WS, .flag-YE, .flag-YT, .flag-ZA, .flag-ZM, .flag-ZW { background: url('/design/flags.png') no-repeat 0 9px; -moz-box-orient: vertical; display: inline-block; vertical-align: baseline; position: relative; overflow: hidden; width: 16px; height: 9px; font-size: 0; line-height: 0; margin: 0; padding: 0; }
@@ -668,12 +620,8 @@ border-left: 6px solid #FFF;
 .flag-ZA{background-position:0 -2268px}
 .flag-ZM{background-position:0 -2277px}
 .flag-ZW{background-position:0 -2286px}
-
 /* ВСЕ ИКОНКИ */
-
-
 .e_14_layer_deletelayer,.e_DiKiJ_l,.e_DiKiJ_r,.e__,.e_bird16,.e_blend,.e_bold,.e_button_accept,.e_button_cancel,.e_cancel,.e_cancel1,.e_color_line,.e_copy,.e_crop,.e_d,.e_document-revert,.e_edit-clear,.e_emptytrash,.e_expand_leaf,.e_expand_minus,.e_expand_plus,.e_false,.e_fido,.e_filenew,.e_finish,.e_foto,.e_gnome-help,.e_help,.e_i,.e_i_half,.e_ico-apple,.e_ico-binoniq,.e_ico-blogspot,.e_ico-facebook,.e_ico-google,.e_ico-instagram,.e_ico-livejournal,.e_ico-ljrossia,.e_ico-lleo,.e_ico-mailru,.e_ico-moikrug,.e_ico-myopenid,.e_ico-openid,.e_ico-twitter,.e_ico-vk,.e_ico-wikipedia,.e_ico-ya,.e_ico-yandex,.e_ico-youtube,.e_image,.e_italic,.e_jump-to,.e_justifycenter,.e_kgpg_photo,.e_kmail,.e_kontact_journal,.e_kontact_notes,.e_kr_invert,.e_kviewshell,.e_ledblue,.e_ledgreen,.e_ledlightblue,.e_ledlightgreen,.e_ledorange,.e_ledpurple,.e_ledred,.e_ledyellow,.e_link,.e_list-add,.e_list-remove,.e_ljuser,.e_ljvideo,.e_ltgt,.e_mail,.e_mail_forward,.e_mdash,.e_mob-ball,.e_mobilemenu,.e_n,.e_nbsp,.e_no,.e_pd,.e_play-youtube,.e_podzamok,.e_post-entry,.e_redo-ltr,.e_redo,.e_reload_page,.e_remove,.e_rotate_left,.e_rotate_right,.e_rss,.e_strikethrough,.e_system,.e_tableb1,.e_tableb2,.e_tableb3,.e_tableb_1,.e_tableb_pre,.e_tableb_r,.e_true,.e_twitter,.e_underline,.e_viewmagm,.e_viewmagp,.e_yes {display:inline-block;vertical-align:baseline;position:relative;overflow:hidden;font-size:0;line-height:0;margin:0;padding:0}
-
 .e_14_layer_deletelayer{background:url('/design/k.png') no-repeat 0 16px;background-position:0 0px;width:16px;height:16px}
 .e_DiKiJ_l{background:url('/design/k.png') no-repeat 0 34px;background-position:0 -16px;width:34px;height:38px}
 .e_DiKiJ_r{background:url('/design/k.png') no-repeat 0 34px;background-position:0 -54px;width:34px;height:38px}

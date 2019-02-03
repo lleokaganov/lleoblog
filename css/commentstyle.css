@@ -1,31 +1,20 @@
 @charset "windows-1251";
-
 .opc, .cnam, .rul1,.rul0,.cplu,.cmin {cursor: pointer}
 .rul1,.rul0,.cplu,.cmin,.kmail {float:left}
-
 .c0, .c1 { font: 80% sans-serif, Helvetica, Arial, Verdana; max-width: 80%; border: 1px dotted #bbb;
 overflow: auto; padding: 0 0 0 5px; margin-top: 5px; }
-
 .c0, .opc { background-color: #F1F1F1; }
 .c1 { background-color: #AAFAFA; }
-
-
 .ctxt { padding: 5pt; overflow: auto; text-align: justify; }
-
-
 .ctim, .cbro, .cwho { font-size: 8pt; position: relative; margin-left: 10pt; top: 0px; float: right; }
 .kn { font-size: 8pt; position: relative; float: left; }
-
 .cnam { font-size: 12pt; font-weight: bold; }
-
 .cplu,.cmin { font-size:6pt }
 .cplu {color:red} .cplu:before { content:'+'} .cplu:after { content:'..'}
 .cmin {color:blue} .cmin:before { content:'-'} .cmin:after { content:'..'}
 .kmail:after { content: '.'url('/design/e2/kmail.png')'.' }
-
 .rul1:before {content:url('/design/e3/button_accept.png')}
 .rul0:before {content:url('/design/e3/list-remove.png')}
-
 /* кнопки */
 .kus,.kd,.ked,.ks0,.ks1,.ka { cursor: pointer; float:left; font-size: 6pt; color: blue; padding: 0 2pt 0 7pt; }
 .kus:before {content:'info'} /* показать личную карточку автора */
@@ -34,10 +23,7 @@ overflow: auto; padding: 0 0 0 5px; margin-top: 5px; }
 .ks0:before {content:'скрыть'}
 .ks1:before {content:'раскрыть'}  /* скрыть-раскрыть */
 .ka:before {content:'ответить'} /* ответить */
-
-
 .cdel {font-size:8px; font-weight: bold; }
 .cdel:before {content:'* комментарий удален'}
-
 .opc { font-size: 11px; }
 .opc:before {content:url('/design/e3/expand_plus.gif')'показать'}

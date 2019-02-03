@@ -32,10 +32,10 @@ if($acc!='' AND (empty($realdom) OR $realdom!=$acc) ) {
 } else {
 
 
-if(!empty($realdom) AND $realdom==$acc) {
-$httpsite = "http://".$realdom.".lleo.me";
-$httphost = $httpsite.$wwwhost;
-}
+//if(!empty($realdom) AND $realdom==$acc) {
+//$httpsite = "http://".$realdom.".lleo.me";
+//$httphost = $httpsite.$wwwhost;
+//}
 
 
 

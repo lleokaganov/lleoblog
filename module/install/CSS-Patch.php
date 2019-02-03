@@ -1,14 +1,10 @@
 <?php
 
-function installmod_init() {
-    //    $f=$GLOBALS['foto_file_small']."_fotoset.dat";
-	if(strstr($GLOBALS['httphost'],'://lleo.me/dnevnik/')) return false;
-    //    if(($r=unserialize(file_get_contents($f)))===false || !sizeof($r)) return false;
-    //    if($GLOBALS['acc']!='') return "ERROR: acc!=''!";
-	return "Patch CSS";
-}
+function installmod_init() { return "Patch CSS"; }
 
 function installmod_do() { global $o; $o='';
+
+if(!strstr($GLOBALS['httphost'],'://lleo.me/dnevnik/')) {
 
     $file2=$GLOBALS['filehost']."template/blog.html";
     $s=fileget($file2);
@@ -69,39 +65,45 @@ $s=str_replace("sys.css? ","sys.css?rand=2 ",$s);
 
 
     }
-
+}
 
 // а теперь собственно CSS
 
+// $css=fileget($GLOBALS['filehost']."css/sys.css");
+// if(empty($css)) return $o="ERROR: Empty css/sys.css";
+
+// if(!preg_match("/url\([\'\"](.*?)\/design\//si",$css,$m)) return $o="ERROR: NO MATCH url('/design/...') in css/sys.css: ".nl2br(h($css));
+
+// return $o="OK! NO ERROR: Empty css/sys.css m=".$m[1];
+
+
 $r=glob($GLOBALS['filehost']."css/*.css");
 
-foreach($r as $l) {
-    $s=fileget($l);
 
-    if(	stristr($s,"url(/dnevnik/design/") || stristr($s,"url(/blog/design/") 
-|| stristr($s,"url('/dnevnik/design/") || stristr($s,"url('/blog/design/") 
-|| stristr($s,"url(\"/dnevnik/design/") || stristr($s,"url(\"/blog/design/") 
+foreach($r as $file) {
+    $s=fileget($file); $s0=$s;
 
-) { // ))
+    if(preg_match_all("/(url\([\'\"]\/)(.*?)(design\/[^\'\"]+[\'\"]\))/si",$s,$m,PREG_SET_ORDER) && $m[2]!=$GLOBALS['blogdir']) {
 
-        $o.="<br>".$l;
-	$s0=preg_replace("/url\([\'\"]*\/dnevnik\/design\/([^\'\"\)]+)[\'\"]*\)/si","url('".$GLOBALS['www_design']."$1')",$s);
-	$s0=preg_replace("/url\([\'\"]*\/blog\/design\/([^\'\"\)]+)[\'\"]*\)/si","url('".$GLOBALS['www_design']."$1')",$s0);
-	if($s0!=$s) { fileput($l,$s0); if(fileget($l)!=$s0) idie('Error save: '.$l); else $o.="<font color=green> pathed succesfull</font>"; }
+    $o.="<br><b>".$file."</b>";
 
-    } else { 
-//$o.="<br>".$l." <font color=green>NO NEED</font>";
+	foreach($m as $l) {
+	    $to=$l[1].$GLOBALS['blogdir'].$l[3];
+	    if($l[0] == $to) continue;
+
+	    $o.="<br><dd>".h($l[0])." --&gt; ".h($to);
+	    $s=str_replace($l[0],$to,$s);
+	}
+
+	$s=preg_replace("/\s+\n/s","\n",$s);
+
+	if($s==$s0) continue;
+
+	fileput($file,$s);
+	if(fileget($file)!==$s) $o="<br><font color=red>ERROR! Can't change file ".h($file)." ! Check permissions!";
+    }
 }
 
-
-}
-
-// idie($o);
-
-    //    if($GLOBALS['acc']!='') idie("ERROR: acc!=''!");
-    //    $f=$GLOBALS['foto_file_small']."_fotoset.dat";
-    //    saveset(unserialize(file_get_contents($f)));
-//	unlink($f);
 	return $o;
 }
 

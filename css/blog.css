@@ -1,32 +1,27 @@
 @charset "windows-1251";
-
 html{ height: 100%; width:100%;
 font-family: "comic sans ms";
 }
-
 body { font: 100% sans-serif, Helvetica, Arial, Verdana;
-background-image: url('/design/fon1.jpg');
+background-image: url('/dnev/design/fon1.jpg');
 margin: 0; padding: 0;
 text-align: center; /* хак для IE 5* */
 color: #000000; position:relative; border-bottom: red 1px dotted;
 }
-
 .twoCol #container { width: 100%; margin: 0 auto; text-align: left; padding: 0; position:relative; }
 .twoCol #sidebar1 { float: left; width: 200px; padding: 15px 0; border-right: red 1px dotted; overflow-y: hidden; overflow: auto; }
 .twoCol #sidebar1 h3, .twoCol #sidebar1 p { margin-left: 10px; margin-right: 10px; }
 .twoCol #mainContent { /* БЛОК ЗАМЕТКИ */
 text-align:justify; margin: 0 0 0 200px; /* отступ основного блока на ширину левой колонки */
 padding: 20px 0; border-left: red 1px dotted; border-collapse:collapse; }
-
 /*приветствие*/
 .preword{ color:#FF0000; text-align:justify; margin-bottom:15px; font-size:x-small; padding: 0 15px; }
 .header { text-align:center; margin-bottom:15pt; font-size: 16pt; font-weight: bold; }
 .rekomenda { font-size: 13px; font-weight: bold; border: 1px dashed #ccc; margin: 0 10pt 10pt 10pt; padding: 10pt; }
 .rekomenda:before { content:'Страницы, которые привлекли мое внимание за последние дни, рекомендую:'; }
 #bodyz { text-align: justify; }
-
 #post { padding: 0 15px; }
 #post h1{ text-align:center; font-size:medium; }
 #copyright{ text-align:right; margin-top: 15px; margin-bottom: 20px; padding: 0 15px; }
-#comments{ width:100%; background-image:url('/design/kl0.gif'); border-top: red dotted 1px; margin-top: 5px; padding: 15px 0; text-align:justify; }
+#comments{ width:100%; background-image:url('/dnev/design/kl0.gif'); border-top: red dotted 1px; margin-top: 5px; padding: 15px 0; text-align:justify; }
 .item_com{ padding: 3px 10px 2px 40px; }

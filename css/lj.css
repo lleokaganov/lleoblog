@@ -1,5 +1,4 @@
 @charset "windows-1251";
-
 HTML BODY { padding: 50px 0 0 0; margin-right: 0; margin-left: 0; background-color: #FFFFFF; }
 BODY {
     color: #404040;
@@ -11,7 +10,6 @@ BODY {
     font-weight: normal !important;
     line-height: normal !important;
 }
-
 h2 { font-weight: normal; color: #369; margin: 0.3em 0 0.1em 0; padding: 0; }
 hr { border: 0; width: 100%; color: #369; background-color: #369; height: 2px; }
 .standout {text-align: center;}
@@ -22,45 +20,32 @@ color: #000; background-color: #c5dff9 !important; border: 1px solid #8fc3f7; pa
 /* margin shorthand isn't recognized by IE5/Mac */
 margin-top: auto; margin-bottom: auto; margin-left: auto; margin-right: auto; width: auto;text-align: left; }
 .standout span.container { padding: 8px 7px !important; display: inline-block; }
-
-
 .w-cs {position:absolute;top:0;left:0;z-index:1;overflow:hidden;width:100%;min-width:941px;height:50px;padding:0;margin:0;background:#22292D;font:10px/10px 'Arial', 'Helvetica', sans-serif;color:#FFF;padding:0;margin:0;}
-
 .w-cs-ne {position:absolute;top:50px;left:0;z-index:1;overflow:hidden;width:100%;min-width:941px;
 height:10px;padding:0;margin:0;background:#6666cc;color:#6666cc;}
-
 .w-cs DIV { float: none; background: none;  }
 .w-cs A:link,.w-cs A:visited,.w-cs A:hover,.w-cs A:active { background: none !important; border: none !important; text-decoration: none; font: 10px 'Arial', 'Helvetica', sans-serif !important; color: #FFF !important; }
-
 .w-cs A:hover { color: #C7E0F6 !important; }
 .w-cs FIELDSET { float: left; display: block; border: none; }
 .w-cs INPUT { display: block; float: left; }
 .w-cs INPUT.text { padding: 2px 0 3px 5px; margin: 0; background: #4C585D; border: none; -moz-border-radius: 2px;-webkit-border-radius: 2px;border-radius: 2px;vertical-align: top;line-height: 14px;font-size: 11px;color: #FFF !important;}
-
 .w-cs INPUT.submit {height: 16px;padding: 0 5px 2px 50px;margin: 0;background: url('/design/lj/submit-bg.gif') repeat-x;border: 1px solid #8A8D8F;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;-moz-box-shadow: 1px 1px 7px #2B3338;-webkit-box-shadow: 1px 1px 7px #2B3338;box-shadow: 1px 1px 7px #2B3338;text-shadow: 0 1px 0 #666;line-height: 10px;font-size: 10px;color: #FFF !important;cursor: pointer;}
-
 .w-cs FORM.w-cs-search { position: relative; float: right; }
 .w-cs FORM.w-cs-search INPUT.text { width: 150px; border-right: 25px solid #4C585D; }
 .w-cs .w-cs-options { margin: 5px 0 0 0; }
-
 .w-cs .w-cs-options .login-with {float: left;display: inline;padding: 2px;margin: 0 0 0 5px;background: #22292D;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;}
-
 .w-cs .w-cs-user-controls {position: relative;min-width: 519px;height: 45px;padding: 0 22px 0 18px;margin: 5px 0 0 40%;}
-
-
 /*приветствие*/
 .preword{ color:#FF0000; text-align:justify; margin-bottom:15px; font-size:x-small; padding: 0 15px; }
 .header { display: inline; }
 .rekomenda { font-size: 13px; font-weight: bold; border: 1px dashed #ccc; margin: 0 10pt 10pt 10pt; padding: 10pt; }
 .rekomenda:before { content:'Страницы, которые мне понравились за последние дни, рекомендую:'; }
 #bodyz { text-align: justify; }
-
 #post { padding: 0 15px; }
 #post h1{ text-align:center; font-size:medium; }
 #copyright{ text-align:right; margin-top: 15px; margin-bottom: 20px; padding: 0 15px; }
 #comments{ width:100%; background-image:url('/design/kl0.gif'); margin-top: 5px; padding: 15px 0; text-align:justify; }
 .item_com{ padding: 3px 10px 2px 40px; }
-
 /* рамка форм - мне так нравится */
 .t { border: 1px solid #330000; }
 .r { font-size: 12px; }
@@ -70,73 +55,50 @@ height:10px;padding:0;margin:0;background:#6666cc;color:#6666cc;}
 .l:hover,.ll:hover,.l0:hover,.ll0:hover { color: #F0A0B0; }
 .kr:hover,.kus:hover,.kd:hover,.ked:hover,.ks0:hover,.ks1:hover,.ka:hover,.ko1:hover,.ko0:hover,.kou:hover
  { color: violet; }
-
 /* кнопки панели управления */
-
 .knop { border: 1px solid #ccc; margin-left: 1px;}
 .knop:hover { border: 1px solid black; }
 .noa {color:black; text-decoration: none; }
 .noa:hover {color:#ccc;}
-
 /* комментарии */
-
 .opc, .cnam, .rul1,.rul0 {cursor: pointer}
 .rul1,.rul0,.cplu,.cmin,.kmail {float:left}
-
 .c0, .c1, .c2, .c3 { font: 100% sans-serif, Helvetica, Arial, Verdana; max-width: 80%; border: 1px dotted #bbb; overflow: auto; padding: 0 0 0 5px; margin-top: 5px; }
-
 .c0 { background-color: #AAFAFA; }
 .c1, .opc { background-color: #F1F1F1; }
 .c2 { background-color: #FFFBDF; border: 1px dotted red; }
 .c3 { background-color: #ffe; border: 1px dotted red; }
-
 .ctxt { padding: 5pt; overflow: auto; text-align: justify; }
-
 .ctim, .cbro, .cwho { font-size: 8pt; position: relative; margin-left: 10pt; top: 0px; float: right; }
 .kn { font-size: 8pt; position: relative; float: left; }
-
 .cnam { font-size: 12pt; font-weight: bold; }
-
 .cplu,.cmin { font-size:9pt }
 .cplu {color:red;cursor:n-resize} .cplu:before { content:'+'} .cplu:after { content:'  '}
 .cmin {color:blue;cursor:s-resize} .cmin:before { content:'-'} .cmin:after { content:'  '}
 .kmail:after { content: ' 'url('/design/e2/kmail.png')' ' }
-
 .rul1:before {content:url('/design/e3/button_accept.png')}
 .rul0:before {content:url('/design/e3/list-remove.png')}
-
 /* кнопки */
 .kr,.kus,.kd,.ked,.ks0,.ks1,.ka,.ko1,.ko0,.kou { cursor: pointer; float:left; font-size: 6pt; color: blue; padding: 0 2pt 0 7pt; }
 .kus:hover,.kd:hover,.ked:hover,.ks0:hover,.ks1:hover,.ka:hover,.ko1:hover,.ko0:hover,.kou:hover { color: violet; }
-
 .kus:before {content:'info'} /* показать личную карточку автора */
 .kd:before {content:'del'} /* удалить комментарий */
 .ked:before {content:'edit'} /* редактировать комментарий */
 .ks0:before {content:'скрыть'}
 .ks1:before {content:'раскрыть'}  /* скрыть-раскрыть */
 .ka:before {content:'ответить'} /* ответить */
-.ko1:before {content:'разрешено'; background-color: #FBDFAA;} 
+.ko1:before {content:'разрешено'; background-color: #FBDFAA;}
 .ko0:before {content:'запрещено'; background-color: #AAFAFA;}
 .kou:before {content:'-';}
-
 .cscr,.cdel { max-width: 20%; border: 1px dotted #bbb; padding: 0 0 0 5px; margin-top: 5px; }
-
 .cscr {font-size:8px; font-weight: bold; background-color: #AAFAFA; }
 .cscr:before {content:'* комментарий скрыт'}
-
 .cdel {font-size:8px; font-weight: bold; }
 .cdel:before {content:'* комментарий удален'}
-
 .opc { font-size: 11px; }
 .opc:before {content:url('/design/e3/expand_plus.gif')'показать'}
-
-
-
-
 .br { font-size: 10px; }
-
 .search { font-weight: bold; color: black; background-color: rgb(255, 204, 0); }
-
 p.d {text-align:justify;text-indent:5%;margin-top:0pt;margin-bottom:0pt;}
 p.pd {text-align:justify;text-indent:5%;margin-top:2%;margin-bottom:0pt;}
 p.name {text-indent:0pt;margin-top:4%;margin-bottom:6%;text-align:center;font-weight:bold;font-size:150%;}
@@ -144,9 +106,7 @@ p.podp {text-indent:0pt;margin-top:30pt;margin-bottom:12%;text-align:right;font-
 p.z {text-indent:0pt;margin-top:4%;margin-bottom:4%;text-align:center;font-weight:bold;font-size:100%;}
 p.epigraf {text-indent:0pt;text-align:justify;margin-top:10pt;margin-bottom:0pt;margin-right:4%;margin-left:60%;font-size:80%;}
 p.epigrafp {text-indent:0pt;text-align:right;margin-top:0pt;margin-bottom:4%;margin-right:4%;margin-left:60%;font-size:80%;font-style:italic;}
-
 .pravka_textarea {border:1px solid #ccc; font-size: 15pt; margin-right:5px;}
-
 .popup { overflow:visible; top:100px;left:100px;position:absolute;z-index:9999; }
 .popup .content{padding:4px 4px; background:#F3F1E0}
 .corners{position:relative;height:1%;background:url('/design/pravka/popup_l.png') repeat-y;margin:9px 0;padding:1px 9px; cursor:move}
@@ -156,10 +116,8 @@ p.epigrafp {text-indent:0pt;text-align:right;margin-top:0pt;margin-bottom:4%;mar
 .corners .inner:before{display:block;height:9px;content:'';background:url('/design/pravka/popup_t.png') repeat-x;font-size:0;margin:-10px 0 0}
 .corners:after{display:block;height:9px; content:url('/design/pravka/popup_lb.png'); background:url('/design/pravka/popup_rb.png') 100% 10px no-repeat; font-size:0;margin:0 -9px -10px}
 .corners .inner:after{display:block;height:9px;content:'';background:url('/design/pravka/popup_b.png') repeat-x;font-size:0;margin:0 0 -10px}
-
 .can { position:absolute; top:1px; right:8px; width:16px; height:16px; cursor: pointer; }
 .can:after { content: url('/design/e3/button_cancel.png'); }
-
 .canceledit,.fmedit,.fmn,.fmcopy,.fmmdash,.fmltgt { cursor: pointer; }
 .canceledit:after { content: url('/design/e/cancel1.png'); }
 .fmedit:after { content: url('/design/e/edit.gif'); }
@@ -167,8 +125,6 @@ p.epigrafp {text-indent:0pt;text-align:right;margin-top:0pt;margin-bottom:4%;mar
 .fmcopy:after { content: url('/design/e/copy.gif'); }
 .fmmdash:after { content: url('/design/e/mdash.gif'); }
 .fmltgt:after { content: url('/design/e/ltgt.gif'); }
-
-
 /* (c)Миша http://pricol.nov.ru/lleo/2009/12/05.html */
 a[href *=".livejournal.com"] {
 	background: transparent url('/design/ico/livejournal.com.gif') no-repeat center left;
@@ -198,13 +154,10 @@ a[href *=".youtube.com"] {
 	background: transparent url(http://www.youtube.com/favicon.ico) no-repeat center left;
 	padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none;
 }
-
 .clearfloat { clear:both; height:0; font-size: 1px; line-height: 0px; }
 .cf { clear:both; height:0; font-size: 1px; line-height: 0px; }
 .q { clear:both; height:0; font-size: 1px; line-height: 0px; }
-
 LEGEND { font-weight: bold; color: #FF6200; font-size: 10px; text-align: left; }
-
 .qTip {
 padding: 5px; border: 1px solid #666; border-right-width: 2px; border-bottom-width: 2px;
 background: #999; color: #FFF; font: bold 11px Verdana, Arial, sans-serif;

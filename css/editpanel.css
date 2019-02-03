@@ -1,5 +1,4 @@
 @charset "windows-1251";
-
 .canceledit,.fmedit,.fmn,.fmcopy,.fmmdash,.fmltgt { cursor: pointer; }
 .canceledit:after { content: url('/design/e/cancel1.png'); }
 .fmedit:after { content: url('/design/e/edit.gif'); }
@@ -7,4 +6,3 @@
 .fmcopy:after { content: url('/design/e/copy.gif'); }
 .fmmdash:after { content: url('/design/e/mdash.gif'); }
 .fmltgt:after { content: url('/design/e/ltgt.gif'); }
-

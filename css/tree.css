@@ -1,35 +1,24 @@
 @charset "windows-1251";
-
 .le { cursor: pointer; color: black; display:inline; border: 2px solid transparent; }
 .le:hover { color: #777; border: 2px solid red; }
-
 .treef { width:50px; height:50px; border:2px solid transparent; margin-top:1px; }
 .treef:hover { border: 2px solid red; }
 /* .treef { width:50px; height:50px; border:1px solid black; margin:10px; padding: 10px; background-color: #ccc;} */
 .treed { background-color: #ccc; }
-
 .Container { padding: 0; margin: 0; }
 .Container li { list-style-type: none; }
-
 /* indent for all tree children excepts root */
 .Node { background-image: url('/design/img/i.gif'); background-position: top left; background-repeat: repeat-y; margin-left: 18px; zoom: 1; }
-
 .IsRoot { margin-left: 0; }
-
 /* left vertical line (grid) for all nodes */
 .IsLast { background-image: url('/design/img/i_half.gif'); background-repeat : no-repeat; }
 .ExpandOpen .Expand { background-image: url('/design/img/expand_minus.gif'); }
-
 /* closed is higher priority than open */
 .ExpandClosed .Expand { background-image: url('/design/img/expand_plus.gif'); }
-
 /* highest priority */
 .ExpandLeaf .Expand { background-image: url('/design/img/expand_leaf.gif'); }
-
 .Con3 { min-height: 18px; margin-left:18px; }
-
 * html .Con3 { height: 18px; }
-
 .Expand { width: 18px; height: 18px; float: left; }
 .ExpandOpen .Container { display: block; }
 .ExpandClosed .Container { display: none; }

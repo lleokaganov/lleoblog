@@ -1,10 +1,5 @@
 @charset "windows-1251";
-body { font: 100% sans-serif, Helvetica, Arial, Verdana;
-margin: 0; padding: 0;
-text-align: center; /* хак для IE 5* */
-color: #000000; position:relative;
-border: 1px solid red;
-}
+body { margin: 0; padding: 0; }
 /*приветствие*/
 .preword{ color:#FF0000; text-align:justify; margin-bottom:15px; font-size:x-small; padding: 0 15px; }
 .header { text-align:center; margin-bottom:15pt; font-size: 16pt; font-weight: bold; }
@@ -113,6 +108,10 @@ a[href *=".ya.ru"] {
 	background: transparent url('/design/ico/ya.ru.gif') no-repeat center left;
 	padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none;
 }
+a[href *=".youtube.com"] {
+        background: transparent url(http://www.youtube.com/favicon.ico) no-repeat center left;
+        padding: 5px 0 5px 17px; font-weight: normal; text-decoration: none;
+}
 .q { clear:both; height:0; font-size: 1px; line-height: 0px; }
 LEGEND { font-weight: bold; color: #FF6200; font-size: 10px; text-align: left; }
 /* input,textarea { border: 1px solid #b8858e; font-size:13px; } */
@@ -132,6 +131,15 @@ p{ font-size: 12pt; text-align: justify; }
 .ok:after { content: url('/design/e/cancel1.png'); }
 .menu_end { font-size:10px; color: #814c52; background: #b8858e url('/design/silkway/menu3.gif'); width: 100%; height: 24px; line-height: 24px; }
 .okno { text-align: left; font-size: 14pt; background: #fde9e8; width: 100%; }
+.flash {z-index:0}
+table, ul, td, tr, li {z-index:1}
+.pl { float: left; margin-top: 5px; background: #b8858e; width: 20px; height: 8px;}
+.vnt,.zl1,.zl2,.podrob { text-decoration: none; font-size: 13px; }
+.zl1,.podrob { color: #b8858e; }
+.zl2 { color: black; }
+.vnizl { padding: 0 0 30px 30px;}
+.vnizr { padding: 0 0 30px 0;}
+.vnt { padding: 8px 0 0 15px; }
 .qTip {
 padding: 5px; border: 1px solid #666; border-right-width: 2px; border-bottom-width: 2px;
 background: #999; color: #FFF; font: bold 11px Verdana, Arial, sans-serif;
