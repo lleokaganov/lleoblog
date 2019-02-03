@@ -1005,7 +1005,7 @@ if(!$GLOBALS['admin']) return nl2br("You are not admin! Your unic = <b>".(1*$GLO
 
 	foreach($au as $i) {
 		if(!isset($P[$i])) $oo[]="unknown:".$i;
-		else { $is=get_ISi($P[$i],"{realname}"); $oo[]="<span class=ll alt='Unic = ".$i."' onclick=\"majax('login.php',{a:'getinfo',unic:".$i."})\">".$is['imgicourl']."</span>"; }
+		else { $is=get_ISi($P[$i],'{id}'); $oo[]="<span class=ll alt='Unic = ".$i."' onclick=\"majax('login.php',{a:'getinfo',unic:".$i."})\">".$is['imgicourl']."</span>"; }
 	}
 
     }
