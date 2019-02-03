@@ -994,8 +994,35 @@ if(!$GLOBALS['admin']) return nl2br("You are not admin! Your unic = <b>".(1*$GLO
     .($GLOBALS['IS']['loginlevel']<3?"\nА потом, после успешной инсталляции, все-таки заполни свою админскую карточку, чтобы не терять доступ: <span class='ll' onclick=\"majax('login.php',{a:'getinfo'})\">card</span>":'')
 ));
 
+    $au=(empty($GLOBALS['admin_unics'])?array():
+	(strstr($GLOBALS['admin_unics'],',')?explode(',',$GLOBALS['admin_unics']):array($GLOBALS['admin_unics']))
+    );
+
+    $oo=array(); if(!empty($au)) {
+	$P1=ms("SELECT * FROM ".$GLOBALS['db_unic']." WHERE `id` IN (".e(implode(',',$au)).")","_a",0);
+
+	$P=array(); foreach($P1 as $x) $P[$x['id']]=$x;
+
+	foreach($au as $i) {
+		if(!isset($P[$i])) $oo[]="unknown:".$i;
+		else { $is=get_ISi($P[$i],"{realname}"); $oo[]="<span class=ll alt='Unic = ".$i."' onclick=\"majax('login.php',{a:'getinfo',unic:".$i."})\">".$is['imgicourl']."</span>"; }
+	}
+
+    }
+
 return "<input type='button' value='INSTALL' onclick=\"majax('module.php',{mod:'INSTALL',a:'install'})\">
-<input type='button' value='Change users' onclick=\"majax('module.php',{mod:'INSTALL',a:'ch_users'})\">";
+<input type='button' value='Change users' onclick=\"majax('module.php',{mod:'INSTALL',a:'ch_users'})\">
+".($GLOBALS['unic']!=$P1[0]['id']?'':sizeof($oo)." admins: ".implode(',',$oo)) // для первого админа
+.(!intval($GLOBALS['unic'])
+    ?"<br><font color=red>ERROR: unic=0</font>"
+    :(in_array($GLOBALS['unic'],$au)
+	?''
+	:"<br><font color=red>You need add your unic <b>".$GLOBALS['unic']."</b> in config.php:<br><dd>\$admin_unics=\"<b>".$GLOBALS['unic']."</b>"
+	    .($GLOBALS['admin_unics']==''?'':"<b>,</b>".$GLOBALS['admin_unics'])
+	    ."\";</font>"
+    )
+);
+
 }
 
 //=========================================================================

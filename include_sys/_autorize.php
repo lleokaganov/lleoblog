@@ -354,7 +354,7 @@ function WHERE($s='',$z='') { // какие заметки доступны?
 
 function getis_global($unic) { global $IS,$admin_unics,$admin,$podzamok,$imgicourl,$admin_unics;
 	if(($IS=getis($unic))!==false) { $GLOBALS['unic']=$unic;
-	    if(in_array($unic,explode(',',$admin_unics))) admin1(); // если этот unic из списка админов
+	    if(strstr($admin_unics,',')) { if(in_array($unic,explode(',',$admin_unics))) admin1(); } else { if($unic==$admin_unics) admin1(); } // если этот unic из списка админов
 	    $podzamok=$admin||$IS['admin']=='podzamok'?1:0;
 	    $imgicourl=(!empty($IS['imgicourl'])?$IS['imgicourl']:'#'.$unic);
 	}
