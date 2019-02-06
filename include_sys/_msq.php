@@ -110,7 +110,7 @@ function msq_add_update($tb,$ara,$u='id') {
 }
 
 function msq_del($tb,$ara,$u='') {
-	$a=''; foreach($ara as $n=>$m) $a.="`$n`='$m',"; $a=trim($a,',');
+	$a=''; foreach($ara as $n=>$m) $a.="`$n`='$m' AND "; $a=substr($a,0,-5);
 	$s="DELETE FROM $tb WHERE $a $u";
 	return msq($s);
 }
